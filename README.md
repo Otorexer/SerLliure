@@ -14,5 +14,5 @@ Nextcloud és un servidor de núvol privat que permet emmagatzemar i sincronitza
 Instalacio amb un script
 
 ```bash
-wget -qO- https://github.com/Otorexer/SerLliure/blob/main/Scripts/NextCloud.sh | bash
+wget -qO- https://raw.githubusercontent.com/Otorexer/SerLliure/main/Scripts/NextCloud.sh | bash
 ```
