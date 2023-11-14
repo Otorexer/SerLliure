@@ -16,3 +16,16 @@ Instalacio amb un script
 ```bash
 wget -qO- https://raw.githubusercontent.com/Otorexer/SerLliure/main/Scripts/NextCloud.sh | bash
 ```
+## Portainer
+
+### Que es
+
+Nextcloud és un servidor de núvol privat que permet emmagatzemar i sincronitzar arxivers, contactes, calendaris i altres dades de forma segura. Permet accedir a les dades des de múltiples dispositius.
+
+### Instalacio
+
+Instalacio amb un script
+
+```bash
+wget -qO- https://raw.githubusercontent.com/Otorexer/SerLliure/main/Scripts/Portainer-CE.sh | bash
+```
