@@ -1,28 +1,36 @@
+# Ser Lliure, Ser Autònom
 
-# Ser Lliure Ser Autonom
-Aquest repositori conté guies pas a pas per instal·lar eines self-hosted populars. Les guies estan pensades per a usuaris novells, explicant tots els passos necessaris de manera senzilla. L'objectiu és animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
+Aquest repositori conté guies pas a pas per instal·lar eines self-hosted populars. Les guies estan pensades per a usuaris novells, expliquen tots els passos necessaris de manera senzilla i tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
 ## [Docker](https://github.com/docker)
-### Que es
+### Què és
 Docker és una plataforma de virtualització a nivell de sistema operatiu que permet executar aplicacions dins de contenidors aïllats. En lloc de virtualitzar tot el maquinari com en les màquines virtuals, Docker empaqueta l'aplicació juntament amb les seves dependències en un contenidor que es pot executar de forma aïllada.
 
-### Instalacio
-Instalacio amb un script official de [Docker](https://github.com/docker/docker-install)
+### Instal·lació
+Instal·lació amb un script oficial de [Docker](https://github.com/docker/docker-install):
 
 ```bash
 wget -qO- https://get.docker.com | sh
 ```
 
 ## Networking
+### Accedir al servidor de forma privada
+Recomanem instal·lar Tailscale per poder accedir al teu servidor de forma privada, ja que pots accedir al servidor amb la xarxa local o pública sense tenir que obrir ports al router.
+
+La vantatge de Tailscale és que no és com una VPN convencional, sinó que és una VPN Mesh, això vol dir que la connexió sempre serà directa del teu servidor a un client sense passar pel servidor, ja que el servidor, que és el que controla Tailscale, només es dedica a administrar els dispositius de la xarxa i fer que es vinculin correctament.
+
+[Explicació Completa](https://tailscale.com/blog/how-tailscale-works/)
+
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
-Tailscale nessesita de un compte de mail per registrar-se hi es un dels pocs programes en aquest repositori que recomenem que el fagis servir amb els seus serivdors ja que hostejar el servei es molt complicat.
-#### [Instalacio](https://tailscale.com/download/)
-#### [Configuracio](https://login.tailscale.com/admin)
+Tailscale necessita un compte de correu per registrar-se i és un dels pocs programes en aquest repositori que recomanem que utilitzis amb els teus servidors, ja que hostejar el servei és molt complicat.
+
+#### [Instal·lació](https://tailscale.com/download/)
+#### [Configuració](https://login.tailscale.com/admin)
 ### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
 
-#### Server
+#### Servidor
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
 ```
@@ -30,10 +38,9 @@ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frpc.sh && bash frpc.sh && rm frpc.sh
 ```
-Uninstall
+Desinstal·lació
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frp-remove.sh && bash frp-remove.sh && rm frp-remove.sh
 ```
 
 #### Client
-
