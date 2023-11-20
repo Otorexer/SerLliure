@@ -19,7 +19,7 @@ wget -qO- https://get.docker.com | sh
 ### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
 #### Server
 ```bash
-wget -qO- https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh | sh
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
 ```
 
 #### Client
