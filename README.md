@@ -2,7 +2,7 @@
 # Ser Lliure Ser Autonom
 Aquest repositori conté guies pas a pas per instal·lar eines self-hosted populars. Les guies estan pensades per a usuaris novells, explicant tots els passos necessaris de manera senzilla. L'objectiu és animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
-## Docker
+## [Docker](https://github.com/docker)
 ### Que es
 Docker és una plataforma de virtualització a nivell de sistema operatiu que permet executar aplicacions dins de contenidors aïllats. En lloc de virtualitzar tot el maquinari com en les màquines virtuals, Docker empaqueta l'aplicació juntament amb les seves dependències en un contenidor que es pot executar de forma aïllada.
 
@@ -12,3 +12,8 @@ Instalacio amb un script official de [Docker](https://github.com/docker/docker-i
 ```bash
 wget -qO- https://get.docker.com | sh
 ```
+
+## Networking
+### Tailscale
+
+### FRP 
