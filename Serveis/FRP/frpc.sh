@@ -37,6 +37,19 @@ ask_for_client_config() {
 
     read -p "Enter the auth token [12345678]: " authToken
     authToken=${authToken:-12345678}
+
+    # Additional prompts for web server configuration
+    read -p "Enter the Web Server address [127.0.0.1]: " webServerAddr
+    webServerAddr=${webServerAddr:-127.0.0.1}
+
+    read -p "Enter the Web Server port [7400]: " webServerPort
+    webServerPort=${webServerPort:-7400}
+
+    read -p "Enter the Web Server user [admin]: " webServerUser
+    webServerUser=${webServerUser:-admin}
+
+    read -p "Enter the Web Server password [admin]: " webServerPassword
+    webServerPassword=${webServerPassword:-admin}
 }
 
 # Function to write the FRP client configuration and move it to the specified directory
@@ -47,6 +60,10 @@ user = "$frpcUser"
 serverAddr = "$serverAddr"
 serverPort = $serverPort
 auth.token = "$authToken"
+webServer.addr = "$webServerAddr"
+webServer.port = $webServerPort
+webServer.user = "$webServerUser"
+webServer.password = "$webServerPassword"
 EOF
 
     echo "Moving configuration file to ${CONFIG_DIR}"
