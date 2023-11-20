@@ -26,6 +26,9 @@ download_and_setup_frp() {
 
 # Function to prompt for server configuration
 ask_for_config() {
+    read -p "Enter the subdomain host [example.com]: " subDomainHost
+    subDomainHost=${subDomainHost:-example.com}
+
     read -p "Enter the bind address [0.0.0.0]: " bindAddr
     bindAddr=${bindAddr:-0.0.0.0}
 
@@ -63,6 +66,7 @@ write_and_move_config() {
     echo "Writing FRP server configuration..."
     cat <<EOF >frps.ini
 # FRP server configuration
+subDomainHost = "$subDomainHost"
 bindAddr = "$bindAddr"
 bindPort = $bindPort
 kcpBindPort = $kcpBindPort
@@ -111,11 +115,43 @@ EOF'
     echo "frps service created and started."
 }
 
-# Main script execution
-download_and_setup_frp
-echo "Setting up the FRP server..."
-ask_for_config
-write_and_move_config
-create_and_enable_service
+# Function to check for updates
+check_for_updates() {
+    echo "Checking for updates..."
+    # Implement update check logic here
+    # You can use git or wget to fetch the latest version and compare with FRP_VERSION
+    echo "Update feature is not implemented yet."
+}
 
-echo "FRP server setup complete. Configuration file is located at ${CONFIG_DIR}/frps.ini"
+# Function to reconfigure FRP
+reconfigure_frp() {
+    echo "Reconfiguring FRP..."
+    ask_for_config
+    write_and_move_config
+    sudo systemctl restart frps
+    echo "FRP reconfigured successfully."
+}
+
+# Main script execution
+if [ -f "${CONFIG_DIR}/frps.ini" ]; then
+    echo "FRP is already installed. Do you want to update or reconfigure it? (update/reconfigure/no)"
+    read action
+    case $action in
+        update)
+            check_for_updates
+            ;;
+        reconfigure)
+            reconfigure_frp
+            ;;
+        *)
+            echo "No action selected."
+            ;;
+    esac
+else
+    download_and_setup_frp
+    echo "Setting up the FRP server..."
+    ask_for_config
+    write_and_move_config
+    create_and_enable_service
+    echo "FRP server setup complete. Configuration file is located at ${CONFIG_DIR}/frps.ini"
+fi
