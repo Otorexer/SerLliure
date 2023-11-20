@@ -115,40 +115,6 @@ EOF'
     echo "frps service created and started."
 }
 
-# Function to check for updates
-check_for_updates() {
-    echo "Checking for updates..."
-
-    # Fetch the latest release data from GitHub
-    latest_release=$(curl -s https://api.github.com/repos/fatedier/frp/releases/latest)
-    
-    # Extract the latest version number
-    latest_version=$(echo "$latest_release" | jq -r '.tag_name' | sed 's/v//')
-
-    echo "Current installed version: $FRP_VERSION"
-    echo "Latest available version: $latest_version"
-
-    # Compare the current version with the latest version
-    if [ "$FRP_VERSION" != "$latest_version" ]; then
-        echo "A newer version of FRP is available."
-
-        # Update FRP_VERSION to the latest version
-        FRP_VERSION=$latest_version
-        FRP_URL="https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz"
-
-        # Call the download and setup function
-        download_and_setup_frp
-        ask_for_config
-        write_and_move_config
-        sudo systemctl restart frps
-
-        echo "FRP updated to version $FRP_VERSION"
-    else
-        echo "You are already using the latest version of FRP."
-    fi
-}
-
-
 # Function to reconfigure FRP
 reconfigure_frp() {
     echo "Reconfiguring FRP..."
@@ -160,19 +126,13 @@ reconfigure_frp() {
 
 # Main script execution
 if [ -f "${CONFIG_DIR}/frps.ini" ]; then
-    echo "FRP is already installed. Do you want to update or reconfigure it? (update/reconfigure/no)"
+    echo "FRP is already installed. Do you want to reconfigure it? (yes/no)"
     read action
-    case $action in
-        update)
-            check_for_updates
-            ;;
-        reconfigure)
-            reconfigure_frp
-            ;;
-        *)
-            echo "No action selected."
-            ;;
-    esac
+    if [ "$action" = "yes" ]; then
+        reconfigure_frp
+    else
+        echo "No action selected."
+    fi
 else
     download_and_setup_frp
     echo "Setting up the FRP server..."
