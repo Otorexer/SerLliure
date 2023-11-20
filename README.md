@@ -14,6 +14,6 @@ wget -qO- https://get.docker.com | sh
 ```
 
 ## Networking
-### Tailscale
+### [Tailscale](https://github.com/docker)
 
-### FRP 
+### [FRP - Fast Reverse Proxy](https://github.com/docker)
