@@ -15,8 +15,12 @@ wget -qO- https://get.docker.com | sh
 
 ## Networking
 ### [Tailscale](https://tailscale.com/)
-
+Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
+Tailscale nessesita de un compte de mail per registrar-se hi es un dels pocs programes en aquest repositori que recomenem que el fagis servir amb els seus serivdors ja que hostejar el servei es molt complicat.
+#### [Instalacio](https://tailscale.com/download/)
+#### [Configuracio](https://login.tailscale.com/admin)
 ### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
+
 #### Server
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
