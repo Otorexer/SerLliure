@@ -79,14 +79,17 @@ create_and_enable_service() {
     # Create the systemd service file
     sudo bash -c 'cat <<EOF >/etc/systemd/system/frpc.service
 [Unit]
-Description=FRP Client (frpc)
+Description=Frp Client Service
 After=network.target
 
 [Service]
 Type=simple
-User=root
-ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.ini
+User=nobody
 Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.ini
+ExecReload=/usr/local/bin/frpc reload -c /etc/frp/frpc.ini
+LimitNOFILE=1048576
 
 [Install]
 WantedBy=multi-user.target
