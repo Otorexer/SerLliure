@@ -20,7 +20,12 @@ Recomanem instal·lar Tailscale per poder accedir al teu servidor de forma priva
 La vantatge de Tailscale és que no és com una VPN convencional, sinó que és una VPN Mesh, això vol dir que la connexió sempre serà directa del teu servidor a un client sense passar pel servidor, ja que el servidor, que és el que controla Tailscale, només es dedica a administrar els dispositius de la xarxa i fer que es vinculin correctament.
 
 [Explicació Completa](https://tailscale.com/blog/how-tailscale-works/)
+### Accedir al servidor de forma publica
+Si volem que tot internet pugui accedir al nostre servidor tenim 2 opcions.
 
+La primera opcio es obrir ports al nostre router que es la tipica i la mes facil on hi han milers de tutorials al youtube sobre aquest tema.
+
+La segona opcio es contractar una VPS amb una IP publica on hi instalarem una proxy per poder accedir al servidor de forma remota aquesta proxy sanomena FRP i tenim un tutorial de com instalar-la i fer-la servir.
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
@@ -29,6 +34,8 @@ Tailscale necessita un compte de correu per registrar-se i és un dels pocs prog
 #### [Instal·lació](https://tailscale.com/download/)
 #### [Configuració](https://login.tailscale.com/admin)
 ### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
+
+
 
 #### Servidor
 ```bash
