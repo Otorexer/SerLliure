@@ -118,10 +118,36 @@ EOF'
 # Function to check for updates
 check_for_updates() {
     echo "Checking for updates..."
-    # Implement update check logic here
-    # You can use git or wget to fetch the latest version and compare with FRP_VERSION
-    echo "Update feature is not implemented yet."
+
+    # Fetch the latest release data from GitHub
+    latest_release=$(curl -s https://api.github.com/repos/fatedier/frp/releases/latest)
+    
+    # Extract the latest version number
+    latest_version=$(echo "$latest_release" | jq -r '.tag_name' | sed 's/v//')
+
+    echo "Current installed version: $FRP_VERSION"
+    echo "Latest available version: $latest_version"
+
+    # Compare the current version with the latest version
+    if [ "$FRP_VERSION" != "$latest_version" ]; then
+        echo "A newer version of FRP is available."
+
+        # Update FRP_VERSION to the latest version
+        FRP_VERSION=$latest_version
+        FRP_URL="https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz"
+
+        # Call the download and setup function
+        download_and_setup_frp
+        ask_for_config
+        write_and_move_config
+        sudo systemctl restart frps
+
+        echo "FRP updated to version $FRP_VERSION"
+    else
+        echo "You are already using the latest version of FRP."
+    fi
 }
+
 
 # Function to reconfigure FRP
 reconfigure_frp() {
