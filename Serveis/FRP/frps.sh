@@ -44,8 +44,8 @@ ask_for_config() {
     read -p "Enter the vhost HTTPS port [443]: " vhostHTTPSPort
     vhostHTTPSPort=${vhostHTTPSPort:-443}
 
-    read -p "Enter the web server address [127.0.0.1]: " webServerAddr
-    webServerAddr=${webServerAddr:-127.0.0.1}
+    read -p "Enter the web server address [0.0.0.0]: " webServerAddr
+    webServerAddr=${webServerAddr:-0.0.0.0}
 
     read -p "Enter the web server port [7500]: " webServerPort
     webServerPort=${webServerPort:-7500}
