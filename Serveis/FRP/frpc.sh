@@ -24,32 +24,16 @@ download_and_setup_frpc() {
     echo "FRP Client installed successfully."
 }
 
-# Function to prompt for client configuration
+# Function to set client configuration from command line arguments
 ask_for_client_config() {
-    read -p "Enter your FRP client user name [your_name]: " frpcUser
-    frpcUser=${frpcUser:-your_name}
-
-    read -p "Enter the FRP server address [0.0.0.0]: " serverAddr
-    serverAddr=${serverAddr:-0.0.0.0}
-
-    read -p "Enter the FRP server port [7000]: " serverPort
-    serverPort=${serverPort:-7000}
-
-    read -p "Enter the auth token [12345678]: " authToken
-    authToken=${authToken:-12345678}
-
-    # Additional prompts for web server configuration
-    read -p "Enter the Web Server address [0.0.0.0]: " webServerAddr
-    webServerAddr=${webServerAddr:-0.0.0.0}
-
-    read -p "Enter the Web Server port [7400]: " webServerPort
-    webServerPort=${webServerPort:-7400}
-
-    read -p "Enter the Web Server user [admin]: " webServerUser
-    webServerUser=${webServerUser:-admin}
-
-    read -p "Enter the Web Server password [admin]: " webServerPassword
-    webServerPassword=${webServerPassword:-admin}
+    frpcUser=${1:-your_name}
+    serverAddr=${2:-0.0.0.0}
+    serverPort=${3:-7000}
+    authToken=${4:-12345678}
+    webServerAddr=${5:-0.0.0.0}
+    webServerPort=${6:-7400}
+    webServerUser=${7:-admin}
+    webServerPassword=${8:-admin}
 }
 
 # Function to write the FRP client configuration and move it to the specified directory
@@ -108,7 +92,7 @@ EOF'
 # Main script execution
 download_and_setup_frpc
 echo "Setting up the FRP Client..."
-ask_for_client_config
+ask_for_client_config "$@"
 write_and_move_client_config
 create_and_enable_service
 
