@@ -49,7 +49,7 @@ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.
 | kcpBindPort        | Port de vinculació KCP                        | 7000                  |
 | vhostHTTPPort      | Port HTTP del vhost                           | 80                    |
 | vhostHTTPSPort     | Port HTTPS del vhost                          | 443                   |
-| webServerAddr      | Adreça del servidor web                       | 127.0.0.1             |
+| webServerAddr      | Adreça del servidor web                       | 0.0.0.0              |
 | webServerPort      | Port del servidor web                         | 7500                  |
 | webServerUser      | Usuari del servidor web                       | admin                 |
 | webServerPassword  | Contrasenya del servidor web                  | admin              |
@@ -65,7 +65,7 @@ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frpc.
 | serverAddr         | Adreça del servidor FRP                       | 0.0.0.0               |
 | serverPort         | Port del servidor FRP                         | 7000                  |
 | authToken          | Token d'autenticació del servidor FRP         | 12345678              |
-| webServerAddr      | Adreça del servidor web                       | 127.0.0.1             |
+| webServerAddr      | Adreça del servidor web                       | 0.0.0.0             |
 | webServerPort      | Port del servidor web                         | 7400                  |
 | webServerUser      | Usuari del servidor web                       | admin                 |
 | webServerPassword  | Contrasenya del servidor web                 | admin                 |
