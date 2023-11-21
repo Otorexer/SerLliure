@@ -25,7 +25,7 @@ Si volem que tot internet pugui accedir al nostre servidor tenim 2 opcions.
 
 La primera opcio es obrir ports al nostre router que es la tipica i la mes facil on hi han milers de tutorials al youtube sobre aquest tema.
 
-La segona opcio es contractar una VPS amb una IP publica on hi instalarem una proxy per poder accedir al servidor de forma remota aquesta proxy sanomena FRP i tenim un tutorial de com instalar-la i fer-la servir.
+La segona opcio es contractar una VPS amb una IP publica on hi instalarem una proxy per poder accedir al servidor de forma publica, farem servir 2 serveis NginxProxy i Fast Reverse Proxy, farem servir NginxProxy per tot el que siguin servidors que funcionen amb http i https ja que d'aquesta forma poden demanar certificats SSL de forma facil amb CertBot, i farem server Fast Reverse Proxy per enrutar ports de tcp i udp aixo ens serviria per exeposar serveis que no siguin http com per exemple el Samba que nessesita del port 445 o com un servidor de jocs com podria ser el Minecraft que requereis del port 25565.
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
