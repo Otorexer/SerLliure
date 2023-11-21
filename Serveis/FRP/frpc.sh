@@ -39,8 +39,8 @@ ask_for_client_config() {
     authToken=${authToken:-12345678}
 
     # Additional prompts for web server configuration
-    read -p "Enter the Web Server address [127.0.0.1]: " webServerAddr
-    webServerAddr=${webServerAddr:-127.0.0.1}
+    read -p "Enter the Web Server address [0.0.0.0]: " webServerAddr
+    webServerAddr=${webServerAddr:-0.0.0.0}
 
     read -p "Enter the Web Server port [7400]: " webServerPort
     webServerPort=${webServerPort:-7400}
