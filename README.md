@@ -59,6 +59,17 @@ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frpc.sh && bash frpc.sh && rm frpc.sh
 ```
+| Variable           | Descripció                                    | Valor per Defecte    |
+|--------------------|----------------------------------------------|-----------------------|
+| frpcUser           | Nom d'usuari del client FRP                  | your_name             |
+| serverAddr         | Adreça del servidor FRP                       | 0.0.0.0               |
+| serverPort         | Port del servidor FRP                         | 7000                  |
+| authToken          | Token d'autenticació del servidor FRP         | 12345678              |
+| webServerAddr      | Adreça del servidor web                       | 127.0.0.1             |
+| webServerPort      | Port del servidor web                         | 7400                  |
+| webServerUser      | Usuari del servidor web                       | admin                 |
+| webServerPassword  | Contrasenya del servidor web                 | admin                 |
+
 Desinstal·lació
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frp-remove.sh && bash frp-remove.sh && rm frp-remove.sh
