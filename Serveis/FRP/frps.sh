@@ -26,9 +26,6 @@ download_and_setup_frp() {
 
 # Function to prompt for server configuration
 ask_for_config() {
-    read -p "Enter the subdomain host [example.com]: " subDomainHost
-    subDomainHost=${subDomainHost:-example.com}
-
     read -p "Enter the bind address [0.0.0.0]: " bindAddr
     bindAddr=${bindAddr:-0.0.0.0}
 
@@ -38,17 +35,11 @@ ask_for_config() {
     read -p "Enter the KCP bind port [7000]: " kcpBindPort
     kcpBindPort=${kcpBindPort:-7000}
 
-    read -p "Enter the vhost HTTP port [80]: " vhostHTTPPort
-    vhostHTTPPort=${vhostHTTPPort:-80}
-
-    read -p "Enter the vhost HTTPS port [443]: " vhostHTTPSPort
-    vhostHTTPSPort=${vhostHTTPSPort:-443}
-
     read -p "Enter the web server address [0.0.0.0]: " webServerAddr
     webServerAddr=${webServerAddr:-0.0.0.0}
 
-    read -p "Enter the web server port [7500]: " webServerPort
-    webServerPort=${webServerPort:-7500}
+    read -p "Enter the web server port [7001]: " webServerPort
+    webServerPort=${webServerPort:-7001}
 
     read -p "Enter the web server user [admin]: " webServerUser
     webServerUser=${webServerUser:-admin}
@@ -66,12 +57,9 @@ write_and_move_config() {
     echo "Writing FRP server configuration..."
     cat <<EOF >frps.toml
 # FRP server configuration
-subDomainHost = "$subDomainHost"
 bindAddr = "$bindAddr"
 bindPort = $bindPort
 kcpBindPort = $kcpBindPort
-vhostHTTPPort = $vhostHTTPPort
-vhostHTTPSPort = $vhostHTTPSPort
 webServer.addr = "$webServerAddr"
 webServer.port = $webServerPort
 webServer.user = "$webServerUser"
