@@ -33,6 +33,12 @@ Tailscale necessita un compte de correu per registrar-se i és un dels pocs prog
 
 #### [Instal·lació](https://tailscale.com/download/)
 #### [Configuració](https://login.tailscale.com/admin)
+### Headscale
+#### Servidor
+```bash
+wget https://github.com/Otorexer/SerLliure/blob/main/Serveis/Headscale/install.sh && bash install.sh && rm install.sh
+```
+
 ### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
 
 
