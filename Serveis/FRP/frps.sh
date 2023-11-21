@@ -3,7 +3,7 @@
 # FRP Version and Download URL
 FRP_VERSION="0.52.3"
 FRP_URL="https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz"
-CONFIG_DIR="/etc/frp" # Directory to store frps.ini
+CONFIG_DIR="/etc/frp" # Directory to store frps.toml
 
 # Function to download and setup FRP
 download_and_setup_frp() {
@@ -64,7 +64,7 @@ ask_for_config() {
 # Function to write the FRP server configuration and move it to the specified directory
 write_and_move_config() {
     echo "Writing FRP server configuration..."
-    cat <<EOF >frps.ini
+    cat <<EOF >frps.toml
 # FRP server configuration
 subDomainHost = "$subDomainHost"
 bindAddr = "$bindAddr"
@@ -81,7 +81,7 @@ EOF
 
     echo "Moving configuration file to ${CONFIG_DIR}"
     sudo mkdir -p ${CONFIG_DIR}
-    sudo mv frps.ini ${CONFIG_DIR}/frps.ini
+    sudo mv frps.toml ${CONFIG_DIR}/frps.toml
     echo "Configuration file moved successfully."
 }
 
@@ -98,7 +98,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini
+ExecStart=/usr/local/bin/frps -c /etc/frp/frps.toml
 Restart=on-failure
 
 [Install]
@@ -125,7 +125,7 @@ reconfigure_frp() {
 }
 
 # Main script execution
-if [ -f "${CONFIG_DIR}/frps.ini" ]; then
+if [ -f "${CONFIG_DIR}/frps.toml" ]; then
     echo "FRP is already installed. Do you want to reconfigure it? (yes/no)"
     read action
     if [ "$action" = "yes" ]; then
@@ -139,5 +139,5 @@ else
     ask_for_config
     write_and_move_config
     create_and_enable_service
-    echo "FRP server setup complete. Configuration file is located at ${CONFIG_DIR}/frps.ini"
+    echo "FRP server setup complete. Configuration file is located at ${CONFIG_DIR}/frps.toml"
 fi
