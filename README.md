@@ -14,13 +14,13 @@ wget -qO- https://get.docker.com | sh
 ```
 
 ## Networking
-### Accedir al servidor de forma privada
+#### Accedir al servidor de forma privada
 Recomanem instal·lar Tailscale per poder accedir al teu servidor de forma privada, ja que pots accedir al servidor amb la xarxa local o pública sense tenir que obrir ports al router.
 
 La vantatge de Tailscale és que no és com una VPN convencional, sinó que és una VPN Mesh, això vol dir que la connexió sempre serà directa del teu servidor a un client sense passar pel servidor, ja que el servidor, que és el que controla Tailscale, només es dedica a administrar els dispositius de la xarxa i fer que es vinculin correctament.
 
 [Explicació Completa](https://tailscale.com/blog/how-tailscale-works/)
-### Accedir al servidor de forma publica
+#### Accedir al servidor de forma publica
 Si volem que tot internet pugui accedir al nostre servidor tenim 2 opcions.
 
 La primera opcio es obrir ports al nostre router que es la tipica i la mes facil on hi han milers de tutorials al youtube sobre aquest tema.
