@@ -40,3 +40,4 @@ wget https://github.com/Otorexer/SerLliure/blob/main/Serveis/Headscale/install.s
 ```
 
 ### [FRP - Fast Reverse Proxy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/FRP)
+FRS és un servidor proxy invers que permet exposar aplicacions d'un servidor intern a internet de forma segura. Fa de passarel·la entre els clients externs i el servidor backend.
