@@ -10,7 +10,7 @@ wget https://github.com/Otorexer/SerLliure/blob/main/Serveis/Headscale/install.s
 | base_domain  | Domini base, canviar al domini desitjat per DNS màgic           | example.com           |
 | ip_prefixes  | Prefixos IP                                                     | ipv4 - 100.64.0.0/10  |
 #### Client
-Primer de tot hem de crear un usuari amb el comande de headscale users c (nomusuari) despres tindrem un usuari on els nodes es podran connectar.
+Primer de tot hem de crear un usuari amb el comande de `headscale users c NOM_USUARI` despres tindrem un usuari on els nodes es podran connectar.
 ##### Utilització de la Pàgina Web per a la Configuració
 1. **Iniciar Tailscale**: Al terminal, introdueix `tailscale up --login-server=URL_CONFIGURADA`. Aquesta URL configurada s'ha de canviar pel valor que has posat a `server_url` en la configuració.
 2. **Obtenir Comanda del Servidor**: A continuació, s'obrirà una pàgina web on trobaràs una comanda.
