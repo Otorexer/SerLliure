@@ -1,5 +1,4 @@
 # Ser Lliure, Ser Autònom
-
 Aquest repositori conté guies pas a pas per instal·lar eines self-hosted populars. Les guies estan pensades per a usuaris novells, expliquen tots els passos necessaris de manera senzilla i tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
 ## [Docker](https://github.com/docker)
