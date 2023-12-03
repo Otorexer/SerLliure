@@ -1,4 +1,4 @@
-# [Pagina Principal](https://github.com/Otorexer/SerLliure)
+# [<-- Pagina Principal](https://github.com/Otorexer/SerLliure)
 # [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
 ## Servidor
 ```bash
