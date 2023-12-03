@@ -38,7 +38,7 @@ El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
-Tailscale necessita un compte de correu per registrar-se i és un dels pocs programes en aquest repositori que recomanem que utilitzis amb els teus servidors, ja que hostejar el servei és molt complicat.
+Tailscale necessita un compte de correu per registrar-se i és un dels pocs programes en aquest repositori que no recomanem que utilitzis amb els teus servidors, ja que hostejar el servei és molt complicat i no es molt practic.
 
 #### [Instal·lació](https://tailscale.com/download/)
 #### [Configuració](https://login.tailscale.com/admin)
