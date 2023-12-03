@@ -33,7 +33,7 @@ Per accedir al servidor de forma mes facil farem servir servidors DNS, nosaltres
 El DNS public es molt facil podem comprar el nostre propi Domini per moltes pagines. O tambe hi ha pagines que ofereixen subdominis de forma gratuita.
 
 ##### DNS Privat
-El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable ja que tenim poc control sobre les accions com per exemple ens pot quedar un domini com aquest (snow-universe.ts.net) cosa que es molt llarc i no molt atractiu. El que nosaltres recomanem es crear el nostre propi servidor DNS
+El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable ja que tenim poc control sobre les accions com per exemple tindras un domini com aquest (snow-universe.ts.net) cosa que es molt llarc i no molt poc atractiu. El que nosaltres recomanem es crear el nostre propi servidor DNS amb Ad
 
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
