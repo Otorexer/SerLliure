@@ -81,3 +81,17 @@ apt-get install webmin --install-recommends -y
 Usuari: root
 Contrasenya: (La que hem posat avans)
 Entrarem al WebMin amb la IP de la maquina que ens dona Tailscale per aixis no tenir que obrir cap port i no comprometre la nostre seguretat.
+# Firewall Oracle
+Si volem editar la configuracio del Firewall de Oracle tenim que anara a la nostre VPS i clicar sobre la xarxa que tenim assignada a la VPS
+
+![image](https://github.com/Otorexer/SerLliure/assets/118485801/c930dd7f-b22c-43c2-a254-393c9e187bd5)
+
+Despres anar al menu de la Esquerra a Security List
+
+![image](https://github.com/Otorexer/SerLliure/assets/118485801/d041ff1d-d4eb-4b71-a3a9-ce1c0bea3617)
+
+I clicar el Unic que tenim creat que per defecte sera el Default Security List.
+
+Un cop alla podem agregar o eliminiar regles de firewal per la adreça IP publica.
+
+Es important no eliminiar ni crear res sense saber el que fas. Sempre tenim que seguir guis confiables.
