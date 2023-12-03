@@ -26,6 +26,16 @@ Si volem que tot internet pugui accedir al nostre servidor tenim 2 opcions.
 La primera opcio es obrir ports al nostre router que es la tipica i la mes facil on hi han milers de tutorials al youtube sobre aquest tema.
 
 La segona opcio es contractar una VPS amb una IP publica on hi instalarem una proxy per poder accedir al servidor de forma publica, farem servir 2 serveis NginxProxy i Fast Reverse Proxy, farem servir NginxProxy per tot el que siguin servidors que funcionen amb http i https ja que d'aquesta forma poden demanar certificats SSL de forma facil amb CertBot, i farem server Fast Reverse Proxy per enrutar ports de tcp i udp aixo ens serviria per exeposar serveis que no siguin http com per exemple el Samba que nessesita del port 445 o com un servidor de jocs com podria ser el Minecraft que requereis del port 25565.
+
+#### DNS
+Per accedir al servidor de forma mes facil farem servir servidors DNS, nosaltres recomanem tenir tenir 2 DNS. Un DNS sera amb un Domini public per si tenim que accedir al nostre servidor de forma public ja que d'aquesta forma podrem accedir al servidor sense tinguer-nos de enrecordar de la IP i laltre servidor sera un servidor DNS privar que domes gent de la nostre xarxa podra accedir.
+
+##### DNS Public
+El DNS public es molt facil podem comprar el nostre propi Domini per moltes pagines. O tambe hi ha pagines que ofereixen subdominis de forma gratuita.
+
+##### DNS Privat
+El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable ja que tenim poc control sobre les accions com per exemple ens pot quedar un domini com aquest (snow-universe.ts.net) cosa que es molt llarc i no molt atractiu. El que nosaltres recomanem es crear el nostre propi servidor DNS
+
 ### [Tailscale](https://tailscale.com/)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
