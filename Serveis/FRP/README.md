@@ -1,6 +1,6 @@
-# [Go Back](https://github.com/Otorexer/SerLliure/blob/main/README.md#frp---fast-reverse-proxy)
-### [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
-#### Servidor
+# [Pagina Principal](https://github.com/Otorexer/SerLliure)
+# [FRP - Fast Reverse Proxy](https://github.com/fatedier/frp)
+## Servidor
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
 ```
@@ -18,7 +18,7 @@ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.
 | webServerPassword  | Contrasenya del servidor web                  | admin              |
 | authToken          | Token d'autenticació                          | 12345678              |
 
-#### Client
+## Client
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frpc.sh && bash frpc.sh && rm frpc.sh
 ```
