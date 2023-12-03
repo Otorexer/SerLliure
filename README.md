@@ -35,13 +35,11 @@ El DNS public es molt facil podem comprar el nostre propi Domini per moltes pagi
 ##### DNS Privat
 El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable ja que tenim poc control sobre les accions com per exemple tindras un domini com aquest (snow-universe.ts.net) cosa que es molt llarc i no molt poc atractiu. El que nosaltres recomanem es crear el nostre propi servidor DNS amb Ad
 
-### [Tailscale](https://tailscale.com/)
+### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
 
 Tailscale necessita un compte de correu per registrar-se i és un dels pocs programes en aquest repositori que no recomanem que utilitzis amb els teus servidors, ja que hostejar el servei és molt complicat i no es molt practic.
 
-#### [Instal·lació](https://tailscale.com/download/)
-#### [Configuració](https://login.tailscale.com/admin)
 ### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
 Headscale és un servidor VPN basat en WireGuard, dissenyat per a connexions segures i eficients en diferents xarxes. Ofereix gestió centralitzada, suport a múltiples SO i és ideal per a entorns amb diversos usuaris.
 
