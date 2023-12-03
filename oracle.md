@@ -44,19 +44,22 @@ Ens tindria que quedar algo aixis.
 Un cop aixo fet tenim que anar al Menu de la Esquerra i buscar Credential que es troba a. Connection -> SSH -> Auth -> Credentials, hi alla on posa Primate key file clicarem a buscar i selecionarem el arxiu ppk un cop aixo fet ja podrem clicar el boto de connectar i tindrem acces a la VPS.
 
 # Primers passos
+### Canviar contrasenya
 Els primers passos que recomanem fer la primera vegada que tinguem acces es fer aquest comando per canviar la contrasenya de Root.
 ```bash
 sudo passwd
 ```
+### Actualitzar Sistema
 Fer un Update del Sistema
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+### Firewall
 I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el controlarem des de Oracle ja que sino la xarxa de Tailscale no tindra Acces.
 ```bash
 sudo iptables -F && sudo iptables -P INPUT ACCEPT && sudo iptables -P FORWARD ACCEPT && sudo iptables -P OUTPUT ACCEPT && sudo netfilter-persistent save
 ```
-
+### WebMin
 I despres instalar WebMin
 ```bash
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh && sh setup-repos.sh
@@ -66,7 +69,7 @@ apt-get install webmin --install-recommends -y
 ```
 Usuari: root
 Contrasenya: (La que hem posat avans)
-
+### Tailscale
 Un cop tinguem tot aixo fet Instalarem Tailscale amb la guia que tenim en aquest Repositori.
 
 [Guia](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
