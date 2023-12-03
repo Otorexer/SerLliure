@@ -59,6 +59,11 @@ I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el cont
 ```bash
 sudo iptables -F && sudo iptables -P INPUT ACCEPT && sudo iptables -P FORWARD ACCEPT && sudo iptables -P OUTPUT ACCEPT && sudo netfilter-persistent save
 ```
+### Tailscale
+Un cop tinguem tot aixo fet Instalarem Tailscale amb la guia que tenim en aquest Repositori.
+Tailscale el farem servir per conectar-nos al servidor sense tenir que obrir cap port al firewall aixis domes la nostre xarxa de Tailscale podra accedir a coses especifiques aquesta es una altre mesura per prevenir atacs.
+
+[Guia](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 ### WebMin
 I despres instalar WebMin
 ```bash
@@ -69,7 +74,4 @@ apt-get install webmin --install-recommends -y
 ```
 Usuari: root
 Contrasenya: (La que hem posat avans)
-### Tailscale
-Un cop tinguem tot aixo fet Instalarem Tailscale amb la guia que tenim en aquest Repositori.
-
-[Guia](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
+Entrarem al WebMin amb la IP de la maquina que ens dona Tailscale per aixis no tenir que obrir cap port i no comprometre la nostre seguretat.
