@@ -35,3 +35,5 @@ Un cop afegit al servidor, afegirem també el servidor de Google i un altre per 
 Ens hauria de quedar alguna cosa així. El servidor propi, que és el que té l'adreça IP, sempre ha d'estar a dalt, ja que serà el primer que utilitzaran els clients per defecte.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/24df2452-e5bb-4a38-971c-e0d948e8c8a9)
+
+Hi ja tindrem AdGuardHome configurat de DNS per defecte amb el Clients que fagin servir Tailscale.
