@@ -9,9 +9,7 @@ Aixo funciona ja que el Servidor de Tailscale no opera com un Servidor VPN tradi
 ### Servidor VPN Tradicional
 Per exemple en un servidor VPN tradicional tant clients com servidors es conecten a un servidor on passarant per alla totes les dades.
 
-<center>
 <img src="https://github.com/Otorexer/SerLliure/assets/118485801/78c07065-8bd3-48c1-a37c-ba6287af56d0" alt="Servidor VPN Convencinal" style="height: 500px;">
-</center>
 
 Aquest es un molt bon metode per conectar tots els dispositius junts pero tambe te moltes desventatjes ja que per exemple si vols enviar dades sempre tindras que passar per el servidor hi aixo implica retras afegit ja que les dades tenen que anar al servidor VPN i tornar.
 
