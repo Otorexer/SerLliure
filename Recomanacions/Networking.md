@@ -19,7 +19,9 @@ Un altre inconvenient es que la velocitat maxim esta limitada a la velocitat max
 
 Hi per acavar el inconvenient mes gran que te es que si els 2 dispositius estan a la mateixa xarxa no es conectaran amb un coneccio directa local sino que les dades tambe tindran que anar i tornar del servidor VPS
 
-![image](https://github.com/Otorexer/SerLliure/assets/118485801/10a214b2-c2d7-4a90-ab55-d22ceda308e2)
+<div align="center">
+<img src="https://github.com/Otorexer/SerLliure/assets/118485801/10a214b2-c2d7-4a90-ab55-d22ceda308e2" alt="Servidor VPN Convencinal" style="height: 500px;">
+</div>
 
 ### Tailscale
 En canvi Tailscale no opera com un servidor de dades sino que domes opera com un servidor que enmagatzema i dona claus de WireGuard dels Clients i Servidors conectats aixo perque que si un client vol enviar dades a un servidor ho pot fer de forma directa sense passar per cap intermediari.
