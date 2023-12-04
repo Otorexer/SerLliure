@@ -12,6 +12,8 @@ wget -qO- https://get.docker.com | sh
 ```
 
 ## Networking
+En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre recomenacions.
+
 #### Accedir al servidor de forma privada
 Recomanem instal·lar Tailscale per accedir al servidor de manera privada, permetent l'accés a través de la xarxa local o pública sense necessitat d'obrir ports al router.
 
@@ -47,3 +49,6 @@ AdGuard Home és un bloquejador d'anuncis i seguiments a nivell de xarxa. Instal
 
 ### [BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
 BIND9 és un servidor DNS de codi obert, ampliament utilitzat per traduir noms de dominis a adreces IP. Ofereix funcionalitats de resolució de noms, autoritat de domini i servei de cache, essent una eina essencial per a la gestió de xarxes i internet.
+
+## Administracio
+En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions.
