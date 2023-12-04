@@ -5,7 +5,7 @@ Aquesta instal·lació de BIND9 està pensada per ser utilitzada amb AdGuardHome
 Primer de tot, utilitza aquesta comanda per instal·lar el servidor de BIND9 i actualitzar la configuració automàticament perquè funcioni en el port 5353:
 
 ```bash
-wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/BIND/Install.sh && bash install.sh && rm install.sh
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/BIND/Install.sh && bash Install.sh && rm Install.sh
 ```
 
 Un cop instal·lat BIND, recomanem fer servir WebMin, ja que facilita molt la configuració. BIND es troba al apartat `Servers -> BIND DNS Server`. Si no el trobes, has d'utilitzar el botó `Refresh Modules` de WebMin per detectar els nous mòduls.
