@@ -56,9 +56,9 @@ Els primers passos que recomanem fer la primera vegada que tinguem acces es fer 
 sudo passwd
 ```
 ### Actualitzar Sistema
-Fer un Update del Sistema
+Fer un Update del Sistema i Instalacio de algunes eines Utils
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && apt install iputils-ping -y && apt install net-tools -y
 ```
 ### Firewall
 I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el controlarem des de Oracle ja que sino la xarxa de Tailscale no tindra Acces.
