@@ -1,7 +1,7 @@
 # Recomanacions
 En aquest apartat fem unes recomenacions que per nosaltres serien per fer el servidor perfecte tant amb seguretat com amb Accebilitat
 
-## Accedir al servidor de forma privada
+## Accedir al servidor de forma privada 🔒
 Primer de tot lo mes important es la forma en que accedim al servidor, nosaltres recomanem instalar Tailscale que es una VPN de tipus Mesh que ens permetra accedir al servidor de forma tant localment com remotament.
 
 Aixo funciona ja que el Servidor de Tailscale no opera com un Servidor VPN tradicional.
@@ -38,7 +38,7 @@ I per acavar la part mes important de fer servir tailscale es que si tenim els 2
 
 [Explicacio completa del funcionament](https://tailscale.com/blog/how-tailscale-works/)
 
-## Accedir al servidor de forma publica
+## Accedir al servidor de forma publica 🌐
 Per accedir al servidor de forma publica ens referim a que qualsevol persona amb internet es pugui connectar al nostre servidor hi accedir als nostres servidors.
 
 Per aconseguir aixo ho podem fer de 2 formes.
