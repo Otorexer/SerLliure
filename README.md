@@ -13,7 +13,7 @@ wget -qO- https://get.docker.com | sh
 ## [VPS Gratuit amb Oracle](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/OracleFreeTier.md)
 ## Networking
 En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre recomenacions.
-
+### [Recomanacions](https://github.com/Otorexer/SerLliure/blob/main/Recomanacions/Networking.md)
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
 
