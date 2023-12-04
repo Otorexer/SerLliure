@@ -48,18 +48,18 @@ La primera forma es la mes coneguda hi es obrir ports al nostre router ja pot se
 
 Aquest metode te aventatjes i desaventatjes.
 
-La principal aventatje de obrir ports al router es que tothom que es vulgui conectar a algunn servei ho fara de forma directa hi amb la maxima velocitat possible que ofereixi el nostre plan de velocitat.
+✅La principal aventatje de obrir ports al router es que tothom que es vulgui conectar a algunn servei ho fara de forma directa hi amb la maxima velocitat possible que ofereixi el nostre plan de velocitat.
 
-Pero tambe hi ha un gran desaventatje hi es que qualsevol persona tindra acces a la nostre IP publica hi podran estimar la nostre direccio.
+❌Pero tambe hi ha un gran desaventatje hi es que qualsevol persona tindra acces a la nostre IP publica hi podran estimar la nostre direccio.
 
 ### Fer servir proxys amb una VPS
 L'altre opcio es fer servir proxys hostejades amb un servidor virtual i conectar el servidor amb el servidor de casa mitjançant Tailscale.
 
 Aquesta opcio tambe te aventatjes i desaventatjes.
 
-Una aventatjes es que ens permetra tenir mes seguretat ja que ningu sabra la nostre IP Publica de casa nostre.
+✅Una aventatjes es que ens permetra tenir mes seguretat ja que ningu sabra la nostre IP Publica de casa nostre.
 
-Per en canvi com que tot el trafic tindra que anar primer al servidor virtual i despres al servidor de casa tindrem un augment de ping com una limitacio en la velocitat.
+❌Per en canvi com que tot el trafic tindra que anar primer al servidor virtual i despres al servidor de casa tindrem un augment de ping com una limitacio en la velocitat.
 
 Nosaltres personalment recomanem tenir una VPS ja que apart de ser la nostre sortida del servidor al internet tambe ens permetra tenir serveis que semple estaran disponible inclus que el servidor de casa nostre deixi de funcionar. Un exemple seria un servidor DNS o alguna cosa important que volem tenir acces en tot moment.
 
