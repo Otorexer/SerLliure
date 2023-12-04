@@ -63,13 +63,17 @@ Aquesta opcio tambe te aventatjes i desaventatjes.
 
 Nosaltres personalment recomanem tenir una VPS ja que apart de ser la nostre sortida del servidor al internet tambe ens permetra tenir serveis que semple estaran disponible inclus que el servidor de casa nostre deixi de funcionar. Un exemple seria un servidor DNS o alguna cosa important que volem tenir acces en tot moment.
 
+## DNS
+Una altre cosa molt important es tenir un sistema de DNS per no tenir que buscar la direccio IP cada vagado que ens volem conectar a algun servidor.
 
+El que nosaltres recomanem es tenir un DNS privat i un DNS de Domini com per exemple un .com o .es.
 
+Aixo ho farem que no no volem que tot internet vegi que tenim un domini redirigit a adreçes IP de tailscale pero ho podriem fer tot amb un Domini convencional.
+### DNS Privat
+El DNS Privat constara de 2 parts un servidor de AdGuardHome per bloquejar tant anuncis com pagines no desitjades i un servidor de BIND que sera per crear el Domini privat.
 
-
-
-#### DNS
-Per facilitar l'accés al servidor, utilitzarem servidors DNS. Recomanem tenir dos DNS: un públic i un privat.
+#### [Instalacio AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
+#### [Instalacio BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
 
 ##### DNS Públic
 El DNS públic es pot configurar comprant un domini propi o utilitzant subdominis gratuïts que ofereixen algunes pàgines.
