@@ -32,7 +32,7 @@ Per facilitar l'accés al servidor, utilitzarem servidors DNS. Recomanem tenir d
 El DNS públic es pot configurar comprant un domini propi o utilitzant subdominis gratuïts que ofereixen algunes pàgines.
 
 ##### DNS Privat
-Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control. Recomanem crear un propi servidor DNS amb AdGuard o una solució similar com Bind.
+Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control i no es molt facil de enrecordar. Recomanem crear un propi servidor DNS amb AdGuard i Bind per aquesta forma tenir una protecio i Dominis Privat bonics i facils de controlar.
 
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
@@ -42,5 +42,8 @@ Tailscale requereix un compte de correu per a la seva configuració i és un del
 ### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
 Headscale és un servidor VPN basat en WireGuard, dissenyat per a connexions segures i eficients en diverses xarxes. Ofereix gestió centralitzada i suport a múltiples sistemes operatius, ideal per a entorns amb diversos usuaris.
 
-### [FRP - Fast Reverse Proxy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/FRP)
-FRP és un servidor proxy invers que permet exposar aplicacions d'un servidor intern a internet de manera segura. Actua com a passarel·la entre clients externs i el servidor backend.
+### [AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
+AdGuard Home és un bloquejador d'anuncis i seguiments a nivell de xarxa. Instal·lat en un servidor, protegeix tots els dispositius connectats a la xarxa domèstica, oferint filtrat de contingut personalitzat i estadístiques detallades per a una gestió eficaç de la privacitat en línia.
+
+### [BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
+BIND9 és un servidor DNS de codi obert, ampliament utilitzat per traduir noms de dominis a adreces IP. Ofereix funcionalitats de resolució de noms, autoritat de domini i servei de cache, essent una eina essencial per a la gestió de xarxes i internet.
