@@ -1,7 +1,7 @@
 # Recomanacions
 En aquest apartat fem unes recomenacions que per nosaltres serien per fer el servidor perfecte tant amb seguretat com amb Accebilitat
 
-## Accedir al servidor
+## Accedir al servidor de forma privada
 Primer de tot lo mes important es la forma en que accedim al servidor, nosaltres recomanem instalar Tailscale que es una VPN de tipus Mesh que ens permetra accedir al servidor de forma tant localment com remotament.
 
 Aixo funciona ja que el Servidor de Tailscale no opera com un Servidor VPN tradicional.
@@ -30,22 +30,37 @@ Lo mateix passa amb el ping de les 2 maquines en un us habitual no ho notariem m
 
 I per acavar la part mes important de fer servir tailscale es que si tenim els 2 ordinador a la mateixa xarxa tailscale sempre buscara la conexio mes rapida possible d'aquesta forma no tenim que estar pendents de si tenim la VPS oberta o no ja que sempre tindrem la maxima connexio.
 
+[Explicacio completa del funcionament](https://tailscale.com/blog/how-tailscale-works/)
+
+## Accedir al servidor de forma publica
+Per accedir al servidor de forma publica ens referim a que qualsevol persona amb internet es pugui connectar al nostre servidor hi accedir als nostres servidors.
+
+Per aconseguir aixo ho podem fer de 2 formes.
+
+### Obrir ports al Router
+La primera forma es la mes coneguda hi es obrir ports al nostre router ja pot ser el port 445 per un servidor Samba com un port 80 per allotjar una pagina Web.
+
+Aquest metode te aventatjes i desaventatjes.
+
+La principal aventatje de obrir ports al router es que tothom que es vulgui conectar a algunn servei ho fara de forma directa hi amb la maxima velocitat possible que ofereixi el nostre plan de velocitat.
+
+Pero tambe hi ha un gran desaventatje hi es que qualsevol persona tindra acces a la nostre IP publica hi podran estimar la nostre direccio.
+
+### Fer servir proxys amb una VPS
+L'altre opcio es fer servir proxys hostejades amb un servidor virtual i conectar el servidor amb el servidor de casa mitjançant Tailscale.
+
+Aquesta opcio tambe te aventatjes i desaventatjes.
+
+Una aventatjes es que ens permetra tenir mes seguretat ja que ningu sabra la nostre IP Publica de casa nostre.
+
+Per en canvi com que tot el trafic tindra que anar primer al servidor virtual i despres al servidor de casa tindrem un augment de ping com una limitacio en la velocitat.
+
+Nosaltres personalment recomanem tenir una VPS ja que apart de ser la nostre sortida del servidor al internet tambe ens permetra tenir serveis que semple estaran disponible inclus que el servidor de casa nostre deixi de funcionar. Un exemple seria un servidor DNS o alguna cosa important que volem tenir acces en tot moment.
 
 
 
 
-#### Accedir al servidor de forma privada
-Recomanem instal·lar Tailscale per accedir al servidor de manera privada, permetent l'accés a través de la xarxa local o pública sense necessitat d'obrir ports al router.
 
-La principal avantatge de Tailscale és que opera com una VPN Mesh, la qual cosa significa que la connexió sempre és directa entre el servidor i un client, sense passar per un servidor intermediari. Així, Tailscale es dedica principalment a administrar els dispositius de la xarxa i assegurar la correcta vinculació entre ells.
-
-[Explicació Completa](https://tailscale.com/blog/how-tailscale-works/)
-#### Accedir al servidor de forma pública
-Si desitgem que tot internet pugui accedir al nostre servidor, tenim dues opcions:
-
-La primera opció és obrir ports al nostre router, la qual és l'opció més típica i senzilla, amb nombrosos tutorials disponibles a YouTube.
-
-La segona opció consisteix en contractar una VPS amb una IP pública, on instal·larem un proxy per a l'accés públic al servidor. Utilitzarem dos serveis: NginxProxy per a servidors que operen amb HTTP i HTTPS, ja que permet sol·licitar certificats SSL fàcilment amb CertBot, i Fast Reverse Proxy per a enrutament de ports TCP i UDP, útil per a serveis que no són HTTP, com ara Samba (que necessita del port 445) o un servidor de jocs com Minecraft (que requereix del port 25565).
 
 #### DNS
 Per facilitar l'accés al servidor, utilitzarem servidors DNS. Recomanem tenir dos DNS: un públic i un privat.
