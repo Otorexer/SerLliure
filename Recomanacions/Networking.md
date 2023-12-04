@@ -69,14 +69,13 @@ Una altre cosa molt important es tenir un sistema de DNS per no tenir que buscar
 El que nosaltres recomanem es tenir un DNS privat i un DNS de Domini com per exemple un .com o .es.
 
 Aixo ho farem perque no volem que tot internet vegi que tenim un domini redirigit a adreçes IP de tailscale pero ho podriem fer tot amb un Domini convencional.
-### DNS Privat
+### DNS Privat 🔒
 El DNS Privat constara de 2 parts un servidor de AdGuardHome per bloquejar tant anuncis com pagines no desitjades i un servidor de BIND que sera per crear el Domini privat.
 
 #### [Instalacio AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
 #### [Instalacio BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
 
-##### DNS Públic
-El DNS públic es pot configurar comprant un domini propi o utilitzant subdominis gratuïts que ofereixen algunes pàgines.
+### DNS Públic 🌐
+El DNS Public el farem servir perque la gent que es vulgui conectar als nostres servidors no tinguin que estar posant la IP cada vegada una cosa que avui en dia es casi obligatori.
 
-##### DNS Privat
-Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control i no es molt facil de enrecordar. Recomanem crear un propi servidor DNS amb AdGuard i Bind per aquesta forma tenir una protecio i Dominis Privat bonics i facils de controlar.
+Hi han moltes pagines web per comprar Dominis com tambe pagines per obtenir el teu Domini de forma gratuita.
