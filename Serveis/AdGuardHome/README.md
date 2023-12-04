@@ -18,7 +18,7 @@ Després, hem de canviar els ports al port 10001.
 
 I per acabar, posem el nom d'usuari i contrasenya i ja tindrem la instal·lació feta d'AdGuardHome.
 
-# Configuració Tailscale
+# Configuració Tailscale (No Sol Funcionar Molt Be)
 Si volem que per defecte tots els clients connectats a la xarxa de Tailscale facin ús d'aquest servidor DNS, hem de configurar-ho.
 
 Primer de tot, hem d'accedir a la [Configuració de DNS](https://login.tailscale.com/admin/dns) de Tailscale i allà hem de canviar alguns paràmetres.
