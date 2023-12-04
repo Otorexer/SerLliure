@@ -1,37 +1,41 @@
-# Instalacio
-Aquesta instalacio de BIND9 esta pensada per far-se servir amb AdGuardHome ja que fa servir el port 5353.
+# Instal·lació
 
-Primer de tot farem servir aquest comande per instalar el Servidor de BIND9 i actualitzar la configuracio automaticament perque funcioni en el port 5353.
+Aquesta instal·lació de BIND9 està pensada per ser utilitzada amb AdGuardHome, ja que fa servir el port 5353.
+
+Primer de tot, utilitza aquesta comanda per instal·lar el servidor de BIND9 i actualitzar la configuració automàticament perquè funcioni en el port 5353:
+
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/BIND/Install.sh && bash install.sh && rm install.sh
 ```
-Un cop el BIND instalat us recomanem fer servir WebMin ja que ens facilita molt la configuracio BIND es troba al apartat de Servers -> BIND DNS Server si no el trobeu teniu que fer servir el boto de Refrash Modules de WebMin perque detecti els nous moduls.
 
-Primer de tot crearem una Zona Master i posarem els seguents parametres.
+Un cop instal·lat BIND, recomanem fer servir WebMin, ja que facilita molt la configuració. BIND es troba al apartat `Servers -> BIND DNS Server`. Si no el trobes, has d'utilitzar el botó `Refresh Modules` de WebMin per detectar els nous mòduls.
 
-Nosaltres recomanem posar el vostre domini que tingueu amb un .local ja que d'aquesta forma si feu servir .local sabreu que esteu accedint de forma privada a la IP. Pero realment podeu posar el domini que volgueu.
+Primer, crearem una Zona Master i hi introduirem els següents paràmetres:
+
+Recomanem posar el vostre domini amb un `.local`, ja que així, si feu servir `.local`, sabreu que esteu accedint de forma privada a la IP. Però realment podeu posar el domini que vulgueu.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/6c28da3c-2e85-47ca-8646-cd2428c381cc)
 
-Un cop tinguem la Zona Master creada veurem que podem fer varies coses lo principal que farem servir seran els menus de Address que serveix per crear un registre apuntant a alguna IP i Name Alias (CNAME) que ens servira per si volem crear algun subdomini apuntant a una Registre principal.
+Un cop tinguem la Zona Master creada, veurem que podem fer diverses accions. El principal que farem servir són els menús `Address`, que serveix per crear un registre apuntant a alguna IP, i `Name Alias (CNAME)`, que ens servirà per si volem crear algun subdomini apuntant a un registre principal.
 
-# Configuracio AdGuardHome
-Ara tenim que configurar AdGuradHome perque respongui de forma correcta amb el DNS que hem creat.
+# Configuració AdGuardHome
 
-Primer de tot accedirem a la Web de configuracio de adguard hi anirem a l'apartat de Settings -> DNS Settings
+Ara hem de configurar AdGuardHome perquè respongui correctament amb el DNS que hem creat.
+
+Primer, accedirem a la web de configuració d'AdGuard i anirem a `Settings -> DNS Settings`.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/6d454755-3cd1-4e55-b757-65f19e909bf6)
 
-Un cop alla posarem veurem quye tenim un servidor per defecte aquest no el tenim que tocar ja que es el que fa Servir AdguardHome per respondre a les peticions que fem que son servidors DNS public comk podria ser el de Google (8.8.8.8).
+Allà, veurem que tenim un servidor per defecte. Aquest no l'hem de tocar, ja que és el que fa servir AdGuardHome per respondre a les peticions que són servidors DNS públics com el de Google (8.8.8.8).
 
-El que tenim que fer es copiar la direcio IP del nostre servidor on hem configurat el BIND i posar el port al final amb doble punt d'aquesta forma.
+El que hem de fer és copiar la direcció IP del nostre servidor on hem configurat el BIND i posar el port al final amb dos punts:
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/97b88919-fabc-4826-af2e-2fdfbd45f3b4)
 
-Hi per acavar tenim que fer que AdGuardHome busqui a tots els servidors DNS cada vegada fem una peticio ja que sino AdGuardHome per defecte fa servir el servidor que porta per defecte, que canviar de Load-Balancing a Parallel Request.
+I, per acabar, hem de fer que AdGuardHome busqui a tots els servidors DNS cada vegada que fem una petició. Si no, AdGuardHome per defecte fa servir el servidor que porta per defecte. Canvia de `Load-Balancing` a `Parallel Request`.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/59129f4a-0f33-4fe8-a608-4d9440d12768)
 
-Hi aplicar la configuracio.
+I aplica la configuració.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/6f589386-c621-457a-b148-7b14e0d33713)
