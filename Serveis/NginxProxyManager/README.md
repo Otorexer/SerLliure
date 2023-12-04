@@ -11,6 +11,7 @@ Un cop el tinguem instalat podrem accedir a la configuracio amb la IP de tailsca
 Per començar tindrem aquesta pagina on tindrem que posar les credencials per defecte.
 
 Mail: admin@example.com
+
 Passwd: changeme
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/5a8dea1e-6781-4baf-8865-1d7fd31c4bd1)
