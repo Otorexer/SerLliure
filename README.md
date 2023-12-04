@@ -1,12 +1,13 @@
 # Ser Lliure, Ser Autònom
-Aquest repositori conté guies pas a pas per instal·lar eines self-hosted populars. Les guies estan pensades per a usuaris novells, expliquen tots els passos necessaris de manera senzilla i tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
+
+Aquest repositori conté guies pas a pas per a la instal·lació d'eines self-hosted populars. Les guies estan dissenyades per a usuaris novells i expliquen tots els passos necessaris de manera senzilla. Tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
 ## [Docker](https://github.com/docker)
 ### Què és
-Docker és una plataforma de virtualització a nivell de sistema operatiu que permet executar aplicacions dins de contenidors aïllats. En lloc de virtualitzar tot el maquinari com en les màquines virtuals, Docker empaqueta l'aplicació juntament amb les seves dependències en un contenidor que es pot executar de forma aïllada.
+Docker és una plataforma de virtualització a nivell de sistema operatiu que permet executar aplicacions dins de contenidors aïllats. En lloc de virtualitzar tot el maquinari com en les màquines virtuals, Docker empaqueta l'aplicació amb les seves dependències en un contenidor que es pot executar de forma aïllada.
 
 ### Instal·lació
-Instal·lació amb un script oficial de [Docker](https://github.com/docker/docker-install):
+Per instal·lar Docker, utilitzeu aquest script oficial de [Docker](https://github.com/docker/docker-install):
 
 ```bash
 wget -qO- https://get.docker.com | sh
@@ -14,34 +15,36 @@ wget -qO- https://get.docker.com | sh
 
 ## Networking
 #### Accedir al servidor de forma privada
-Recomanem instal·lar Tailscale per poder accedir al teu servidor de forma privada, ja que pots accedir al servidor amb la xarxa local o pública sense tenir que obrir ports al router.
+Recomanem instal·lar Tailscale per accedir al servidor de manera privada, permetent l'accés a través de la xarxa local o pública sense necessitat d'obrir ports al router.
 
-La vantatge de Tailscale és que no és com una VPN convencional, sinó que és una VPN Mesh, això vol dir que la connexió sempre serà directa del teu servidor a un client sense passar pel servidor, ja que el servidor, que és el que controla Tailscale, només es dedica a administrar els dispositius de la xarxa i fer que es vinculin correctament.
+La principal avantatge de Tailscale és que opera com una VPN Mesh, la qual cosa significa que la connexió sempre és directa entre el servidor i un client, sense passar per un servidor intermediari. Així, Tailscale es dedica principalment a administrar els dispositius de la xarxa i assegurar la correcta vinculació entre ells.
 
 [Explicació Completa](https://tailscale.com/blog/how-tailscale-works/)
-#### Accedir al servidor de forma publica
-Si volem que tot internet pugui accedir al nostre servidor tenim 2 opcions.
+#### Accedir al servidor de forma pública
+Si desitgem que tot internet pugui accedir al nostre servidor, tenim dues opcions:
 
-La primera opcio es obrir ports al nostre router que es la tipica i la mes facil on hi han milers de tutorials al youtube sobre aquest tema.
+La primera opció és obrir ports al nostre router, la qual és l'opció més típica i senzilla, amb nombrosos tutorials disponibles a YouTube.
 
-La segona opcio es contractar una VPS amb una IP publica on hi instalarem una proxy per poder accedir al servidor de forma publica, farem servir 2 serveis NginxProxy i Fast Reverse Proxy, farem servir NginxProxy per tot el que siguin servidors que funcionen amb http i https ja que d'aquesta forma poden demanar certificats SSL de forma facil amb CertBot, i farem server Fast Reverse Proxy per enrutar ports de tcp i udp aixo ens serviria per exeposar serveis que no siguin http com per exemple el Samba que nessesita del port 445 o com un servidor de jocs com podria ser el Minecraft que requereis del port 25565.
+La segona opció consisteix en contractar una VPS amb una IP pública, on instal·larem un proxy per a l'accés públic al servidor. Utilitzarem dos serveis: NginxProxy per a servidors que operen amb HTTP i HTTPS, ja que permet sol·licitar certificats SSL fàcilment amb CertBot, i Fast Reverse Proxy per a enrutament de ports TCP i UDP, útil per a serveis que no són HTTP, com ara Samba (que necessita del port 445) o un servidor de jocs com Minecraft (que requereix del port 25565).
 
 #### DNS
-Per accedir al servidor de forma mes facil farem servir servidors DNS, nosaltres recomanem tenir tenir 2 DNS. Un DNS sera amb un Domini public per si tenim que accedir al nostre servidor de forma public ja que d'aquesta forma podrem accedir al servidor sense tinguer-nos de enrecordar de la IP i laltre servidor sera un servidor DNS privar que domes gent de la nostre xarxa podra accedir.
+Per facilitar l'accés al servidor, utilitzarem servidors DNS. Recomanem tenir dos DNS: un públic i un privat.
 
-##### DNS Public
-El DNS public es molt facil podem comprar el nostre propi Domini per moltes pagines. O tambe hi ha pagines que ofereixen subdominis de forma gratuita.
+##### DNS Públic
+El DNS públic es pot configurar comprant un domini propi o utilitzant subdominis gratuïts que ofereixen algunes pàgines.
 
 ##### DNS Privat
-El DNS Privat podem fer servir el mateix de Tailscale que no es molt recomanable ja que tenim poc control sobre les accions com per exemple tindras un domini com aquest (snow-universe.ts.net) cosa que es molt llarc i no molt poc atractiu. El que nosaltres recomanem es crear el nostre propi servidor DNS amb Ad
+Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control. Recomanem crear un propi servidor DNS amb AdGuard o una solució similar.
 
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
-Tailscale és una xarxa VPN que permet connectar dispositius de forma segura sense necessitat de configurar routers o ports. Utilitza autenticació per clau pública i tot el tràfic està encriptat.
+Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
 
-Tailscale necessita un compte de correu per registrar-se i és un dels pocs programes en aquest repositori que no recomanem que utilitzis amb els teus servidors, ja que hostejar el servei és molt complicat i no es molt practic.
+Tailscale requereix un compte de correu per a la seva configuració i és un dels pocs programes d'aquest repositori que no recomanem hostejar amb els teus servidors, ja que hostejar-lo és complicat i poc pràctic.
 
 ### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
-Headscale és un servidor VPN basat en WireGuard, dissenyat per a connexions segures i eficients en diferents xarxes. Ofereix gestió centralitzada, suport a múltiples SO i és ideal per a entorns amb diversos usuaris.
+Headscale és un servidor VPN basat en WireGuard, dissenyat per a connexions segures i eficients en diverses xar
+
+xes. Ofereix gestió centralitzada i suport a múltiples sistemes operatius, ideal per a entorns amb diversos usuaris.
 
 ### [FRP - Fast Reverse Proxy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/FRP)
-FRS és un servidor proxy invers que permet exposar aplicacions d'un servidor intern a internet de forma segura. Fa de passarel·la entre els clients externs i el servidor backend.
+FRP és un servidor proxy invers que permet exposar aplicacions d'un servidor intern a internet de manera segura. Actua com a passarel·la entre clients externs i el servidor backend.
