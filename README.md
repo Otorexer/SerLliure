@@ -41,9 +41,6 @@ Tailscale és una xarxa VPN que connecta dispositius de forma segura sense confi
 
 Tailscale requereix un compte de correu per a la seva configuració i és un dels pocs programes d'aquest repositori que no recomanem hostejar amb els teus servidors, ja que hostejar-lo és complicat i poc pràctic.
 
-### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
-Headscale és un servidor VPN basat en WireGuard, dissenyat per a connexions segures i eficients en diverses xarxes. Ofereix gestió centralitzada i suport a múltiples sistemes operatius, ideal per a entorns amb diversos usuaris.
-
 ### [AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
 AdGuard Home és un bloquejador d'anuncis i seguiments a nivell de xarxa. Instal·lat en un servidor, protegeix tots els dispositius connectats a la xarxa domèstica, oferint filtrat de contingut personalitzat i estadístiques detallades per a una gestió eficaç de la privacitat en línia.
 
