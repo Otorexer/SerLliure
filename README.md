@@ -1,5 +1,4 @@
 # Ser Lliure, Ser Autònom
-
 Aquest repositori conté guies pas a pas per a la instal·lació d'eines self-hosted populars. Les guies estan dissenyades per a usuaris novells i expliquen tots els passos necessaris de manera senzilla. Tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
 ## [Docker](https://github.com/docker)
@@ -8,7 +7,6 @@ Docker és una plataforma de virtualització a nivell de sistema operatiu que pe
 
 ### Instal·lació
 Per instal·lar Docker, utilitzeu aquest script oficial de [Docker](https://github.com/docker/docker-install):
-
 ```bash
 wget -qO- https://get.docker.com | sh
 ```
@@ -34,7 +32,7 @@ Per facilitar l'accés al servidor, utilitzarem servidors DNS. Recomanem tenir d
 El DNS públic es pot configurar comprant un domini propi o utilitzant subdominis gratuïts que ofereixen algunes pàgines.
 
 ##### DNS Privat
-Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control. Recomanem crear un propi servidor DNS amb AdGuard o una solució similar.
+Per al DNS privat, es pot utilitzar el de Tailscale, encara que ofereix poc control. Recomanem crear un propi servidor DNS amb AdGuard o una solució similar com Bind.
 
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
