@@ -32,6 +32,12 @@ Un cop afegit al servidor afegirem tambe el servidor de Google i altre per si el
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/921772fa-fb8a-4fff-b1da-94dc24f7585a)
 
-Ens tindria que quedar algo aixis.
+Ens tindria que quedar algo aixis. El servidor propi que es el que te la direccio IP sempre te que estar a dalt ja que sera el primer que faran servir els clients per defecte.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/24df2452-e5bb-4a38-971c-e0d948e8c8a9)
+# Redireccio DNS
+Si volem crear algunes redirecions a servidors que tinguem a tailscale ho podem fer d'aquesta forma.
+
+Primer de tot anirem a Filtros -> Reescrituras DNS i alla podrem crear el nostre redirecionament personalitzat cap alguna maquin que volguem accedir amb DNS
+
+![image](https://github.com/Otorexer/SerLliure/assets/118485801/85cdcc3f-fa85-4ee7-85eb-4c5d0a70d376)
