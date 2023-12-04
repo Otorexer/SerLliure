@@ -1,4 +1,4 @@
 # Installation
 ```bash
-wget -qO- https://get.docker.com | sh
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
 ```
