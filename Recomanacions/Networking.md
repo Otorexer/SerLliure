@@ -26,7 +26,9 @@ Hi per acavar el inconvenient mes gran que te es que si els 2 dispositius estan 
 ### Tailscale
 En canvi Tailscale no opera com un servidor de dades sino que domes opera com un servidor que enmagatzema i dona claus de WireGuard dels Clients i Servidors conectats aixo perque que si un client vol enviar dades a un servidor ho pot fer de forma directa sense passar per cap intermediari.
 
-![image](https://github.com/Otorexer/SerLliure/assets/118485801/2e2de98c-9cad-4851-b21a-55748fa01b22)
+<div align="center">
+<img src="https://github.com/Otorexer/SerLliure/assets/118485801/2e2de98c-9cad-4851-b21a-55748fa01b22" alt="Servidor VPN Convencinal" style="height: 500px;">
+</div>
 
 Per exemple el que hem explicat avans amb la velocitat maxima ara ja no passa ja que els 2 clients connectats podran aporfitat la velocitat maxima de les seves conexions ja que tenen una coneccio diracta.
 
