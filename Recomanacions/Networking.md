@@ -1,81 +1,78 @@
 # Recomanacions
-En aquest apartat fem unes recomenacions que per nosaltres serien per fer el servidor perfecte tant amb seguretat com amb Accebilitat
 
-## Accedir al servidor de forma privada 🔒
-Primer de tot lo mes important es la forma en que accedim al servidor, nosaltres recomanem instalar Tailscale que es una VPN de tipus Mesh que ens permetra accedir al servidor de forma tant localment com remotament.
+En aquest apartat, fem unes recomanacions que, per a nosaltres, serien clau per fer el servidor perfecte, tant en seguretat com en accessibilitat.
 
-Aixo funciona ja que el Servidor de Tailscale no opera com un Servidor VPN tradicional.
+## Accedir al Servidor de Forma Privada 🔒
+
+Primer de tot, el més important és la manera en què accedim al servidor. Nosaltres recomanem instal·lar Tailscale, una VPN de tipus Mesh que ens permetrà accedir al servidor tant localment com remotament.
+
+Això funciona perquè el servidor de Tailscale no opera com un servidor VPN tradicional.
 
 ### Servidor VPN Tradicional
-Per exemple en un servidor VPN tradicional tant clients com servidors es conecten a un servidor on passarant per alla totes les dades.
+
+Per exemple, en un servidor VPN tradicional, tant clients com servidors es connecten a un servidor central, on passen totes les dades.
 
 <div align="center">
-<img src="https://github.com/Otorexer/SerLliure/assets/118485801/78c07065-8bd3-48c1-a37c-ba6287af56d0" alt="Servidor VPN Convencinal" style="height: 500px;">
+<img src="https://github.com/Otorexer/SerLliure/assets/118485801/78c07065-8bd3-48c1-a37c-ba6287af56d0" alt="Servidor VPN Convencional" style="height: 500px;">
 </div>
 
-Aquest es un molt bon metode per conectar tots els dispositius junts pero tambe te moltes desventatjes ja que per exemple si vols enviar dades sempre tindras que passar per el servidor hi aixo implica retras afegit ja que les dades tenen que anar al servidor VPN i tornar.
+Aquest és un bon mètode per connectar tots els dispositius, però té desavantatges, com ara el retard afegit pel trànsit de dades a través del servidor VPN i la limitació de velocitat màxima a la del servidor VPN.
 
-Un altre inconvenient es que la velocitat maxim esta limitada a la velocitat maxima de internet del Servidor VPN ja que si nosaltres tenim una velocitat de 1000Mbps pero el servidor domes en te 400Mbps estarem limitat a aquella velocitat.
-
-Hi per acavar el inconvenient mes gran que te es que si els 2 dispositius estan a la mateixa xarxa no es conectaran amb un coneccio directa local sino que les dades tambe tindran que anar i tornar del servidor VPS
+Un altre inconvenient és que si dos dispositius estan a la mateixa xarxa, no es connectaran mitjançant una connexió directa local, sinó que les dades també hauran d'anar i tornar del servidor VPN.
 
 <div align="center">
-<img src="https://github.com/Otorexer/SerLliure/assets/118485801/10a214b2-c2d7-4a90-ab55-d22ceda308e2" alt="Servidor VPN Convencinal" style="height: 500px;">
+<img src="https://github.com/Otorexer/SerLliure/assets/118485801/10a214b2-c2d7-4a90-ab55-d22ceda308e2" alt="Servidor VPN Convencional" style="height: 500px;">
 </div>
 
 ### Tailscale
-En canvi Tailscale no opera com un servidor de dades sino que domes opera com un servidor que enmagatzema i dona claus de WireGuard dels Clients i Servidors conectats aixo perque que si un client vol enviar dades a un servidor ho pot fer de forma directa sense passar per cap intermediari.
+
+En canvi, Tailscale opera com un servidor que emmagatzema i proporciona claus de WireGuard dels clients i servidors connectats, permetent que si un client vol enviar dades a un servidor, ho pugui fer de forma directa, sense passar per cap intermediari.
 
 <div align="center">
-<img src="https://github.com/Otorexer/SerLliure/assets/118485801/2e2de98c-9cad-4851-b21a-55748fa01b22" alt="Servidor VPN Convencinal" style="height: 500px;">
+<img src="https://github.com/Otorexer/SerLliure/assets/118485801/2e2de98c-9cad-4851-b21a-55748fa01b22" alt="Tailscale" style="height: 500px;">
 </div>
 
-Per exemple el que hem explicat avans amb la velocitat maxima ara ja no passa ja que els 2 clients connectats podran aporfitat la velocitat maxima de les seves conexions ja que tenen una coneccio diracta.
+Això significa que la velocitat màxima no es veurà limitada i que el ping entre dues màquines serà sempre el menor possible, ja que no han de passar pel servidor VPN. A més, Tailscale busca sempre la connexió més ràpida, optimitzant així la comunicació.
 
-Lo mateix passa amb el ping de les 2 maquines en un us habitual no ho notariem molt pero imaginem que volem controlar el servidor de forma remote amb RDP com que tenim les 2 maquines conectades amb un link directa el ping sempre sera el menor possible perque no tindra que anar i tornar del servidor VPN
+[Explicació completa del funcionament de Tailscale](https://tailscale.com/blog/how-tailscale-works/)
 
-I per acavar la part mes important de fer servir tailscale es que si tenim els 2 ordinador a la mateixa xarxa tailscale sempre buscara la conexio mes rapida possible d'aquesta forma no tenim que estar pendents de si tenim la VPS oberta o no ja que sempre tindrem la maxima connexio.
+## Accedir al Servidor de Forma Pública 🌐
 
-[Explicacio completa del funcionament](https://tailscale.com/blog/how-tailscale-works/)
+Per accedir al servidor de forma pública, ens referim a que qualsevol persona amb internet pugui connectar-se al nostre servidor i accedir als nostres serveis.
 
-## Accedir al servidor de forma publica 🌐
-Per accedir al servidor de forma publica ens referim a que qualsevol persona amb internet es pugui connectar al nostre servidor hi accedir als nostres servidors.
+Hi ha dues maneres principals d'aconseguir-ho:
 
-Per aconseguir aixo ho podem fer de 2 formes.
+### Obrir Ports al Router
 
-### Obrir ports al Router
-La primera forma es la mes coneguda hi es obrir ports al nostre router ja pot ser el port 445 per un servidor Samba com un port 80 per allotjar una pagina Web.
+Aquesta és la manera més coneguda i pot incloure l'obertura de ports com el 445 per un servidor Samba o el port 80 per allotjar una pàgina web. Aquest mètode té avantatges i desavantatges:
 
-Aquest metode te aventatjes i desaventatjes.
+✅ La principal avantatge és que tothom que es vulgui connectar ho farà de manera directa, aprofitant la màxima velocitat possible del nostre pla de velocitat.
 
-✅La principal aventatje de obrir ports al router es que tothom que es vulgui conectar a algunn servei ho fara de forma directa hi amb la maxima velocitat possible que ofereixi el nostre plan de velocitat.
+❌ Però també hi ha un gran desavantatge: qualsevol persona tindrà accés a la nostra IP pública i podrà estimar la nostra direcció.
 
-❌Pero tambe hi ha un gran desaventatje hi es que qualsevol persona tindra acces a la nostre IP publica hi podran estimar la nostre direccio.
+### Fer Servir Proxys amb una VPS
 
-### Fer servir proxys amb una VPS
-L'altre opcio es fer servir proxys hostejades amb un servidor virtual i conectar el servidor amb el servidor de casa mitjançant Tailscale.
+L'altra opció és utilitzar proxys allotjats en un servidor virtual i connectar el servidor de casa mitjançant Tailscale. Aquesta opció també té avantatges i desavantatges:
 
-Aquesta opcio tambe te aventatjes i desaventatjes.
+✅ Una avantatge és que ens permetrà tenir més seguretat, ja que ningú sabrà la nostra IP pública.
 
-✅Una aventatjes es que ens permetra tenir mes seguretat ja que ningu sabra la nostre IP Publica de casa nostre.
+❌ Però, com que tot el tràfic haurà d'anar primer al servidor virtual i després al de casa, tindrem un augment de ping i una limitació en la velocitat.
 
-❌Per en canvi com que tot el trafic tindra que anar primer al servidor virtual i despres al servidor de casa tindrem un augment de ping com una limitacio en la velocitat.
-
-Nosaltres personalment recomanem tenir una VPS ja que apart de ser la nostre sortida del servidor al internet tambe ens permetra tenir serveis que semple estaran disponible inclus que el servidor de casa nostre deixi de funcionar. Un exemple seria un servidor DNS o alguna cosa important que volem tenir acces en tot moment.
+Personalment, recomanem tenir una VPS, ja que, a més de ser el nostre punt d'accés a internet, ens permetrà mantenir serveis que sempre estaran disponibles, inclús si el servidor de casa deixa de funcionar. Un exemple seria un servidor DNS o alguna cosa important que volem tenir accés en tot moment.
 
 ## DNS
-Una altre cosa molt important es tenir un sistema de DNS per no tenir que buscar la direccio IP cada vagado que ens volem conectar a algun servidor.
 
-El que nosaltres recomanem es tenir un DNS privat i un DNS de Domini com per exemple un .com o .es.
+Una altra cosa molt important és tenir un sistema de DNS per no haver de buscar l'adreça IP cada vegada que ens volem connectar a algun servidor.
 
-Aixo ho farem perque no volem que tot internet vegi que tenim un domini redirigit a adreçes IP de tailscale pero ho podriem fer tot amb un Domini convencional.
+El que recomanem és tenir un DNS privat i un DNS de domini, com per exemple un .com o .es. Això ho farem perquè no volem que tot internet vegi que tenim un domini redirigit a adreces IP de Tailscale, però ho podríem fer tot amb un domini convencional.
+
 ### DNS Privat 🔒
-El DNS Privat constara de 2 parts un servidor de AdGuardHome per bloquejar tant anuncis com pagines no desitjades i un servidor de BIND que sera per crear el Domini privat.
 
-#### [Instalacio AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
-#### [Instalacio BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
+El DNS privat constarà de dues parts: un servidor AdGuardHome per bloquejar anuncis i pàgines no desitjades, i un servidor BIND que serà per crear el domini privat.
+
+#### [Instal·lació d'AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
+#### [Instal·lació de BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
 
 ### DNS Públic 🌐
-El DNS Public el farem servir perque la gent que es vulgui conectar als nostres servidors no tinguin que estar posant la IP cada vegada una cosa que avui en dia es casi obligatori.
 
-Hi han moltes pagines web per comprar Dominis com tambe pagines per obtenir el teu Domini de forma gratuita.
+El DNS públic el farem servir perquè la gent que es vulgui connectar als nostres servidors no tingui que estar posant l'IP cada vegada, una cosa que avui en dia és gairebé obligatòria. Hi ha moltes pàgines web per comprar dominis, així com pàgines per obtenir el teu domini de manera gratuïta.
