@@ -50,6 +50,9 @@ AdGuard Home és un bloquejador d'anuncis i seguiments a nivell de xarxa. Instal
 ### [BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
 BIND9 és un servidor DNS de codi obert, ampliament utilitzat per traduir noms de dominis a adreces IP. Ofereix funcionalitats de resolució de noms, autoritat de domini i servei de cache, essent una eina essencial per a la gestió de xarxes i internet.
 
+### [NginxProxyManager](https://github.com/Otorexer/SerLliure/tree/main/Serveis/NginxProxyManager)
+Nginx Proxy Manager és una interfície gràfica d'usuari per a Nginx, facilitant la configuració de proxies, SSL i accés a llocs web, ideal per a administradors que busquen una solució simple i potent.
+
 ## Administracio
 En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions.
 
