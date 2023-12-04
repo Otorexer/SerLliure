@@ -1,4 +1,4 @@
 # Installation
 ```bash
-wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/FRP/frps.sh && bash frps.sh && rm frps.sh
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/AdGuardHome/Install.sh && bash Install.sh && rm Install.sh
 ```
