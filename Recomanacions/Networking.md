@@ -68,7 +68,7 @@ Una altre cosa molt important es tenir un sistema de DNS per no tenir que buscar
 
 El que nosaltres recomanem es tenir un DNS privat i un DNS de Domini com per exemple un .com o .es.
 
-Aixo ho farem que no no volem que tot internet vegi que tenim un domini redirigit a adreçes IP de tailscale pero ho podriem fer tot amb un Domini convencional.
+Aixo ho farem perque no volem que tot internet vegi que tenim un domini redirigit a adreçes IP de tailscale pero ho podriem fer tot amb un Domini convencional.
 ### DNS Privat
 El DNS Privat constara de 2 parts un servidor de AdGuardHome per bloquejar tant anuncis com pagines no desitjades i un servidor de BIND que sera per crear el Domini privat.
 
