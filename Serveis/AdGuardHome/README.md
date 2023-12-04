@@ -1,37 +1,37 @@
-# Instalacio
-Per instalar AdGuardHome amb docker domes tenim que executar aquest comande.
+# Instal·lació
+Per instal·lar AdGuardHome amb Docker, només hem d'executar aquest comandament.
 
-Hem de tenim compet que com que AdGuardHome fa servier el port 53/tpc i 53/udp tindrem que fer un canvis en la configuracio de Resolucio de DNS del servidor pero no hi ha problema ja que el script ho fa de forma automatica.
+Cal tenir en compte que, com AdGuardHome utilitza els ports 53/tcp i 53/udp, haurem de fer alguns canvis en la configuració de Resolució de DNS del servidor, però no hi ha problema, ja que l'script ho fa de manera automàtica.
 ```bash
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/AdGuardHome/Install.sh && bash Install.sh && rm Install.sh
 ```
-# Primers passos
-El primer inici de sessio el tenim que fer des de la direccio IP de Tailscale amb el port 3000.
+# Primers Passos
+El primer inici de sessió l'hem de fer des de l'adreça IP de Tailscale amb el port 3000.
 
-Hi ens sortira una pagina com Aquesta i clicarem a siguiente.
+Ens apareixerà una pàgina com aquesta i clicarem a 'següent'.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/128a17f5-50fd-4225-8f27-607794ad7f39)
 
-Despres tenim que canviar el ports al port 10001.
+Després, hem de canviar els ports al port 10001.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/8b52d622-0c3f-4e69-afa0-43deb840a495)
 
-I per acavar posema el nom de Usuari i Contrasenya i ja tindrem la instalacio feta de AdGuardHome.
+I per acabar, posem el nom d'usuari i contrasenya i ja tindrem la instal·lació feta d'AdGuardHome.
 
-# Configuracio Tailscale
-Si volem que per defecte tots els clients connectats a la xarxa de tailscale fagin us d'aquest servidor DNS tenim que configurar-ho.
+# Configuració Tailscale
+Si volem que per defecte tots els clients connectats a la xarxa de Tailscale facin ús d'aquest servidor DNS, hem de configurar-ho.
 
-Primer de tot tenim que accedir a la [Configuracio de DNS](https://login.tailscale.com/admin/dns) de Tailscale hi alla tenim que canviar alguns parametre.
+Primer de tot, hem d'accedir a la [Configuració de DNS](https://login.tailscale.com/admin/dns) de Tailscale i allà hem de canviar alguns paràmetres.
 
-Despres tenim que activar la funcio de Tailscale per ometre la DNS del client hi sempre fer servir la de AdGuard aixo es fa amb el petit boto que diu "Override localDNS"
+Després, hem d'activar la funció de Tailscale per ometre la DNS del client i sempre fer servir la d'AdGuard, això es fa amb el petit botó que diu "Override local DNS".
 
-Un cop fet aixo afegirem un servidor DNS clicant a Add Nameserver -> Custom i alla posarem la Direccio IP del Servidor on hem instalat AdGuardHome.
+Un cop fet això, afegirem un servidor DNS clicant a 'Add Nameserver' -> 'Custom' i allà posarem l'adreça IP del servidor on hem instal·lat AdGuardHome.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/059d72d0-2edf-40cf-928d-a5821b78c458)
-Un cop afegit al servidor afegirem tambe el servidor de Google i altre per si el nostre servidor falla que els clients tinguin servidor de respaldo.
+Un cop afegit al servidor, afegirem també el servidor de Google i un altre per si el nostre servidor falla, així els clients tindran un servidor de reserva.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/921772fa-fb8a-4fff-b1da-94dc24f7585a)
 
-Ens tindria que quedar algo aixis. El servidor propi que es el que te la direccio IP sempre te que estar a dalt ja que sera el primer que faran servir els clients per defecte.
+Ens hauria de quedar alguna cosa així. El servidor propi, que és el que té l'adreça IP, sempre ha d'estar a dalt, ja que serà el primer que utilitzaran els clients per defecte.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/24df2452-e5bb-4a38-971c-e0d948e8c8a9)
