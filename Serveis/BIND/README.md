@@ -30,7 +30,7 @@ El que tenim que fer es copiar la direcio IP del nostre servidor on hem configur
 
 Hi per acavar tenim que fer que AdGuardHome busqui a tots els servidors DNS cada vegada fem una peticio ja que sino AdGuardHome per defecte fa servir el servidor que porta per defecte, que canviar de Load-Balancing a Parallel Request.
 
-![image](https://github.com/Otorexer/SerLliure/assets/118485801/dfc2c019-bdcf-4bd5-9a15-de4ff47be64a)
+![image](https://github.com/Otorexer/SerLliure/assets/118485801/59129f4a-0f33-4fe8-a608-4d9440d12768)
 
 Hi aplicar la configuracio.
 
