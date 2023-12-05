@@ -36,3 +36,4 @@ Portainer és una plataforma de gestió i administració de contenidors Docker. 
 
 ## Suporta Aquest Projecte
 Si voleu suportar aquest projecte hem poden fer donacions per la pagina de BuyMeACoffee
+[![Buy Me A Coffee](url-of-the-button-image)](https://www.buymeacoffee.com/Otorexer)
