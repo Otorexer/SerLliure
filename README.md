@@ -35,4 +35,5 @@ En aquest apartat parlarem sobre la Administracio del nostre server, com les nos
 Portainer és una plataforma de gestió i administració de contenidors Docker. Ofereix una interfície gràfica per gestionar imatges, contenidors, xarxes i volums de Docker.
 
 ## Suporta Aquest Projecte
-Si voleu suportar aquest projecte hem poden fer donacions dirctament
+Si voleu suportar aquest projecte hem poden fer donacions per la pagina de BuyMeACoffee
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Otorexer" data-color="#000000" data-emoji=""  data-font="Poppins" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
