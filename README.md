@@ -19,11 +19,7 @@ Tailscale és una xarxa VPN que connecta dispositius de forma segura sense confi
 
 Tailscale requereix un compte de correu per a la seva configuració i és un dels pocs programes d'aquest repositori que no recomanem hostejar amb els teus servidors, ja que hostejar-lo és complicat i poc pràctic.
 
-### [AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
-AdGuard Home és un bloquejador d'anuncis i seguiments a nivell de xarxa. Instal·lat en un servidor, protegeix tots els dispositius connectats a la xarxa domèstica, oferint filtrat de contingut personalitzat i estadístiques detallades per a una gestió eficaç de la privacitat en línia.
-
-### [BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
-BIND9 és un servidor DNS de codi obert, ampliament utilitzat per traduir noms de dominis a adreces IP. Ofereix funcionalitats de resolució de noms, autoritat de domini i servei de cache, essent una eina essencial per a la gestió de xarxes i internet.
+### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Pi-Hole)
 
 ### [NginxProxyManager](https://github.com/Otorexer/SerLliure/tree/main/Serveis/NginxProxyManager)
 Nginx Proxy Manager és una interfície gràfica d'usuari per a Nginx, facilitant la configuració de proxies, SSL i accés a llocs web, ideal per a administradors que busquen una solució simple i potent.
