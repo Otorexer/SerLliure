@@ -68,10 +68,9 @@ El que recomanem és tenir un DNS privat i un DNS de domini, com per exemple un 
 
 ### DNS Privat 🔒
 
-El DNS privat constarà de dues parts: un servidor AdGuardHome per bloquejar anuncis i pàgines no desitjades, i un servidor BIND que serà per crear el domini privat.
+El DNS privat constarà de un servidor de Pi-Hole per bloquejar anuncis, pàgines no desitjades i per crear el domini privat.
 
-#### [Instal·lació d'AdGuardHome](https://github.com/Otorexer/SerLliure/tree/main/Serveis/AdGuardHome)
-#### [Instal·lació de BIND DNS](https://github.com/Otorexer/SerLliure/tree/main/Serveis/BIND)
+#### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Pi-Hole)
 
 ### DNS Públic 🌐
 
