@@ -18,12 +18,6 @@ En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre reco
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
 
 Tailscale requereix un compte de correu per a la seva configuració i és un dels pocs programes d'aquest repositori que no recomanem hostejar amb els teus servidors, ja que hostejar-lo és complicat i poc pràctic.
-
-### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Pi-Hole)
-
-### [NginxProxyManager](https://github.com/Otorexer/SerLliure/tree/main/Serveis/NginxProxyManager)
-Nginx Proxy Manager és una interfície gràfica d'usuari per a Nginx, facilitant la configuració de proxies, SSL i accés a llocs web, ideal per a administradors que busquen una solució simple i potent.
-
 ## Administracio
 En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions.
 
