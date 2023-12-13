@@ -1,3 +1,10 @@
+# Instal·lació
+Per instal·lar Caddy només hem d'executar aquest comandament.
+```bash
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh && bash I-Headscale.sh && rm I-Headscale.sh
+```
+
+
 ## Headscale
 wget --output-document=headscale.deb \
   https://github.com/juanfont/headscale/releases/download/v<HEADSCALE VERSION>/headscale_<HEADSCALE VERSION>_linux_<ARCH>.deb
