@@ -31,23 +31,13 @@ Si us surt aixo no passa res ja que el que sicnifica es que el disc per dafecte 
 Un cop tenim la maquina creada anirem a [Boot-Volumes](https://cloud.oracle.com/block-storage/boot-volumes) i alla selecionarem el unic volum que tenim, un cop dins clicarem el boto de "Edit" per editar la capacitat del volum hi el que farem sera posar 200 ja que d'aquesta forma estarem utilitzant tots els recursos que ens ofereix oracle de forma gratis.
 
 # Accedir a la VPS
-Per accedir a la nostre VPS amb SSH primer de tot tenim que transformar la Clau privada am PuTTYgen.
+Per accedir a la nostre VPS amb SSH primer de tot tenim que obrir alguna consola del nostre PC en la majoria de casos el CMD de Windows.
 
-Primer de tot anirem a Conversions -> Import Key un cop alla selecionarem el arxiu que hem descargat anteriormanet de Oracle.
+Hi posarem aquest comando on posarem la IP publica de la VPS que ens digui Oracle i el fitxer que hem descargat anteriormanet.
 
-I despres clicarem a Save Private Kay per generar la clau amb format ppk perque PuTTY ho pugui entendre.
-
-Despres obrirem PuTTY i a lapartat de Host Name posarem el username que ens surt a la VPS que hem creat
-
-![image](https://github.com/Otorexer/SerLliure/assets/118485801/d6362ece-676f-4ad4-9163-1de72afdc194)
-
-Hi despres posarem @ i la IP publica de la Maquina que tambe la podrem trobar a la VPS.
-
-Ens tindria que quedar algo aixis.
-
-![image](https://github.com/Otorexer/SerLliure/assets/118485801/b7039ccb-ef6d-45eb-bd53-d1ecd9426bd3)
-
-Un cop aixo fet tenim que anar al Menu de la Esquerra i buscar Credential que es troba a. Connection -> SSH -> Auth -> Credentials, hi alla on posa Primate key file clicarem a buscar i selecionarem el arxiu ppk un cop aixo fet ja podrem clicar el boto de connectar i tindrem acces a la VPS.
+```bash
+ssh ubuntu@(ip_publica) -i (fitxer_clau_privada)
+```
 
 # Primers passos
 ### Canviar contrasenya
