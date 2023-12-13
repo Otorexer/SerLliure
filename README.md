@@ -19,7 +19,7 @@ Tailscale és una xarxa VPN que connecta dispositius de forma segura sense confi
 
 Tailscale requereix un compte de correu per a la seva configuració i és un dels pocs programes d'aquest repositori que no recomanem hostejar amb els teus servidors, ja que hostejar-lo és complicat i poc pràctic.
 ## Administracio
-En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions.
+En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions per tenir un millor servidor.
 
 ### [Portainer-CE](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Portainer-CE)
 Portainer és una plataforma de gestió i administració de contenidors Docker. Ofereix una interfície gràfica per gestionar imatges, contenidors, xarxes i volums de Docker.
