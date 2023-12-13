@@ -67,11 +67,14 @@ Una altra cosa molt important és tenir un sistema de DNS per no haver de buscar
 El que recomanem és tenir un DNS privat i un DNS de domini, com per exemple un .com o .es. Això ho farem perquè no volem que tot internet vegi que tenim un domini redirigit a adreces IP de Tailscale, però ho podríem fer tot amb un domini convencional.
 
 ### DNS Privat 🔒
-
-El DNS privat constarà de un servidor de Pi-Hole per bloquejar anuncis, pàgines no desitjades i per crear el domini privat.
+#### Tailscale
+Si dicidim fer servir Tailscale i no hostejar el nostre propi servidor de Headscale ho farem amb Pi-Hole ja que ens permetre crear DNS de forma personalitzada com podria ser un .local, apart que Pi-Hola tambe bloqueja anuncis i pagines no desitjades.
+>[!WARNING]
+>Aquesta opcio no acava de funcionar del tot be sobretot en dispositius movils.
 
 #### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Pi-Hole)
-
+#### Headscale
+Si crem el nostre propi servidor de Headscale que es lo recomenat ho farem editant la configuracio de Headscale ja que d'aquesta forma tindrem la millor compatibilitat possible i sabrem que mai fallara.
 ### DNS Públic 🌐
 
 El DNS públic el farem servir perquè la gent que es vulgui connectar als nostres servidors no tingui que estar posant l'IP cada vegada, una cosa que avui en dia és gairebé obligatòria. Hi ha moltes pàgines web per comprar dominis, així com pàgines per obtenir el teu domini de manera gratuïta.
