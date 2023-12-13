@@ -48,7 +48,7 @@ sudo passwd
 ### Actualitzar Sistema
 Fer un Update del Sistema i Instalacio de algunes eines Utils
 ```bash
-sudo apt update && sudo apt upgrade -y && apt install iputils-ping -y && apt install net-tools -y
+sudo apt update && sudo apt upgrade -y && apt install -y iputils-ping net-tools
 ```
 ### Firewall
 I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el controlarem des de Oracle ja que sino la xarxa de Tailscale no tindra Acces.
