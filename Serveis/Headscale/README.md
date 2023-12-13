@@ -68,7 +68,7 @@ headscale pre c -u (Nom_Usuari)
 headscale pre ls -u (Nom_Usuari)
 ```
 ### Expirar una Clau
-Quant ens referim a la (Clau) ens referim a tot el text llarc no la ID, podem veure amb el comande per comprovar cada clau de cada usuari
+Quant ens referim a la (Clau) ens referim a tot el text llarc no la ID, podem veure amb el comande per comprovar cada [clau de cada usuari](https://github.com/Otorexer/SerLliure/blob/main/Serveis/Headscale/README.md#claus-que-te-cada-usuari).
 ```bash
 headscale pre exp (Clau) -u (Nom_Usuari)
 ```
