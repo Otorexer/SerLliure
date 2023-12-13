@@ -14,12 +14,6 @@ install_or_update_headscale() {
     rm headscale.deb
 }
 
-# Function to update the Headscale configuration
-update_config() {
-    echo "Updating Headscale configuration..."
-    sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
-}
-
 # Function to enable and start the Headscale service
 enable_and_start_service() {
     echo "Enabling and starting Headscale service..."
@@ -27,13 +21,13 @@ enable_and_start_service() {
     sudo systemctl start headscale
 }
 
-# Function to ask user and update Caddy configuration if Caddy is installed
-update_caddy_config() {
-    read -p "Do you want to update the Caddy configuration for reverse proxy? (y/n): " update_caddy
-    if [[ "$update_caddy" =~ ^[Yy]$ ]] && command -v caddy &> /dev/null; then
-        # Extract the domain name
-        domain_name=$(grep 'server_url:' /etc/headscale/config.yaml | sed -e 's/^.*server_url: //' -e 's|https://||' -e 's|/.*$||')
-
+# Function to ask user for the domain name and update Headscale and Caddy configurations
+configure_domain() {
+    read -p "Enter the desired server URL (without https://): " domain_name
+    # Update Headscale config
+    sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
+    # Update Caddy config
+    if command -v caddy &> /dev/null; then
         echo "Configuring Caddy reverse proxy for $domain_name..."
         echo "$domain_name {" >> /etc/caddy/Caddyfile
         echo "    reverse_proxy localhost:8080" >> /etc/caddy/Caddyfile
@@ -41,7 +35,7 @@ update_caddy_config() {
         sudo systemctl reload caddy
         echo "Caddy configuration updated and reloaded."
     else
-        echo "Caddy update skipped or Caddy is not installed."
+        echo "Caddy is not installed. Skipping Caddy configuration."
     fi
 }
 
@@ -51,12 +45,12 @@ if command -v headscale &> /dev/null; then
     ARCH=$(dpkg --print-architecture)
     install_or_update_headscale "$ARCH"
     enable_and_start_service
-    update_caddy_config
+    configure_domain
 else
     echo "Installing Headscale..."
     ARCH=$(dpkg --print-architecture)
     install_or_update_headscale "$ARCH"
-    update_config
+    sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
     enable_and_start_service
-    update_caddy_config
+    configure_domain
 fi
