@@ -4,6 +4,10 @@ Per instal·lar Caddy només hem d'executar aquest comandament.
 wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh && bash I-Headscale.sh && rm I-Headscale.sh
 ```
 
+```bash
+wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/Headscale-Caddy.sh && bash Headscale-Caddy.sh && rm Headscale-Caddy.sh
+```
+
 
 ## Headscale
 wget --output-document=headscale.deb \
