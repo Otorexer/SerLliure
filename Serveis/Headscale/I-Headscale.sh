@@ -6,7 +6,7 @@ CONFIG_URL="https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/He
 
 # Function to download and install or update Headscale
 install_or_update_headscale() {
-    ARCH=$1
+    ARCH=$(dpkg --print-architecture)
     DOWNLOAD_URL="https://github.com/juanfont/headscale/releases/download/v${HEADSCALE_VERSION}/headscale_${HEADSCALE_VERSION}_linux_${ARCH}.deb"
 
     wget --output-document=headscale.deb $DOWNLOAD_URL
@@ -21,36 +21,22 @@ enable_and_start_service() {
     sudo systemctl start headscale
 }
 
-# Function to ask user for the domain name and update Headscale and Caddy configurations
+# Function to ask user for the domain name and update Headscale configuration
 configure_domain() {
     read -p "Enter the desired server URL (without https://): " domain_name
     # Update Headscale config
     sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
-    # Update Caddy config
-    if command -v caddy &> /dev/null; then
-        echo "Configuring Caddy reverse proxy for $domain_name..."
-        echo "$domain_name {" >> /etc/caddy/Caddyfile
-        echo "    reverse_proxy localhost:8080" >> /etc/caddy/Caddyfile
-        echo "}" >> /etc/caddy/Caddyfile
-        sudo systemctl reload caddy
-        echo "Caddy configuration updated and reloaded."
-    else
-        echo "Caddy is not installed. Skipping Caddy configuration."
-    fi
 }
 
-# Check if Headscale is already installed
+# Main execution
 if command -v headscale &> /dev/null; then
     echo "Headscale is already installed. Updating Headscale package only..."
-    ARCH=$(dpkg --print-architecture)
-    install_or_update_headscale "$ARCH"
-    enable_and_start_service
-    configure_domain
+    install_or_update_headscale
 else
     echo "Installing Headscale..."
-    ARCH=$(dpkg --print-architecture)
-    install_or_update_headscale "$ARCH"
+    install_or_update_headscale
     sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
-    enable_and_start_service
-    configure_domain
 fi
+
+enable_and_start_service
+configure_domain
