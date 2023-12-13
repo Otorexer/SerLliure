@@ -43,7 +43,32 @@ Tots els Nodes tenen que tenir un usuari vinculat a ell, aixo vol dir que si vol
 headscale nodes ls
 ```
 ### Canviar d'usuari un Node
-El ID del node el podem trobar si fem el comande per veure tots els Nodes i el nom de usuari si no ens en recordem 
+El ID del node el podem trobar si fem el comande per [Veure tots els Nodes](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale#veure-tots-els-nodes) i el nom de usuari a lapartat de la [Llista Usuaris](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale#llista-usuaris)
 ```bash
 headscale nodes mv -i (ID_Node) -u (Usuari_Nou)
+```
+### Renombrar un Node
+El ID del node el podem trobar si fem el comande per [Veure tots els Nodes](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale#veure-tots-els-nodes)
+```bash
+headscale nodes rename (Nom_Nou) -i (ID_Node)
+```
+### Eliminar un Node
+```bash
+headscale nodes delete -i (ID_Node)
+```
+## Preauthkeys
+Les Preauthkeys son claus per iniciar sessio al nostre servidor de Headscale sense tinguer que afegir cada usuari manualment tinguent que entrar al servidor cada vegada.
+### Creacio Preauthkeys
+Quant es crear una Clau es te que assignar a un Usuari ja que quant el Node se uneixi a la Xarxa safegira amb aquell usuari
+```bash
+headscale pre c -u (Nom_Usuari)
+```
+### Claus que te cada Usuari
+```bash
+headscale pre ls -u (Nom_Usuari)
+```
+### Expirar una Clau
+Quant ens referim a la (Clau) ens referim a tot el text llarc no la ID, podem veure amb el comande per comprovar cada clau de cada usuari
+```bash
+headscale pre exp (Clau) -u (Nom_Usuari)
 ```
