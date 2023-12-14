@@ -1,15 +1,17 @@
 # Instal·lació
 Per instal·lar Headscale només hem d'executar aquest comandament.
 ```bash
-wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh && bash I-Headscale.sh && rm I-Headscale.sh
+wget -O - https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh | bash
+```
+## Base de dades
+```bash
+wget -O - https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/Headscale-Database.sh | bash
 ```
 ## Reverse Proxy
 Un cop tenim el headscale instalat tenim que crear un Reverse Proxy amb Caddy aquest script ens crara la configuracio automaticament amb el nom de domini que haguem posat anteriormanet.
-
 ```bash
-wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/Headscale-Caddy.sh && bash Headscale-Caddy.sh && rm Headscale-Caddy.sh
+wget -O - https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/Headscale-Caddy.sh | bash
 ```
-
 # Funcionament de Headscale
 Headscale es una mica mes complicat de utilitzar ja que no te una web per administrar tots els ordinadors de forma facila, pero si que te una linia de comandes que es permet fer tot o mes coses que Tailscale.
 
