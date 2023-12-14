@@ -22,7 +22,7 @@ listen_addr: 0.0.0.0:8080
 # to keep this endpoint private to your internal
 # network
 #
-metrics_listen_addr: 0.0.0.0:9090
+metrics_listen_addr: 127.0.0.1:9090
 
 # Address to listen for gRPC.
 # gRPC is used for controlling a headscale server
@@ -127,20 +127,14 @@ ephemeral_node_inactivity_timeout: 30m
 # In case of doubts, do not touch the default 10s.
 node_update_check_interval: 10s
 
-# SQLite config
-db_type: sqlite3
-
-# For production:
-db_path: /var/lib/headscale/db.sqlite
-
 # # Postgres config
 # If using a Unix socket to connect to Postgres, set the socket path in the 'host' field and leave 'port' blank.
-# db_type: postgres
-# db_host: localhost
-# db_port: 5432
-# db_name: headscale
-# db_user: foo
-# db_pass: bar
+db_type: postgres
+db_host: localhost
+db_port: 8081
+db_name: headscale
+db_user: headscale
+db_pass:
 
 # If other 'sslmode' is required instead of 'require(true)' and 'disabled(false)', set the 'sslmode' you need
 # in the 'db_ssl' field. Refers to https://www.postgresql.org/docs/current/libpq-ssl.html Table 34.1.
@@ -313,14 +307,6 @@ dns_config:
 
 # Unix socket used for the CLI to connect without authentication
 # Note: for production you will want to set this to something like:
-  extra_records:
-     - name: "webmin.oracle.server.local"
-       type: "A"
-       value: "100.64.1.1"
-     - name: "portainer.oracle.server.local"
-       type: "A"
-       value: "100.64.1.1"
-       
   # Extra DNS records
   # so far only A-records are supported (on the tailscale side)
   # See https://github.com/juanfont/headscale/blob/main/docs/dns-records.md#Limitations
