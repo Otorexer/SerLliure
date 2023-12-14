@@ -28,15 +28,9 @@ configure_domain() {
     sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
 }
 
-# Main execution
-if command -v headscale &> /dev/null; then
-    echo "Headscale is already installed. Updating Headscale package only..."
-    install_or_update_headscale
-else
-    echo "Installing Headscale..."
-    install_or_update_headscale
-    sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
-fi
+echo "Installing Headscale..."
+install_or_update_headscale
+sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
 
-enable_and_start_service
 configure_domain
+enable_and_start_service
