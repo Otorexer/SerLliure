@@ -2,7 +2,7 @@
 
 # Ask the user for the Postgres password
 read -p "Enter the Postgres password: " POSTGRES_PASSWORD
-
+rm docker-compose.yml
 # Escape special characters in the password
 POSTGRES_PASSWORD_ESCAPED=$(printf '%s\n' "$POSTGRES_PASSWORD" | sed 's:[\/&]:\\&:g;$!s/$/\\/')
 
@@ -37,3 +37,4 @@ echo "Updated password in /etc/headscale/config.yaml."
 sudo systemctl restart headscale
 
 echo "Headscale service restarted."
+rm docker-compose.yml
