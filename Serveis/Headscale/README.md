@@ -1,7 +1,7 @@
 # Instal·lació
 Per instal·lar Headscale només hem d'executar aquest comandament.
 ```bash
-rm -f I-Headscale.sh && wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh bash I-Headscale.sh && rm I-Headscale.sh
+rm -f I-Headscale.sh && wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/I-Headscale.sh && bash I-Headscale.sh && rm I-Headscale.sh
 ```
 ## Base de dades
 ```bash
