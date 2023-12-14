@@ -14,23 +14,15 @@ install_or_update_headscale() {
     rm headscale.deb
 }
 
-# Function to enable and start the Headscale service
-enable_and_start_service() {
-    echo "Enabling and starting Headscale service..."
-    sudo systemctl enable headscale
-    sudo systemctl start headscale
-}
-
-# Function to ask user for the domain name and update Headscale configuration
-configure_domain() {
-    read -p "Enter the desired server URL (without https://): " domain_name
-    # Update Headscale config
-    sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
-}
-
 echo "Installing Headscale..."
 install_or_update_headscale
 rm -r /etc/headscale/config.yaml
 sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
-configure_domain
-enable_and_start_service
+
+read -p "Enter the desired server URL (without https://): " domain_name
+# Update Headscale config
+sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
+
+echo "Enabling and starting Headscale service..."
+sudo systemctl enable headscale
+sudo systemctl start headscale
