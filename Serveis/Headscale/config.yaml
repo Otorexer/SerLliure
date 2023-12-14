@@ -134,7 +134,7 @@ db_host: localhost
 db_port: 8081
 db_name: headscale
 db_user: headscale
-db_pass:
+db_pass: 
 
 # If other 'sslmode' is required instead of 'require(true)' and 'disabled(false)', set the 'sslmode' you need
 # in the 'db_ssl' field. Refers to https://www.postgresql.org/docs/current/libpq-ssl.html Table 34.1.
