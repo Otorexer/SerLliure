@@ -12,6 +12,7 @@ version: '3.1'
 
 services:
   db:
+    container_name: headscale_database
     image: postgres
     restart: always
     environment:
