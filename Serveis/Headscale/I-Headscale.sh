@@ -30,7 +30,7 @@ configure_domain() {
 
 echo "Installing Headscale..."
 install_or_update_headscale
-mkdir /etc/headscale
+rm -r /etc/headscale/config.yaml
 sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
 configure_domain
 enable_and_start_service
