@@ -5,7 +5,7 @@ read -p "Enter the Postgres password: " POSTGRES_PASSWORD
 rm docker-compose.yml
 # Escape special characters in the password
 POSTGRES_PASSWORD_ESCAPED=$(printf '%s\n' "$POSTGRES_PASSWORD" | sed 's:[\/&]:\\&:g;$!s/$/\\/')
-
+sed -i "s/^db_pass: .*/db_pass: $POSTGRES_PASSWORD_ESCAPED/" /etc/headscale/config.yaml
 # Create the Docker Compose file
 cat > docker-compose.yml << EOF
 version: '3.1'
@@ -28,12 +28,8 @@ EOF
 echo "Docker Compose file created."
 
 docker compose up -d
-# Update the password in /etc/headscale/config.yaml
-sed -i "s/^db_pass: .*/db_pass: $POSTGRES_PASSWORD_ESCAPED/" /etc/headscale/config.yaml
 
-echo "Updated password in /etc/headscale/config.yaml."
 
-# Restart the headscale service
 sudo systemctl restart headscale
 
 echo "Headscale service restarted."
