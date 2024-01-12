@@ -30,7 +30,7 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
-      - 8080:80/tcp
+      - 10100:80/tcp
     restart: always
 EOF
 
