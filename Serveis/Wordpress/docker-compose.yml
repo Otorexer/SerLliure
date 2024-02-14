@@ -14,7 +14,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
-      - /root/wordpress:/var/www/html
+      - /etc/wordpress:/var/www/html
 
   db:
     container_name: wordpress-db
@@ -26,7 +26,7 @@ services:
       MYSQL_PASSWORD: wordpress
       MYSQL_ROOT_PASSWORD: wordpress-root
     volumes:
-      - /root/wordpress-db:/var/lib/mysql
+      - /etc/wordpress-db:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
