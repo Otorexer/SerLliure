@@ -12,10 +12,7 @@ sudo openssl genpkey -algorithm RSA -out /etc/wordpress-https/key.pem
 sudo openssl req -new -x509 -key /etc/wordpress-https/key.pem -out /etc/wordpress-https/cert.pem -days 365
 
 # Gives permisison to caddy for accesing the files
-sudo chown caddy:caddy /etc/caddy/key.pem
-sudo chown caddy:caddy /etc/caddy/cert.pem
-sudo chmod 600 /etc/caddy/key.pem
-sudo chmod 644 /etc/caddy/cert.pem
-
-# Reloads caddy to apply configuration
-sudo systemctl restart caddy
+sudo chown caddy:caddy /etc/wordpress-https/key.pem
+sudo chown caddy:caddy /etc/wordpress-https/cert.pem
+sudo chmod 600 /etc/wordpress-https/key.pem
+sudo chmod 644 /etc/wordpress-https/cert.pem
