@@ -21,6 +21,7 @@ En aquest apartat parlarem sobre la Administracio del nostre server, com les nos
 
 ### [Portainer-CE](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Portainer-CE)
 Portainer és una plataforma de gestió i administració de contenidors Docker. Ofereix una interfície gràfica per gestionar imatges, contenidors, xarxes i volums de Docker.
+## Serveis
 
 ## Suporta Aquest Projecte
 Si voleu suportar aquest projecte hem poden fer donacions per la pagina de BuyMeACoffee
