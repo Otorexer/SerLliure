@@ -18,7 +18,7 @@ read -p "Enter MySQL root password: " mysql_root_password
 sed -i "s/MYSQL_ROOT_PASSWORD: wordpress-root/MYSQL_ROOT_PASSWORD: $mysql_root_password/g" /root/wordpress/docker-compose.yml
 
 # Prompt user for directory to store volumes
-read -p "Enter directory to store volumes (e.g., /path/to/volumes): " volume_directory
+read -p "Enter directory to store volumes (Recomenacio: /etc): " volume_directory
 sed -i "s|/etc/wordpress|$volume_directory/wordpress|g" /root/wordpress/docker-compose.yml
 sed -i "s|/etc/wordpress-db|$volume_directory/wordpress-db|g" /root/wordpress/docker-compose.yml
 
