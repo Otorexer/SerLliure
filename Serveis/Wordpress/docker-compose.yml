@@ -24,6 +24,15 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_ROOT_PASSWORD: wordpress-root
     volumes:
       - /root/wordpress-db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: wordpress-phpmyadmin
+    restart: always
+    ports:
+      - 81:80
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress-root
