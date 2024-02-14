@@ -14,13 +14,16 @@ Per accedir a la configuracio de caddy farem servir el seguent comande
 ```bash
 sudo nano /etc/caddy/Caddyfile
 ```
-
 ## Sense domini
 Si no tenim un Domini propi i volem configurar el Worpress posarem la seguent configuracio
 ```bash
 :80 {
     reverse_proxy localhost:11180
 }
+```
+Hi despres farem un reset al servei perque s'apliqui la configuracio
+```bash
+sudo systemctl reload caddy
 ```
 ### HTTPS
 Si tambe volem configurar WordPress perque vagi amb HTTPS i no HTTP tenim que fer el seguent.
@@ -45,4 +48,11 @@ Te que quedar aixis
 Hi despres farem un reset al servei perque s'apliqui la configuracio
 ```bash
 sudo systemctl reload caddy
+```
+## Amb domini
+Si tenim un domini domes tenim que afegir aixo a la configuracio i editar la la part on surt (elteudomini.com), d'aquesta forma els certificats es demanaran de forma automatica a Let's Encrypt
+```bash
+elteudomini.com {
+    reverse_proxy localhost:11180
+}
 ```
