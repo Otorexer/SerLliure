@@ -7,7 +7,7 @@ services:
     image: wordpress
     restart: always
     ports:
-      - 80:80
+      - 11180:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
@@ -33,6 +33,6 @@ services:
     container_name: wordpress-phpmyadmin
     restart: always
     ports:
-      - 81:80
+      - 11181:80
     environment:
       MYSQL_ROOT_PASSWORD: wordpress-root
