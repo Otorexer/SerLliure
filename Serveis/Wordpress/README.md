@@ -19,7 +19,7 @@ sudo nano /etc/caddy/Caddyfile
 Si no tenim un Domini propi i volem configurar el Worpress posarem la seguent configuracio
 ```bash
 :80 {
-    redir https://{host}{uri}
+    reverse_proxy localhost:11180
 }
 ```
 ### HTTPS
