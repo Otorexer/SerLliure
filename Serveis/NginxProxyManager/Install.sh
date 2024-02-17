@@ -31,7 +31,7 @@ fi
 # Verificar si l'arxiu existeix
 if [ ! -f "$archivo_docker_compose" ]; then
  echo "Descarregant docker-compose.yml"
- wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Wordpress/docker-compose.yml -O "$archivo_docker_compose"
+ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/NginxProxyManager/docker-compose.yml -O "$archivo_docker_compose"
 else
  echo "L'arxiu $archivo_docker_compose ja existeix."
  echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
