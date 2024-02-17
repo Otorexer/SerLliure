@@ -33,7 +33,7 @@ fi
 if [ ! -f "$docker_compose_file" ]; then
   echo "Descarregant docker-compose.yml"
   wget -q https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/docker-compose.yml -O "$docker_compose_file"
-  
+
   # Demana a l'usuari la contrasenya de PostgreSQL
   read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
   sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file" # Substitueix POSTGRES_PASSWORD
