@@ -3,7 +3,7 @@ Per instal·lar AdGuardHome amb Docker, només hem d'executar aquest comandament
 
 Cal tenir en compte que, com AdGuardHome utilitza els ports 53/tcp i 53/udp, haurem de fer alguns canvis en la configuració de Resolució de DNS del servidor, però no hi ha problema, ja que l'script ho fa de manera automàtica.
 ```bash
-wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/AdGuardHome/Install.sh && bash Install.sh && rm Install.sh
+sudo rm -f Install.sh && wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/AdGuardHome/Install.sh && sudo bash Install.sh && sudo rm Install.sh
 ```
 # Primers Passos
 El primer inici de sessió l'hem de fer des de l'adreça IP de Tailscale amb el port 3000.
