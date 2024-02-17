@@ -42,7 +42,7 @@ sudo wget -O /etc/headscale/config.yaml "$CONFIG_URL" || {
 read -p "Enter the desired server URL (without https://): " domain_name
 
 # Update Headscale config
-sudo sed -i "s|server_url:.*|server_url: $domain_name|" /etc/headscale/config.yaml
+sudo sed -i "s|server_url:.*|server_url: https://$domain_name|" /etc/headscale/config.yaml
 
 echo "Enabling and starting Headscale service..."
 sudo systemctl enable headscale
