@@ -3,7 +3,7 @@
 # Funció per configurar el proxy invers de Caddy
 configure_caddy_proxy() {
   if command -v caddy &> /dev/null; then
-    # Extreure el nom del domini 
+    # Extreure el nom del domini
     domain_name=$(grep 'server_url:' /etc/headscale/config.yaml | sed -e 's/^.*server_url: //' -e 's|https://||' -e 's|/.*$||')
 
     echo "Configurant el proxy invers de Caddy per $domain_name..."
