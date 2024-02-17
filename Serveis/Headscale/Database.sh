@@ -1,48 +1,51 @@
 #!/bin/bash
+
+# Actualització i millora dels paquets del sistema
 sudo apt update && sudo apt upgrade -y
 
-# Directori Headscale
-directorio="/root/headscale"
+# Directori per Headscale
+directory="/root/headscale"
 
-# Arxiu docker-compose.yml
-archivo_docker_compose="$directorio/docker-compose.yml"
+# Fitxer docker-compose 
+docker_compose_file="$directory/docker-compose.yml"
 
-# Comprovar la instal·lació del Docker
-if ! command -v docker &> /dev/null
-then
-  if wget -qO- https://get.docker.com | sh; then 
+# Comprova si Docker està instal·lat
+if ! command -v docker &> /dev/null; then
+  if wget -qO- https://get.docker.com | sh; then
     echo "Docker s'ha instal·lat correctament"
   else
-    echo "La instal·lació del Docker ha fallat. Si us plau, comproveu els errors."
-    exit 1 # Sortida amb un codi d'error 
+    echo "Ha fallat la instal·lació de Docker. Si us plau, revisa si hi ha errors."
+    exit 1
   fi
 else
-  echo "Docker està instal·lat."
+  echo "Docker ja està instal·lat."
 fi
 
-# Verificar si el directori existeix
-if [ ! -d "$directorio" ]; then
- echo "Creant directori $directorio..."
- mkdir "$directorio"
+# Comprova si el directori existeix
+if [ ! -d "$directory" ]; then
+  echo "Creant el directori $directory..."
+  mkdir "$directory"
 else
- echo "El directori $directorio ja existeix."
+  echo "El directori $directory ja existeix."
 fi
 
-# Verificar si l'arxiu existeix
-if [ ! -f "$archivo_docker_compose" ]; then
- echo "Descarregant docker-compose.yml"
- wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/docker-compose.yml -O "$archivo_docker_compose"
-
- # Demanar a l'usuari la contrasenya root de MySQL
- read -p "Introdueix la contrasenya de la Base de Dades: " postgres_password
- sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$archivo_docker_compose"  # Replace POSTGRES_PASSWORD
-
+# Comprova si el fitxer docker-compose existeix
+if [ ! -f "$docker_compose_file" ]; then
+  echo "Descarregant docker-compose.yml"
+  wget -q https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/docker-compose.yml -O "$docker_compose_file"
+   
+  # Demana a l'usuari la contrasenya de PostgreSQL
+  read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
+  sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file" # Substitueix POSTGRES_PASSWORD
 else
- echo "L'arxiu $archivo_docker_compose ja existeix."
- echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano /root/wordpress/docker-compose.yml"
+  echo "El fitxer $docker_compose_file ja existeix."
+  echo "Per editar la configuració, utilitza l'ordre següent: sudo nano /root/headscale/docker-compose.yml"
 fi
 
-cd $directorio
-docker compose up -d
+# Canvia al directori especificat
+cd "$directory" || exit
 
-echo "La configuració de la Base de dades s'ha iniciat. Consulta la documentació per als següents passos." 
+# Inicia els serveis de Docker Compose
+docker-compose up -d
+
+echo "La configuració de la base de dades s'ha iniciat. Si us plau, consulta la documentació per als passos següents."
