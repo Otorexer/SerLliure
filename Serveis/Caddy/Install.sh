@@ -7,7 +7,7 @@ echo " - Instal·lant claus i paquets de transport per a una gestió segura de p
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 
 echo " - Afegint la clau GPG oficial de Caddy per a la verificació de l'autenticitat del paquet..."
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg 2>/dev/null # Redirect error output
 
 echo " - Afegint el repositori de Caddy a les fonts de programari del sistema..."
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
