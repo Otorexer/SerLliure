@@ -44,6 +44,6 @@ else
 fi
 
 cd $directory
-docker-compose up -d
+docker compose up -d
 
 echo "La configuració de la base de dades s'ha iniciat. Si us plau, consulta la documentació per als passos següents."
