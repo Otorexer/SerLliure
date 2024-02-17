@@ -11,11 +11,11 @@ docker_compose_file="$directory/docker-compose.yml"
 
 if ! command -v docker &> /dev/null
 then
-  if wget -qO- https://get.docker.com | sh; then 
+  if wget -qO- https://get.docker.com | sh; then
     echo "Docker s'ha instal·lat correctament"
   else
     echo "La instal·lació del Docker ha fallat. Si us plau, comproveu els errors."
-    exit 1 # Sortida amb un codi d'error 
+    exit 1 # Sortida amb un codi d'error
   fi
 else
   echo "Docker està instal·lat."
