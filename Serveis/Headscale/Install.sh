@@ -6,24 +6,24 @@ CONFIG_URL="https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/He
 
 # Funció per descarregar i instal·lar o actualitzar Headscale
 install_or_update_headscale() {
- ARCH=$(dpkg --print-architecture) || {
- echo "Error: No s'ha pogut determinar l'arquitectura." >&2
- exit 1
- }
+ ARCH=$(dpkg --print-architecture) || {
+ echo "Error: No s'ha pogut determinar l'arquitectura." >&2
+ exit 1
+ }
 
- DOWNLOAD_URL="https://github.com/juanfont/headscale/releases/download/v${HEADSCALE_VERSION}/headscale_${HEADSCALE_VERSION}_linux_${ARCH}.deb"
+ DOWNLOAD_URL="https://github.com/juanfont/headscale/releases/download/v${HEADSCALE_VERSION}/headscale_${HEADSCALE_VERSION}_linux_${ARCH}.deb"
 
- wget --output-document=headscale.deb "$DOWNLOAD_URL" || {
- echo "Error: Ha fallat la descàrrega." >&2
- exit 1
- }
+ wget --output-document=headscale.deb "$DOWNLOAD_URL" || {
+ echo "Error: Ha fallat la descàrrega." >&2
+ exit 1
+ }
 
- sudo dpkg -i headscale.deb || {
- echo "Error: Ha fallat la instal·lació." >&2
- exit 1
- }
+ sudo dpkg -i headscale.deb || {
+ echo "Error: Ha fallat la instal·lació." >&2
+ exit 1
+ }
 
- rm headscale.deb
+ rm headscale.deb
 }
 
 echo "Instal·lant Headscale..."
@@ -34,8 +34,8 @@ rm -rf /etc/headscale/config.yaml
 
 # Descarrega i desa el fitxer de configuració
 sudo wget -O /etc/headscale/config.yaml "$CONFIG_URL" || {
- echo "Error: Ha fallat la descàrrega de la configuració." >&2
- exit 1
+ echo "Error: Ha fallat la descàrrega de la configuració." >&2
+ exit 1
 }
 
 # Demana i valida el nom de domini
