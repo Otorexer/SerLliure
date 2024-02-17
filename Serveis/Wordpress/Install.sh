@@ -43,7 +43,7 @@ if [ ! -f "$archivo_docker_compose" ]; then
  sed -i "s|/etc/wordpress-db|$volume_directory/wordpress-db|g" /root/wordpress/docker-compose.yml
 else
  echo "L'arxiu $archivo_docker_compose ja existeix."
- echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano /root/wordpress/docker-compose.yml"
+ echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
 fi
 
 cd $directorio
