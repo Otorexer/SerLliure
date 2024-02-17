@@ -1,36 +1,48 @@
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
 
-# Ask the user for the Postgres password
-read -p "Enter the Postgres password: " POSTGRES_PASSWORD
-rm docker-compose.yml
-# Escape special characters in the password
-POSTGRES_PASSWORD_ESCAPED=$(printf '%s\n' "$POSTGRES_PASSWORD" | sed 's:[\/&]:\\&:g;$!s/$/\\/')
-sed -i "s/db_pass: .*/db_pass: $POSTGRES_PASSWORD_ESCAPED/" /etc/headscale/config.yaml
-# Create the Docker Compose file
-cat > docker-compose.yml << EOF
-version: '3.1'
+# Directori Headscale
+directorio="/root/headscale"
 
-services:
-  db:
-    container_name: headscale_database
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-      POSTGRES_DB: headscale
-      POSTGRES_USER: headscale
-    ports:
-      - "8081:5432"
-    volumes:
-      - /etc/headscale_database:/var/lib/postgresql/data
-EOF
+# Arxiu docker-compose.yml
+archivo_docker_compose="$directorio/docker-compose.yml"
 
-echo "Docker Compose file created."
+# Comprovar la instal·lació del Docker
+if ! command -v docker &> /dev/null
+then
+  if wget -qO- https://get.docker.com | sh; then 
+    echo "Docker s'ha instal·lat correctament"
+  else
+    echo "La instal·lació del Docker ha fallat. Si us plau, comproveu els errors."
+    exit 1 # Sortida amb un codi d'error 
+  fi
+else
+  echo "Docker està instal·lat."
+fi
 
+# Verificar si el directori existeix
+if [ ! -d "$directorio" ]; then
+ echo "Creant directori $directorio..."
+ mkdir "$directorio"
+else
+ echo "El directori $directorio ja existeix."
+fi
+
+# Verificar si l'arxiu existeix
+if [ ! -f "$archivo_docker_compose" ]; then
+ echo "Descarregant docker-compose.yml"
+ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Headscale/docker-compose.yml -O "$archivo_docker_compose"
+
+ # Demanar a l'usuari la contrasenya root de MySQL
+ read -p "Introdueix la contrasenya de la Base de Dades: " postgres_password
+ sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$archivo_docker_compose"  # Replace POSTGRES_PASSWORD
+
+else
+ echo "L'arxiu $archivo_docker_compose ja existeix."
+ echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano /root/wordpress/docker-compose.yml"
+fi
+
+cd $directorio
 docker compose up -d
 
-
-sudo systemctl restart headscale
-
-echo "Headscale service restarted."
-rm docker-compose.yml
+echo "La configuració de la Base de dades s'ha iniciat. Consulta la documentació per als següents passos." 
