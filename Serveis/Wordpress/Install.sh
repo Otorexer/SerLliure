@@ -2,10 +2,10 @@
 sudo apt update && sudo apt upgrade -y
 
 # Directori WordPress
-directorio_wordpress="/root/wordpress"
+directorio="/root/wordpress"
 
 # Arxiu docker-compose.yml
-archivo_docker_compose="$directorio_wordpress/docker-compose.yml"
+archivo_docker_compose="$directorio/docker-compose.yml"
 
 # Comprovar la instal·lació del Docker
 if ! command -v docker &> /dev/null
@@ -21,11 +21,11 @@ else
 fi
 
 # Verificar si el directori existeix
-if [ ! -d "$directorio_wordpress" ]; then
- echo "Creant directori $directorio_wordpress..."
- mkdir "$directorio_wordpress"
+if [ ! -d "$directorio" ]; then
+ echo "Creant directori $directorio..."
+ mkdir "$directorio"
 else
- echo "El directori $directorio_wordpress ja existeix."
+ echo "El directori $directorio_ ja existeix."
 fi
 
 # Verificar si l'arxiu existeix
