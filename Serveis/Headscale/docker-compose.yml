@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: headscale_database
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: headscale-password
+      POSTGRES_DB: headscale
+      POSTGRES_USER: headscale
+    ports:
+      - "8081:5432"
+    volumes:
+      - /etc/headscale_database:/var/lib/postgresql/data
