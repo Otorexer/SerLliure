@@ -48,4 +48,4 @@ echo "Habilitant i iniciant el servei Headscale..."
 sudo systemctl enable headscale
 sudo systemctl start headscale
 
-echo "Instal·lació de Headscale completada. Consulta la documentació per als següents passos."
+echo "Installacio de Headscale completada. Consulta la documentacio per als seguents passos."
