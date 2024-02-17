@@ -6,7 +6,7 @@ sudo apt update && sudo apt upgrade -y
 # Directori per Headscale
 directory="/root/headscale"
 
-# Fitxer docker-compose 
+# Fitxer docker-compose
 docker_compose_file="$directory/docker-compose.yml"
 
 if ! command -v docker &> /dev/null
