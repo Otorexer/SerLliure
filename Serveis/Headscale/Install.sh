@@ -26,16 +26,6 @@ install_or_update_headscale() {
   rm headscale.deb
 }
 
-# Function to validate and sanitize domain name
-validate_domain_name() {
-  local domain_name="$1"
-  if [[ ! "$domain_name" =~ ^[a-zA-Z0-9-]+\.[a-zA-Z]+$ ]]; then
-    echo "Error: Invalid domain name format." >&2
-    exit 1
-  fi
-  echo "https://$domain_name"
-}
-
 echo "Installing Headscale..."
 install_or_update_headscale
 
@@ -50,10 +40,9 @@ sudo wget -O /etc/headscale/config.yaml "$CONFIG_URL" || {
 
 # Prompt and validate domain name
 read -p "Enter the desired server URL (without https://): " domain_name
-server_url=$(validate_domain_name "$domain_name")
 
 # Update Headscale config
-sudo sed -i "s|server_url:.*|server_url: $server_url|" /etc/headscale/config.yaml
+sudo sed -i "s|server_url:.*|server_url: $domain_name|" /etc/headscale/config.yaml
 
 echo "Enabling and starting Headscale service..."
 sudo systemctl enable headscale
