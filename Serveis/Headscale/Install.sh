@@ -6,23 +6,57 @@ CONFIG_URL="https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/He
 
 # Function to download and install or update Headscale
 install_or_update_headscale() {
-    ARCH=$(dpkg --print-architecture)
-    DOWNLOAD_URL="https://github.com/juanfont/headscale/releases/download/v${HEADSCALE_VERSION}/headscale_${HEADSCALE_VERSION}_linux_${ARCH}.deb"
+  ARCH=$(dpkg --print-architecture) || {
+    echo "Error: Failed to determine architecture." >&2
+    exit 1
+  }
 
-    wget --output-document=headscale.deb $DOWNLOAD_URL
-    sudo dpkg -i headscale.deb
-    rm headscale.deb
+  DOWNLOAD_URL="https://github.com/juanfont/headscale/releases/download/v${HEADSCALE_VERSION}/headscale_${HEADSCALE_VERSION}_linux_${ARCH}.deb"
+
+  wget --output-document=headscale.deb "$DOWNLOAD_URL" || {
+    echo "Error: Download failed." >&2
+    exit 1
+  }
+
+  sudo dpkg -i headscale.deb || {
+    echo "Error: Installation failed." >&2
+    exit 1
+  }
+
+  rm headscale.deb
+}
+
+# Function to validate and sanitize domain name
+validate_domain_name() {
+  local domain_name="$1"
+  if [[ ! "$domain_name" =~ ^[a-zA-Z0-9-]+\.[a-zA-Z]+$ ]]; then
+    echo "Error: Invalid domain name format." >&2
+    exit 1
+  fi
+  echo "https://$domain_name"
 }
 
 echo "Installing Headscale..."
 install_or_update_headscale
-rm -r /etc/headscale/config.yaml
-sudo wget $CONFIG_URL -O /etc/headscale/config.yaml
 
+# Remove existing config (if any)
+rm -rf /etc/headscale/config.yaml
+
+# Download and place config file
+sudo wget -O /etc/headscale/config.yaml "$CONFIG_URL" || {
+  echo "Error: Downloading config failed." >&2
+  exit 1
+}
+
+# Prompt and validate domain name
 read -p "Enter the desired server URL (without https://): " domain_name
+server_url=$(validate_domain_name "$domain_name")
+
 # Update Headscale config
-sudo sed -i "s|server_url:.*|server_url: https://${domain_name}|" /etc/headscale/config.yaml
+sudo sed -i "s|server_url:.*|server_url: $server_url|" /etc/headscale/config.yaml
 
 echo "Enabling and starting Headscale service..."
 sudo systemctl enable headscale
 sudo systemctl start headscale
+
+echo "Headscale installation complete!"
