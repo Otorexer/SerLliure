@@ -9,12 +9,16 @@ directory="/root/headscale"
 # Fitxer docker-compose 
 docker_compose_file="$directory/docker-compose.yml"
 
-# Comprova si Docker està instal·lat
-if wget -qO- https://get.docker.com | sh; then
-    echo "Docker s'ha instal·lat correctament"
+if ! command -v docker &> /dev/null
+then
+  if wget -qO- https://get.docker.com | sh; then 
+    echo "Docker s'ha instal·lat correctament"
+  else
+    echo "La instal·lació del Docker ha fallat. Si us plau, comproveu els errors."
+    exit 1 # Sortida amb un codi d'error 
+  fi
 else
-    echo "Ha fallat la instal·lació de Docker. Si us plau, revisa si hi ha errors."
-    exit 1
+  echo "Docker està instal·lat."
 fi
 
 # Comprova si el directori existeix
@@ -38,10 +42,7 @@ else
   echo "Per editar la configuració, utilitza l'ordre següent: sudo nano /root/headscale/docker-compose.yml"
 fi
 
-# Canvia al directori especificat
-cd "$directory" || exit
-
-# Inicia els serveis de Docker Compose
+cd $directory
 docker-compose up -d
 
 echo "La configuració de la base de dades s'ha iniciat. Si us plau, consulta la documentació per als passos següents."
