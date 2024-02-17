@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
 
 echo "**Preparant el sistema per a la instal·lació de Caddy:**"
 
