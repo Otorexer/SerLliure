@@ -1,0 +1,15 @@
+version: "3"
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    environment:
+      - TZ=Europe/Madrid
+    volumes:
+      - /etc/pihole/etc:/etc/pihole
+      - /etc/pihole/dnsmasq.d:/etc/dnsmasq.d
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 10100:80/tcp
+    restart: always 
