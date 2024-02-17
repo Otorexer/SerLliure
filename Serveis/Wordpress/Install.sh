@@ -30,7 +30,7 @@ fi
 
 # Verificar si l'arxiu existeix
 if [ ! -f "$archivo_docker_compose" ]; then
- echo "Descarregant arxiu $archivo_docker_compose..."
+ echo "Descarregant docker-compose.yml"
  wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Wordpress/docker-compose.yml -O "$archivo_docker_compose"
 
  # Demanar a l'usuari la contrasenya root de MySQL
@@ -46,7 +46,7 @@ else
  echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano /root/wordpress/docker-compose.yml"
 fi
 
-cd /root/wordpress
+cd $directorio
 docker compose up -d
 
 # Afegir un missatge d'èxit bàsic 
