@@ -10,15 +10,11 @@ directory="/root/headscale"
 docker_compose_file="$directory/docker-compose.yml"
 
 # Comprova si Docker està instal·lat
-if ! command -v docker &> /dev/null; then
-  if wget -qO- https://get.docker.com | sh; then
-    echo "Docker s'ha instal·lat correctament"
-  else
-    echo "Ha fallat la instal·lació de Docker. Si us plau, revisa si hi ha errors."
-    exit 1
-  fi
+if wget -qO- https://get.docker.com | sh; then
+    echo "Docker s'ha instal·lat correctament"
 else
-  echo "Docker ja està instal·lat."
+    echo "Ha fallat la instal·lació de Docker. Si us plau, revisa si hi ha errors."
+    exit 1
 fi
 
 # Comprova si el directori existeix
