@@ -12,10 +12,10 @@ services:
     volumes:
       - /root/nextcloud:/var/www/html
     environment:
-      - POSTGRES_HOST=nextcloud-database
-      - POSTGRES_PASSWORD=nextcloud-password
-      - POSTGRES_USER=nextcloud
-      - POSTGRES_DB=nextcloud
+      POSTGRES_HOST: nextcloud-database
+      POSTGRES_PASSWORD: nextcloud-password
+      POSTGRES_USER: nextcloud
+      POSTGRES_DB: nextcloud
 
   nextcloud-database:
     container_name: nextcloud-database
