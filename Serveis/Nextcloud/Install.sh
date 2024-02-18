@@ -38,4 +38,5 @@ fi
 cd $directory
 docker compose up -d
 
+# Afegir un missatge d'èxit bàsic 
 echo "La configuració de Nextcloud s'ha iniciat. Consulta la documentació per als següents passos." 
