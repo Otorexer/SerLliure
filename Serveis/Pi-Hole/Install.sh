@@ -2,7 +2,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Directori Pi-Hole
-directory="/root/pihole"
+directory="/root/piHole"
 
 # Arxiu docker-compose.yml
 docker_compose_file="$directory/docker-compose.yml"
