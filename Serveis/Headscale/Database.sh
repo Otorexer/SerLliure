@@ -36,7 +36,7 @@ if [ ! -f "$docker_compose_file" ]; then
 
   # Demana a l'usuari la contrasenya de PostgreSQL
   read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
-  sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file" # Substitueix POSTGRES_PASSWORD
+  sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file"
   sed -i "s/db_pass:.*/db_pass: $postgres_password/g" /etc/headscale/config.yaml
 else
   echo "El fitxer $docker_compose_file ja existeix."
