@@ -2,10 +2,10 @@
 sudo apt update && sudo apt upgrade -y
 
 # Directori WordPress
-directorio="/root/portainerce"
+directory="/root/portainerce"
 
 # Arxiu docker-compose.yml
-archivo_docker_compose="$directorio/docker-compose.yml"
+docker_compose_file="$directory/docker-compose.yml"
 
 # Comprovar la instal·lació del Docker
 if ! command -v docker &> /dev/null
@@ -21,23 +21,23 @@ else
 fi
 
 # Verificar si el directori existeix
-if [ ! -d "$directorio" ]; then
- echo "Creant directori $directorio..."
- mkdir "$directorio"
+if [ ! -d "$directory" ]; then
+ echo "Creant directori $directory..."
+ mkdir "$directory"
 else
- echo "El directori $directorio_ ja existeix."
+ echo "El directori $directory ja existeix."
 fi
 
 # Verificar si l'arxiu existeix
-if [ ! -f "$archivo_docker_compose" ]; then
+if [ ! -f "$docker_compose_file" ]; then
  echo "Descarregant docker-compose.yml"
- wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Portainer-CE/docker-compose.yml -O "$archivo_docker_compose"
+ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Portainer-CE/docker-compose.yml -O "$docker_compose_file"
 else
- echo "L'arxiu $archivo_docker_compose ja existeix."
- echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
+ echo "L'arxiu $docker_compose_file ja existeix."
+ echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $docker_compose_file"
 fi
 
-cd $directorio
+cd $directory
 docker compose up -d
 
 # Afegir un missatge d'èxit bàsic 
