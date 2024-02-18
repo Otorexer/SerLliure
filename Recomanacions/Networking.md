@@ -1,10 +1,10 @@
 # Recomanacions
 
-En aquest apartat, fem unes recomanacions que, per a nosaltres, serien clau per fer el servidor perfecte, tant en seguretat com en accessibilitat.
+En aquest apartat, fem unes recomanacions que, per a nosaltres, serien clau per fer el servidor lo millor possible, tant en seguretat com en accessibilitat.
 
 ## Accedir al Servidor de Forma Privada 🔒
 
-Primer de tot, el més important és la manera en què accedim al servidor. Nosaltres recomanem instal·lar Tailscale, una VPN de tipus Mesh que ens permetrà accedir al servidor tant localment com remotament.
+Primer de tot, el més important és la manera en què accedim al servidor. Nosaltres recomanem instal·lar Tailscale, una VPN de tipus Mesh que ens permetrà accedir al servidor tant localment com remotament sense tenir que obrir ports.
 
 Això funciona perquè el servidor de Tailscale no opera com un servidor VPN tradicional.
 
@@ -38,7 +38,7 @@ Això significa que la velocitat màxima no es veurà limitada i que el ping ent
 
 ## Accedir al Servidor de Forma Pública 🌐
 
-Per accedir al servidor de forma pública, ens referim a que qualsevol persona amb internet pugui connectar-se al nostre servidor i accedir als nostres serveis.
+Per accedir al servidor de forma pública, ens referim a que qualsevol persona amb internet pugui connectar-se al nostre servidor i accedir als nostres serveis sense tenir acces a la nostre xarxa de tailscale.
 
 Hi ha dues maneres principals d'aconseguir-ho:
 
@@ -46,9 +46,9 @@ Hi ha dues maneres principals d'aconseguir-ho:
 
 Aquesta és la manera més coneguda i pot incloure l'obertura de ports com el 445 per un servidor Samba o el port 80 per allotjar una pàgina web. Aquest mètode té avantatges i desavantatges:
 
-✅ La principal avantatge és que tothom que es vulgui connectar ho farà de manera directa, aprofitant la màxima velocitat possible del nostre pla de velocitat.
+✅ La principal avantatge és que tothom que es vulgui connectar ho farà de manera directa, aprofitant la màxima velocitat possible del nostre pla de velocitat de la companyia de telefon.
 
-❌ Però també hi ha un gran desavantatge: qualsevol persona tindrà accés a la nostra IP pública i podrà estimar la nostra direcció.
+❌ Però també hi ha un gran desavantatge: qualsevol persona tindrà accés a la nostra IP pública i podrà estimar la nostra direcció com fer atacs DDOS hi tirar-nos la conexio.
 
 ### Fer Servir Proxys amb una VPS
 
