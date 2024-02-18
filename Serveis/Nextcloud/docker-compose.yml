@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  nextcloud-database:
+    container_name: nextcloud-database
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: nextcloud-password
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+    ports:
+      - "12281:5432"
+    volumes:
+      - /etc/nextcloud-database:/var/lib/postgresql/data
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    restart: always
+    ports:
+      - '11280:80'
+    links:
+      - nextcloud-database
+    volumes:
+      - /root/nextcloud:/var/www/html
+    environment:
+      - POSTGRES_HOST=nextcloud-database
+      - POSTGRES_PASSWORD=nextcloud-password
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_DB=nextcloud
