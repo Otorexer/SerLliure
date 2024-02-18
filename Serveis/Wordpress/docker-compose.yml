@@ -9,26 +9,26 @@ services:
     ports:
       - 11180:80
     environment:
-      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_HOST: wordpress-database
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress-password
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - /etc/wordpress:/var/www/html
 
-  db:
-    container_name: wordpress-db
+  wordpress-database:
+    container_name: wordpress-database
     image: mysql:8.0
     restart: always
     environment:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_PASSWORD: wordpress-password
       MYSQL_ROOT_PASSWORD: wordpress-root
     volumes:
-      - /etc/wordpress-db:/var/lib/mysql
+      - /etc/wordpress-database:/var/lib/mysql
 
-  phpmyadmin:
+  wordpress-phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: wordpress-phpmyadmin
     restart: always
