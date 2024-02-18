@@ -8,8 +8,7 @@ directorio="/root/wordpress"
 archivo_docker_compose="$directorio/docker-compose.yml"
 
 # Comprovar la instal·lació del Docker
-if ! command -v docker &> /dev/null
-then
+if ! command -v docker &> /dev/null then
   if wget -qO- https://get.docker.com | sh; then 
     echo "Docker s'ha instal·lat correctament"
   else
