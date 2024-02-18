@@ -29,7 +29,7 @@ if [ ! -f "$archivo_docker_compose" ]; then
  wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Nextcloud/docker-compose.yml -O "$archivo_docker_compose"
 
  read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
- sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file" # Substitueix POSTGRES_PASSWORD
+ sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$archivo_docker_compose" # Substitueix POSTGRES_PASSWORD
 else
  echo "L'arxiu $archivo_docker_compose ja existeix."
  echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
