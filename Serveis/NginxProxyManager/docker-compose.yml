@@ -1,14 +1,14 @@
-version: '3.7' # A common Compose file version 
+version: '3.7'
 
 services:
-  nginxproxy:
+  nginxproxymanager:
     image: jc21/nginx-proxy-manager:latest
-    container_name: nginxproxy  # Optional, but good for management
-    restart: unless-stopped     # Keep container running unless manually stopped
+    container_name: nginxproxymanager
+    restart: always
     ports:
       - 80:80
       - 81:81
       - 443:443
     volumes:
-      - /etc/nginx/data:/data 
-      - /etc/nginx/letsencrypt:/etc/letsencrypt 
+      - /etc/nginxproxymanager/data:/data
+      - /etc/nginxproxymanager/letsencrypt:/etc/letsencrypt
