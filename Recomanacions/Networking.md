@@ -72,7 +72,7 @@ Si dicidim fer servir Tailscale i no hostejar el nostre propi servidor de Headsc
 >[!WARNING]
 >Aquesta opcio no acava de funcionar del tot be sobretot en dispositius movils.
 
-#### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Pi-Hole)
+#### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Pi-Hole)
 #### Headscale
 Si crem el nostre propi servidor de Headscale que es lo recomenat ho farem editant la configuracio de Headscale ja que d'aquesta forma tindrem la millor compatibilitat possible i sabrem que mai fallara.
 ### DNS Públic 🌐
