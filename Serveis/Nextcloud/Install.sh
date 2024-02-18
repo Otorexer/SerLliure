@@ -2,10 +2,10 @@
 sudo apt update && sudo apt upgrade -y
 
 # Directori Nextcloud
-directorio="/root/nextcloud"
+directory="/root/nextcloud"
 
 # Arxiu docker-compose.yml
-archivo_docker_compose="$directorio/docker-compose.yml"
+docker_compose_file="$directory/docker-compose.yml"
 
 # Comprovar la instal·lació del Docker
 if ! command -v docker &> /dev/null; then
@@ -16,23 +16,28 @@ else
 fi
 
 # Verificar si el directori existeix
-if [ ! -d "$directorio" ]; then
- echo "Creant directori $directorio..."
- mkdir "$directorio"
+if [ ! -d "$directory" ]; then
+ echo "Creant directori $directory..."
+ mkdir "$directory"
 else
- echo "El directori $directorio_ ja existeix."
+ echo "El directori $directory ja existeix."
 fi
 
 # Verificar si l'arxiu existeix
-if [ ! -f "$archivo_docker_compose" ]; then
+if [ ! -f "$docker_compose_file" ]; then
  echo "Descarregant docker-compose.yml"
- wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Nextcloud/docker-compose.yml -O "$archivo_docker_compose"
+ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Nextcloud/docker-compose.yml -O "$docker_compose_file"
 
  read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
- sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$archivo_docker_compose" # Substitueix POSTGRES_PASSWORD
+ sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file"
+
+ # Demanar a l'usuari el directori per emmagatzemar els volums
+ read -p "Introdueix el directori per emmagatzemar els volums (Recomanació: /etc): " volume_directory
+ sed -i "s|/etc/nextcloud-database|$volume_directory/wordpress|g" "$docker_compose_file"
+ sed -i "s|/etc/nextcloud-database|$volume_directory/wordpress-database|g" "$docker_compose_file"
 else
- echo "L'arxiu $archivo_docker_compose ja existeix."
- echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
+ echo "L'arxiu $docker_compose_file ja existeix."
+ echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $docker_compose_file"
 fi
 
 cd $directory
