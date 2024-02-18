@@ -36,6 +36,10 @@ En aquest apartat parlarem sobre la Administracio del nostre server, com les nos
 ### [Portainer-CE](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Portainer-CE)
 Portainer és una plataforma de gestió i administració de contenidors Docker. Ofereix una interfície gràfica per gestionar imatges, contenidors, xarxes i volums de Docker.
 
+### [Webmin](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Webmin)
+Webmin és una eina d'administració de sistemes basada en web que permet gestionar servidors Unix, Linux i Windows de manera remota. Ofereix una interfície gràfica fàcil d'utilitzar per a una gran varietat de tasques administratives.
+
+
 ## Serveis
 
 ## Suporta Aquest Projecte
