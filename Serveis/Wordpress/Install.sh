@@ -9,12 +9,8 @@ archivo_docker_compose="$directorio/docker-compose.yml"
 
 # Comprovar la instal·lació del Docker
 if ! command -v docker &> /dev/null then
-  if wget -qO- https://get.docker.com | sh; then 
-    echo "Docker s'ha instal·lat correctament"
-  else
-    echo "La instal·lació del Docker ha fallat. Si us plau, comproveu els errors."
-    exit 1 # Sortida amb un codi d'error 
-  fi
+  wget -qO- https://get.docker.com | sh; 
+  echo "Docker s'ha instal·lat correctament"
 else
   echo "Docker està instal·lat."
 fi
