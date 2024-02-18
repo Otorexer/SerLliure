@@ -17,26 +17,26 @@ fi
 
 # Verificar si el directori existeix
 if [ ! -d "$directorio" ]; then
- echo "Creant directori $directorio..."
- mkdir "$directorio"
+ echo "Creant directori $directorio..."
+ mkdir "$directorio"
 else
- echo "El directori $directorio_ ja existeix."
+ echo "El directori $directorio_ ja existeix."
 fi
 
 # Verificar si l'arxiu existeix
 if [ ! -f "$archivo_docker_compose" ]; then
  echo "Descarregant docker-compose.yml"
- wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Nextcloud/docker-compose.yml -O "$archivo_docker_compose"
+ wget https://raw.githubusercontent.com/Otorexer/SerLliure/main/Serveis/Nextcloud/docker-compose.yml -O "$archivo_docker_compose"
 
  read -p "Introdueix la contrasenya de la base de dades PostgreSQL: " postgres_password
  sed -i "s/POSTGRES_PASSWORD:.*/POSTGRES_PASSWORD: $postgres_password/g" "$docker_compose_file" # Substitueix POSTGRES_PASSWORD
 else
- echo "L'arxiu $archivo_docker_compose ja existeix."
+ echo "L'arxiu $archivo_docker_compose ja existeix."
  echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $archivo_docker_compose"
 fi
 
 cd $directory
 docker compose up -d
 
-# Afegir un missatge d'èxit bàsic 
-echo "La configuració de Nextcloud s'ha iniciat. Consulta la documentació per als següents passos." 
+# Afegir un missatge d'èxit bàsic 
+echo "La configuració de Nextcloud s'ha iniciat. Consulta la documentació per als següents passos." 
