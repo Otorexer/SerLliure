@@ -16,11 +16,16 @@ En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre reco
 ### [❗Recomanacions❗](https://github.com/Otorexer/SerLliure/blob/main/Recomanacions/Networking.md)
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
+
+### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
+Headscale és un servidor de control WireGuard de codi obert que permet crear i gestionar una xarxa privada virtual (VPN) segura i personalitzada. A diferència de Tailscale, Headscale s'allotja al vostre propi servidor, cosa que us dóna un control total sobre la vostra infraestructura VPN i les dades.
+
 ## Administracio
 En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions per tenir un millor servidor.
 
 ### [Portainer-CE](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Portainer-CE)
 Portainer és una plataforma de gestió i administració de contenidors Docker. Ofereix una interfície gràfica per gestionar imatges, contenidors, xarxes i volums de Docker.
+
 ## Serveis
 
 ## Suporta Aquest Projecte
