@@ -51,6 +51,7 @@ sudo systemctl reload caddy
 ```
 ## Amb domini
 [Tenim una guia mes completa de com configurar Caddy depenent de les vostres nessesitats.](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy)
+
 Si tenim un domini domes tenim que afegir aixo a la configuracio i editar la la part on surt (elteudomini.com), d'aquesta forma els certificats es demanaran de forma automatica a Let's Encrypt.
 
 Es important que havans de fer aixo tenimr que configurar el Domini o Subdomini perque apuntin al servir on tenim instalat Caddy.
