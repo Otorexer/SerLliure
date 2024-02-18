@@ -20,6 +20,11 @@ Tailscale és una xarxa VPN que connecta dispositius de forma segura sense confi
 ### [Headscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Headscale)
 Headscale és un servidor de control WireGuard de codi obert que permet crear i gestionar una xarxa privada virtual (VPN) segura i personalitzada. A diferència de Tailscale, Headscale s'allotja al vostre propi servidor, cosa que us dóna un control total sobre la vostra infraestructura VPN i les dades.
 
+### [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy)
+Caddy és un servidor web lleuger que pot actuar com a proxy invers per a una o més aplicacions web. Això significa que Caddy pot rebre sol·licituds HTTP o HTTPS dels clients i reenviar-les a un servidor web diferent, segons la configuració, tambe permet generar certificats SSL de forma simple amb Let's Encrypt.
+
+
+
 ## Administracio
 En aquest apartat parlarem sobre la Administracio del nostre server, com les nostre recomenacions per tenir un millor servidor.
 
