@@ -10,7 +10,7 @@ services:
     links:
       - nextcloud-database
     volumes:
-      - /root/nextcloud:/var/www/html
+      - /etc/nextcloud:/var/www/html
     environment:
       POSTGRES_HOST: nextcloud-database
       POSTGRES_PASSWORD: nextcloud-password
