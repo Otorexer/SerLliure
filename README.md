@@ -23,6 +23,11 @@ Headscale és un servidor de control WireGuard de codi obert que permet crear i 
 ### [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy)
 Caddy és un servidor web lleuger que pot actuar com a proxy invers per a una o més aplicacions web. Això significa que Caddy pot rebre sol·licituds HTTP o HTTPS dels clients i reenviar-les a un servidor web diferent, segons la configuració, tambe permet generar certificats SSL de forma simple amb Let's Encrypt.
 
+### [NginxProxyManager](https://github.com/Otorexer/SerLliure/tree/main/Serveis/NginxProxyManager)
+NginxProxyManager és una interfície d'usuari web basada en panells per a la gestió de servidors proxy Nginx. Simplifica la configuració i gestió de servidors proxy Nginx, permetent-te crear, editar i eliminar proxies amb facilitat.
+
+### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Pi-Hole)
+Pi-Hole és un servidor DNS que bloqueja la publicitat a nivell de xarxa. Filtra dominis publicitaris coneguts i evita que es carreguin al navegador o aplicacions.
 
 
 ## Administracio
