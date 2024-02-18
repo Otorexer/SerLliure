@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  portainer:
-    container_name: wordpress
+  portainerce:
+    container_name: portainerce
     image: portainer/portainer-ce:latest
     restart: always
     ports:
