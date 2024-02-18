@@ -13,7 +13,9 @@ wget -qO- https://get.docker.com | sh
 ## [VPS Gratuit amb Oracle](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/OracleFreeTier.md)
 ## Networking
 En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre recomenacions.
+
 ### [❗Recomanacions❗](https://github.com/Otorexer/SerLliure/blob/main/Recomanacions/Networking.md)
+
 ### [Tailscale](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
 Tailscale és una xarxa VPN que connecta dispositius de forma segura sense configurar routers o ports. Utilitza autenticació per clau pública i encripta tot el tràfic.
 
@@ -41,6 +43,10 @@ Webmin és una eina d'administració de sistemes basada en web que permet gestio
 
 
 ## Serveis
+
+### [Wordpress](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Wordpress)
+WordPress és un sistema de gestió de continguts (CMS) de codi obert que permet crear i gestionar llocs web de manera fàcil i flexible. S'utilitza per a una gran varietat de llocs web, des de blogs personals fins a grans llocs web corporatius i botigues en línia.
+
 
 ## Suporta Aquest Projecte
 Si voleu suportar aquest projecte hem poden fer donacions per la pagina de BuyMeACoffee
