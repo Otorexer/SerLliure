@@ -33,8 +33,8 @@ if [ ! -f "$docker_compose_file" ]; then
 
  # Demanar a l'usuari el directori per emmagatzemar els volums
  read -p "Introdueix el directori per emmagatzemar els volums (Recomanació: /etc): " volume_directory
- sed -i "s|/etc/nextcloud-database|$volume_directory/wordpress|g" "$docker_compose_file"
- sed -i "s|/etc/nextcloud-database|$volume_directory/wordpress-database|g" "$docker_compose_file"
+ sed -i "s|/etc/nextcloud|$volume_directory/nextcloud|g" "$docker_compose_file"
+ sed -i "s|/etc/nextcloud-database|$volume_directory/nextcloud-database|g" "$docker_compose_file"
 else
  echo "L'arxiu $docker_compose_file ja existeix."
  echo "Si vols editar la configuracio fes servir la següent comanda: sudo nano $docker_compose_file"
