@@ -36,3 +36,4 @@ services:
       - 11181:80
     environment:
       MYSQL_ROOT_PASSWORD: wordpress-root
+      PMA_HOST: wordpress-database
