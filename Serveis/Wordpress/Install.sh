@@ -34,6 +34,7 @@ if [ ! -f "$docker_compose_file" ]; then
  
  read -p "Introdueix la contrasenya per el usuari Wordpress de MySQL: " mysql_password
  sed -i "s/MYSQL_PASSWORD: wordpress-password/MYSQL_PASSWORD: $mysql_password/g" "$docker_compose_file"
+ sed -i "s/WORDPRESS_DB_PASSWORD: wordpress-password/WORDPRESS_DB_PASSWORD: $mysql_password/g" "$docker_compose_file"
 
  # Demanar a l'usuari el directori per emmagatzemar els volums
  read -p "Introdueix el directori per emmagatzemar els volums (Recomanació: /etc): " volume_directory
