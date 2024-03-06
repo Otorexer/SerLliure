@@ -4,6 +4,7 @@ services:
   pihole:
     image: pihole/pihole:latest
     container_name: pihole
+    restart: always
     environment:
       - TZ=Europe/Madrid
     ports:
@@ -13,4 +14,3 @@ services:
     volumes:
       - /etc/pihole/etc:/etc/pihole
       - /etc/pihole/dnsmasq.d:/etc/dnsmasq.d
-    restart: always
