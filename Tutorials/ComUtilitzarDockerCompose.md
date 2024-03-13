@@ -23,3 +23,18 @@ services: # Aqui es posaren tots els servesi que volguem executar al servidor.
 volumes: # Tots els volums que utlizaran els contenidors.
 ```
 Aquest es la configuracio basica que tenen que tenir tots els fitxer de Docker Compose perque puguin funcionar de forma correcte.
+
+Es important creat aixo ara ja que a tots els tutorials domes especificarem el contenidor en si i no tot el fitxer per no crear confusions.
+
+
+# Funcionament de Docker Compose
+Un cop tenim el fitxer do Docker Compose creat hi amb els parametres que hem posat avans no tindrem cap contenidor creat ja que no hem especificat res al apartat de "**services:**".
+
+
+
+
+# Actualitzar Docker
+Tenim que utilitzar aquest comande cada vegada que fem canvis al fitxer de Docker Compose perque els canvis s'apliquin.
+```bash
+docker compose up -d --remove-orphans
+```
