@@ -1,5 +1,5 @@
 # Instalacio
-Per instalar **exemple** tenim que copiar auest docker compse i enganzar-lo al ftixer que hem creat.
+Per instalar **exemple** tenim que copiar aquest docker compse i enganxar-lo al ftixer que hem creat.
 ```bash
   caddy:
     image: caddy
@@ -14,5 +14,6 @@ Per instalar **exemple** tenim que copiar auest docker compse i enganzar-lo al f
       - caddy_data:/data
       - caddy_config:/config
 ```
+
 
 # Configuracio
