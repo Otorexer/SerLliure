@@ -9,6 +9,17 @@ Per ultim sempre tenim que fer una copia d'aquest fitxer cada vegada que actuali
 
 
 # Crear el fitxer
-Per utilitzar docker compose primer de tot tenim que crear un fitxer que es dira "**docker-compose.yml**" aquest fitxer es a on sespecificara tots els parametre que estara utilizant el nostre docker.
+Per utilitzar docker compose primer de tot tenim que crear un fitxer que es dira "**docker-compose.yml**", aixo ho podem fer amb el comando de "**nano docker-compose.yml**".
+```bash
+nano docker-compose.yml
+```
 
-Es molt important mantenir una copa d'aquest fitxer ja que es el encargat de guardar tots els parametre que fa servir docker
+Un cop hem create el fitxer hi enganxarem lo seguent.
+```bash
+version: '3.1' # Especifica la versio de docker compose que s'esta utilitzant.
+
+services: # Aqui es posaren tots els servesi que volguem executar al servidor.
+
+volumes: # Tots els volums que utlizaran els contenidors.
+```
+Aquest es la configuracio basica que tenen que tenir tots els fitxer de Docker Compose perque puguin funcionar de forma correcte.
