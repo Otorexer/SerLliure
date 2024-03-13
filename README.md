@@ -16,7 +16,7 @@ Per instal·lar Docker, utilitzeu aquest script oficial de [Docker](https://gith
 wget -qO- https://get.docker.com | sh
 ```
 ## Docker Compose
-###Què és?
+### Què és?
 Docker Compose és una eina que complementa Docker per a la gestió d'aplicacions complexes que consten de diversos contenidors interdependents. En comptes de gestionar cada contenidor individualment, Docker Compose permet definir i orquestrar tota l'aplicació en un únic fitxer YAML.
 
 Docker Compose ja va instalat per defecte quant intales Docker.
