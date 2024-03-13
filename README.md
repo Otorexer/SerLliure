@@ -1,15 +1,25 @@
 # Ser Lliure, Ser Autònom
-Aquest repositori conté guies pas a pas per a la instal·lació d'eines self-hosted populars. Les guies estan dissenyades per a usuaris novells i expliquen tots els passos necessaris de manera senzilla tot hi aixo tenim que tenir alguns coneixaments sobre servidors i configuracions. Tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
+Aquest repositori conté guies pas a pas per a la instal·lació d'eines self-hosted populars. Les guies estan dissenyades per a usuaris novells i expliquen tots els passos necessaris de manera senzilla tot hi aixo tenim que tenir alguns coneixaments sobre servidors i configuracions.
+
+Aquests tutorials tenen com a objectiu animar a més persones a muntar els seus propis serveis i ser autònomes tecnològicament, evitant dependre d'empreses multinacionals que venen les dades personals.
 
 ## [Docker](https://github.com/docker)
 ### Què és?
 Docker és una plataforma de virtualització a nivell de sistema operatiu que permet executar aplicacions dins de contenidors aïllats. En lloc de virtualitzar tot el maquinari com en les màquines virtuals, Docker empaqueta l'aplicació amb les seves dependències en un contenidor que es pot executar de forma aïllada.
+
+### Perque ho farem servir?
+Utilitzarem Docker per crear contenidors aïllats del sistema operatiu base. Això garanteix que el nostre servei funcioni correctament independentment de la màquina on s'allotgi. A més, Docker facilita la migració dels nostres serveis de servidor a servidor, ja que només cal copiar la imatge del contenidor al nou servidor i executar-la. Això garanteix la compatibilitat entre servidors, independentment del sistema operatiu que utilitzin.
 
 ### Instal·lació
 Per instal·lar Docker, utilitzeu aquest script oficial de [Docker](https://github.com/docker/docker-install):
 ```bash
 wget -qO- https://get.docker.com | sh
 ```
+## Docker Compose
+###Què és?
+Docker Compose és una eina que complementa Docker per a la gestió d'aplicacions complexes que consten de diversos contenidors interdependents. En comptes de gestionar cada contenidor individualment, Docker Compose permet definir i orquestrar tota l'aplicació en un únic fitxer YAML.
+
+Docker Compose ja va instalat per defecte quant intales Docker.
 ## [VPS Gratuit amb Oracle](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/OracleFreeTier.md)
 ## Networking
 En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre recomenacions.
