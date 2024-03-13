@@ -30,7 +30,7 @@ Es important creat aixo ara ja que a tots els tutorials domes especificarem el c
 # Funcionament de Docker Compose
 Un cop tenim el fitxer do Docker Compose creat hi amb els parametres que hem posat avans no tindrem cap contenidor creat ja que no hem especificat res al apartat de "**services:**".
 
-
+Cada vegada que volguem afegir un nou contenidor per allotjar algun servei seguirem el tutorial del servei que estem utilitzant ja que alla especificara que tenim que posar a cada apartat.
 
 
 # Actualitzar Docker
