@@ -26,3 +26,9 @@ D'aquesta forma podrem accedir a Nextcloud de forma encriptada i sense especific
 
 
 # Configuracio
+Un cop tinguem tot aixo fet ja podem iniciar el Contenidor amb:
+```bash
+docker compose up -d --remove-orphans
+```
+
+Despres per accedir a NextcCloud podem la Ip del nostre servidor hi el port 11280, si hem utilitzat Caddy domes tenim que posar el nom de Domin que li hem assignat.
