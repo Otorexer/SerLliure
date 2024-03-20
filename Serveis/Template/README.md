@@ -1,30 +1,31 @@
 # Abans
-Si no eu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/ComUtilitzarDockerCompose.md) es molt recomendable que ho llegiu per saber que esteu fent en tot moment.
+Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/ComUtilitzarDockerCompose.md), és molt recomanable que ho llegiu per saber què esteu fent en tot moment.
 
+# Instal·lació
+Per instal·lar **exemple**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat.
 
-# Instalacio
-Per instalar **exemple** tenim que copiar aquest docker compse i enganxar-lo al ftixer que hem creat.
+Fitxer Docker Compose
 
-Fitxer Docker Compose.
+# Utilització de Caddy
+Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy), és important treure aquests paràmetres del Docker Compose, ja que Caddy s'encarrega de redirigir el tràfic cap a NextCloud de forma més segura, ja que tot estarà encriptat amb HTTPS.
 
-
-# Utilitzacio de Caddy
-Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) es important treure aquets parametres del Docker Compose. Ja que caddy s'ocupa de redirecionar el trafic cap a NextCloud de forma mes segura ja que tot estara encriptat amb Https.
 ```bash
 
 ```
 
-Un cop hem tret aixo tindrem que afegir lo seguent a el **Caddyfile**.
+Un cop hem tret això, haurem d'afegir el següent al **Caddyfile**.
+
 ```bash
 elvostredomini {
   reverse_proxy 
 }
 ```
+
 D'aquesta forma podrem accedir a Nextcloud de forma encriptada i sense especificar el port.
 
+# Configuració
+Un cop tinguem tot això fet, ja podem iniciar el contenidor amb:
 
-# Configuracio
-Un cop tinguem tot aixo fet ja podem iniciar el Contenidor amb:
 ```bash
 docker compose up -d --remove-orphans
 ```
