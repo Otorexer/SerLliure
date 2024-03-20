@@ -6,14 +6,14 @@ services:
     container_name: caddy
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+      - "80:80" # Port HTTP
+      - "443:443" # Port HTTPS
+      - "443:443/udp" # Port HTTPS
     volumes:
-      - /etc/caddy/:/etc/caddy/
-      - caddy_data:/data
-      - caddy_config:/config
+      - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
+      - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
+      - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
 
 volumes:
-  caddy_data:  #Caddy Volume
-  caddy_config:  #Caddy Volume
+  caddy_data: # Caddy Volume
+  caddy_config: # Caddy Volume
