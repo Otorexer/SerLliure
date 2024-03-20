@@ -6,24 +6,24 @@ services:
     container_name: nextcloud
     restart: always
     ports:
-      - "11280:80" #El port en que podras accedir a NextCloud.
+      - "11280:80" # El port en el qual podràs accedir a NextCloud.
     environment:
-      - MYSQL_HOST=nextcloud-database #Canviar. Es pot canviar si canvieu el nom de la Base de Dades.
-      - MYSQL_DATABASE=nextcloud #No Tocar. Base de dades que s'utilitza a MySQL.
-      - MYSQL_USER=nextcloud #No tocar. Usuari MySQL.
-      - MYSQL_PASSWORD= #Contrasenya MySQL.
-      - TRUSTED_PROXIES=0.0.0.0/0 #No tocar. Perque funcioni amb qualsevol proxy.
+      - MYSQL_HOST=nextcloud-database # Canviar si es canvia el nom de la Base de Dades.
+      - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
+      - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
+      - MYSQL_PASSWORD= # Afegir contrasenya de MySQL.
+      - TRUSTED_PROXIES=0.0.0.0/0 # No tocar. Perquè funcioni amb qualsevol proxy.
     volumes:
-      - :/var/www/html #Es te que afegir. Ruta a on es guardara el NextCloud.
+      - :/var/www/html # Afegit. Ruta on es guardarà el NextCloud.
 
   nextcloud-database:
     image: mysql
     container_name: nextcloud-database
     restart: always
     environment:
-      - MYSQL_DATABASE=nextcloud #No Tocar. Base de dades que s'utilitza a MySQL.
-      - MYSQL_USER=nextcloud #No tocar. Usuari MySQL.
-      - MYSQL_PASSWORD= #Afegit Contrasenya MySQL. Te que ser ma mateix que posis al contenidor de NextCloud.
+      - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
+      - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
+      - MYSQL_PASSWORD= # Afegir contrasenya de MySQL. Ha de ser la mateixa que la del contenidor de NextCloud.
       - MYSQL_ROOT_PASSWORD= #Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomandable que sigui mes segura.
     volumes:
       - :/var/lib/mysql #Es te que afegir. Ruta a on es guardata la Base de Dadees MySQL
