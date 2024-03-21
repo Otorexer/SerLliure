@@ -1,0 +1,18 @@
+# Docker Compose
+Per fer backup de els contenidors de Docker podem copiar el arxiu de **docker-compose.yml**
+
+Aquest arxiu el podem guardar en algun lloc segur per tornar a restaurar els contenidors per si el servidor te algun problema o per fer la migracio de servidors.
+
+# Caddy
+Tambe es recomendable tenir un backup de **Caddy** per si el servidor te algun problema o si volem migrar el servidor.
+
+Si hem seguit el tutorial aquest fitxer es trovara a
+
+```bash
+/etc/caddy/Caddyfile
+```
+
+
+
+# Volums de Docker
+Per 
