@@ -41,6 +41,11 @@ Per editar la configuració podem fer servir
 sudo nano /etc/caddy/Caddyfile
 ```
 
+Si editem la configuracio de Caddy i volem que s'apliqui tenim que executar el seguent comande
+```bash
+docker exec caddy caddy reload --config /etc/caddy/Caddyfile
+```
+
 
 ## Exemples de configuracions
 ### Punts importants
