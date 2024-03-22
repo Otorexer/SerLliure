@@ -20,6 +20,8 @@ wget -qO- https://get.docker.com | sh
 Docker Compose és una eina que complementa Docker per a la gestió d'aplicacions complexes que consten de diversos contenidors interdependents. En comptes de gestionar cada contenidor individualment, Docker Compose permet definir i orquestrar tota l'aplicació en un únic fitxer YAML.
 
 Docker Compose ja va instalat per defecte quant intales Docker.
+
+[Com funciona Docker Compose](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/ComUtilitzarDockerCompose.md)
 ## [VPS Gratuit amb Oracle](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/OracleFreeTier.md)
 ## Networking
 En aquest apartat parlarem sobre la Xarxa del nostre server, com les nostre recomenacions.
