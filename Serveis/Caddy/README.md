@@ -26,6 +26,11 @@ Despres tenim que copiar aquest volumes al apartat de volums.
 
 
 # Configuració
+Ja podem iniciar el contenidor amb:
+```bash
+sudo docker compose up -d --remove-orphans
+```
+
 Ara crearem el fitxer "Caddyfile" per guardar tota la configuracio.
 ```bash
 sudo touch /etc/caddy/Caddyfile
@@ -34,11 +39,6 @@ sudo touch /etc/caddy/Caddyfile
 Per editar la configuració podem fer servir
 ```bash
 sudo nano /etc/caddy/Caddyfile
-```
-
-Un cop tinguem tot això fet, ja podem iniciar el contenidor amb:
-```bash
-sudo docker compose up -d --remove-orphans
 ```
 
 
