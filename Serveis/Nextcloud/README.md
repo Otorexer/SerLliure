@@ -3,10 +3,37 @@ Si no eu llegit el document de [Com Utilitzar Docker Compose](https://github.com
 
 
 # Instalacio
-Per instalar **NextCloud** tenim que copiar el fitxer docker compse i enganxar-lo al ftixer que hem creat.
+Per instal·lar **Nextcloud**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
 
-[Fitxer Docker Compose.
-](https://github.com/Otorexer/SerLliure/blob/main/Serveis/Nextcloud/docker-compose.yml)
+```yaml
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    ports:
+      - "11280:80" # El port en el qual podràs accedir a NextCloud.
+    environment:
+      - MYSQL_HOST=nextcloud-database # Canviar si es canvia el nom de la Base de Dades.
+      - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
+      - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
+      - MYSQL_PASSWORD= # Afegir contrasenya de MySQL.
+      - TRUSTED_PROXIES=0.0.0.0/0 # No tocar. Perquè funcioni amb qualsevol proxy.
+    volumes:
+      - :/var/www/html # Afegit. Ruta on es guardarà el NextCloud.
+
+  nextcloud-database:
+    image: mysql
+    container_name: nextcloud-database
+    restart: always
+    environment:
+      - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
+      - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
+      - MYSQL_PASSWORD= # Afegir contrasenya de MySQL. Ha de ser la mateixa que la del contenidor de NextCloud.
+      - MYSQL_ROOT_PASSWORD= #Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomandable que sigui mes segura.
+    volumes:
+      - :/var/lib/mysql #Es te que afegir. Ruta a on es guardata la Base de Dadees MySQL
+```
+
 
 
 # Utilitzacio de Caddy
