@@ -3,95 +3,102 @@ Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.co
 
 # Instal·lació
 Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
-```bash
-  caddy:
-    image: caddy
-    container_name: caddy
-    restart: always
-    ports:
-      - "80:80" # Port HTTP
-      - "443:443" # Port HTTPS
-      - "443:443/udp" # Port HTTPS
-    volumes:
-      - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
-      - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
-      - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
+
+```yaml
+caddy:
+  image: caddy
+  container_name: caddy
+  restart: always
+  ports:
+    - "80:80" # Port HTTP
+    - "443:443" # Port HTTPS
+    - "443:443/udp" # Port HTTPS
+  volumes:
+    - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
+    - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
+    - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
 ```
 
-Despres tenim que copiar aquest volumes al apartat de volums.
-```bash
+Després, hem de copiar aquests volums a la secció de volums.
+
+```yaml
+volumes:
   caddy_data: # Caddy Volume
   caddy_config: # Caddy Volume
 ```
 
-
 # Configuració
 Ja podem iniciar el contenidor amb:
+
 ```bash
-sudo docker compose up -d --remove-orphans
+sudo docker-compose up -d --remove-orphans
 ```
 
-Ara crearem el fitxer "Caddyfile" per guardar tota la configuracio.
+Ara crearem el fitxer "Caddyfile" per guardar tota la configuració.
+
 ```bash
 sudo touch /etc/caddy/Caddyfile
 ```
 
-Per editar la configuració podem fer servir
+Per editar la configuració podem fer servir:
+
 ```bash
 sudo nano /etc/caddy/Caddyfile
 ```
 
-Si editem la configuracio de Caddy i volem que s'apliqui tenim que executar el seguent comande
+Si editem la configuració de Caddy i volem que s'apliqui, hem de executar la següent comanda:
+
 ```bash
 docker exec caddy caddy reload --config /etc/caddy/Caddyfile
 ```
 
-
 ## Exemples de configuracions
 ### Punts importants
-Avans de crear una nova reverse proxy tenim que configurar el nostre Domini amb un nou Registre DNS apuntant a la IP Public del Servidor de Caddy, podem trobar molts tutorials al youtube de com fer-ho.
+Abans de crear una nova reverse proxy, hem de configurar el nostre domini amb un nou Registre DNS apuntant a la IP pública del servidor de Caddy. Podeu trobar molts tutorials a YouTube sobre com fer-ho.
 
-**elteudomini.com:** Aqui tenim que posar el domini o subdomini que volem configurar per on la gent accedirar en aquest servei que previament hem creat el Registre DNS.
+**elteudomini.com:** Aquí hem de posar el domini o subdomini que volem configurar per on la gent accedirà a aquest servei que prèviament hem creat el Registre DNS.
 
-**dnsLocal:** Aqui configurarem la dnsLocal de Tailscale o Headscale on esta allotjat el servei perque el servidor de Caddy ho pugui redireccionar al servidor corresponent.
+**dnsLocal:** Aquí configurarem la dnsLocal de Tailscale o Headscale on està allotjat el servei perquè el servidor de Caddy ho pugui redirigir al servidor corresponent.
 
-Si hem seguit el tutorial d'aquest Repositori per instalar Headscale el dnsLocal sera similar al seguent: nomEquip.nomUsuari.local.
+Si hem seguit el tutorial d'aquest repositori per instal·lar Headscale, el dnsLocal serà similar al següent: nomEquip.nomUsuari.local.
 
-**port:** Aqui posarem el port on el troba el Servei. A cada tutorial posem a quin port es configuren per defecte els Serveis, doncs tenim que posar allo.
+**port:** Aquí posarem el port on es troba el servei. A cada tutorial posem a quin port es configuren per defecte els serveis, per tant, hem de posar això.
 
-Per exemple Webmin esta configurat amb el port 10000.
+Per exemple, Webmin està configurat amb el port 10000.
 
-### Basica amb DNS
-Una configuracio basica del Caddy seria aquesta.
+### Bàsica amb DNS
+Una configuració bàsica del Caddy seria aquesta:
+
 ```bash
 elteudomini.com {
     reverse_proxy (dnsLocal):(port)
 }
 ```
 
-Aquesta configuracio crea un reverse proxy al Servei que tu li assignes.
+Aquesta configuració crea un reverse proxy al servei que tu li assignis.
 
-### Basica amb IP
+### Bàsica amb IP
 >[!WARNING]
->No recomanem configurar res d'aquesta forma ja que no es practic hi domes podem tenir 1 servei allotat a la vegada.
+>No recomanem configurar res d'aquesta forma ja que no és pràctic i només podem tenir un servei allotjat a la vegada.
 
-Una configuracio basica del Caddy amb IP seria aquesta.
+Una configuració bàsica del Caddy amb IP seria aquesta:
+
 ```bash
 :80 {
     reverse_proxy (dnsLocal):(port)
 }
 ```
 
-Aquesta configuracio crea un reverse proxy al Servei que tu li assignes.
+Aquesta configuració crea un reverse proxy al servei que tu li assignis.
 
 ### Avançada amb DNS
-Aquesta configuracio es molt especial ja que permet crear reverse Proxys amb Serveis que ja tenen certificats HTTPS creats com podria Ser Webmin.
+Aquesta configuració és molt especial ja que permet crear reverse proxies amb serveis que ja tenen certificats HTTPS creats com podria ser Webmin.
 
 ```bash
 elteudomini.com {
     reverse_proxy (dnsLocal):(port) {
         transport http {
-            tls_insecure_skip_verify 
+            tls_insecure_skip_verify
         }
     }
 }
@@ -99,10 +106,10 @@ elteudomini.com {
 
 Exemple:
 
-Si intentem accedir a Webmin amb la configuracio basica ens sortira aquest error que no ens permetra accedir a Webmin.
+Si intentem accedir a Webmin amb la configuració bàsica, ens sortirà aquest error que no ens permetrà accedir a Webmin.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/e531fa58-50f9-44a6-8859-affb239612c3)
 
-Pero si en canvi fem servir la configuracio Acançada podem veure com ja podrem entrar de forma normal.
+Però si en canvi fem servir la configuració avançada, podem veure com ja podrem entrar de forma normal.
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/3bca2670-6f7a-41c4-8d65-af33f97cfd79)
