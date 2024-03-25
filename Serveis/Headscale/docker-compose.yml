@@ -1,15 +1,20 @@
 version: '3.1'
 
-services:
+  headscale:
+    image: headscale/headscale:0.23.0-alpha2 # No tocar. Versio que funciona amb la configuracio.
+    container_name: headscale
+    restart: always
+    volumes:
+      - /etc/headscale/:/etc/headscale/ # No tocar. Ruta on hi haurà la configuració de Headscale.
+    command: headscale serve # No tocar. Comando que executara el contenidor quant s'obri.
+
   headscale-database:
     container_name: headscale-database
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: headscale-password
-      POSTGRES_DB: headscale
-      POSTGRES_USER: headscale
-    ports:
-      - "8081:5432"
+      POSTGRES_PASSWORD: # Afegir contrasenya de Postgres.
+      POSTGRES_DB: headscale # No tocar. Base de dades utilitzada a Postgres.
+      POSTGRES_USER: headscale # No tocar. Usuari de Postgres.
     volumes:
-      - /etc/headscale-database:/var/lib/postgresql/data
+      - /etc/headscale-database:/var/lib/postgresql/data # No tocar. Ruta on hi haurà la base da dades.
