@@ -22,6 +22,7 @@ Docker Compose és una eina que complementa Docker per a la gestió d'aplicacion
 Docker Compose ja va instalat per defecte quant intales Docker.
 
 [Com funciona Docker Compose](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/ComUtilitzarDockerCompose.md)
+<br>
 # Guies
 ## [VPS Gratuit amb Oracle](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/OracleFreeTier.md)
 
