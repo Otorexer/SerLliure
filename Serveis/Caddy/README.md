@@ -22,7 +22,6 @@ caddy:
 Després, hem de copiar aquests volums a la secció de volums.
 
 ```yaml
-volumes:
   caddy_data: # Caddy Volume
   caddy_config: # Caddy Volume
 ```
