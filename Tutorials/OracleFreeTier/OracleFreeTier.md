@@ -4,15 +4,15 @@ Per no cometre cap error es important verificar que Oracle encara ofereix aquest
 Primer de tot entrarem a https://www.oracle.com/cloud/free/ per crear la nostre compte i despres enplenarem les dades que ens demanen i oracle ens enviara un mail per crear les nostres credencials per registrar-nos.
 
 # Creacio de la VPS
-Per crear una nova maquin virtual tenim que anar a l'apartat de Compute -> Instances i despres a "Create Instance".
+Per crear una nova maquina virtual tenim que anar a l'apartat de Compute -> Instances i despres a "Create Instance".
 
 [Link](https://cloud.oracle.com/compute/instances)
 
 Un cop a dins assignarem un nom per la Maquina.
 
-Ara canviarem la imatje de la Maquina. !!!Es molt important posar Ubuntu Server aarch64!!! ja que el servei gratis que et dona oracle es domes amb procesadors ARM.
+Ara canviarem la imatje de la Maquina. !!!Es molt important posar Ubuntu Server aarch64!!! ja que el servei gratis que et dona oracle es nomes amb procesadors ARM.
 
-Despres tenim que editar la forma de la maquin hi posarem 4 Nuclis i 24GB de RAM.
+Despres tenim que editar la forma de la maquina hi posarem 4 Nuclis i 24GB de RAM.
 
 Te que quedar d'aquesta forma hi ens tenim que assegurar que posi 4 Core i 24 GB de memoria. Tambe podem veure que avaix ens surt uns avisos, el que volem dir aquest avisos es que hem arribat al maxim de capacitat de recursos de forma gratis.
 
@@ -48,7 +48,7 @@ sudo passwd
 ### Actualitzar Sistema
 Fer un Update del Sistema i Instalacio de algunes eines Utils
 ```bash
-sudo apt update && sudo apt upgrade -y && apt install -y iputils-ping net-tools
+sudo apt update && sudo apt upgrade -y && sudo apt install -y iputils-ping net-tools
 ```
 ### Firewall
 I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el controlarem des de Oracle ja que sino la xarxa de Tailscale no tindra Acces.

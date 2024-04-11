@@ -14,7 +14,7 @@ services:
       - MYSQL_PASSWORD= # Afegir contrasenya de MySQL.
       - TRUSTED_PROXIES=0.0.0.0/0 # No tocar. Perquè funcioni amb qualsevol proxy.
     volumes:
-      - :/var/www/html # Afegit. Ruta on es guardarà el NextCloud.
+      - :/var/www/html # Afegir. Ruta on es guardarà el NextCloud.
 
   nextcloud-database:
     image: mysql
@@ -24,6 +24,6 @@ services:
       - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
       - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
       - MYSQL_PASSWORD= # Afegir contrasenya de MySQL. Ha de ser la mateixa que la del contenidor de NextCloud.
-      - MYSQL_ROOT_PASSWORD= #Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomandable que sigui mes segura.
+      - MYSQL_ROOT_PASSWORD= # Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomandable que sigui mes segura.
     volumes:
-      - :/var/lib/mysql #Es te que afegir. Ruta a on es guardata la Base de Dadees MySQL
+      - :/var/lib/mysql # Es te que afegir. Ruta a on es guardara la Base de Dadees MySQL

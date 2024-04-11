@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+
+  owncast:
+    container_name: owncast
+    image: owncast/owncast
+    restart: always
+    ports:
+      - "1935:1935" # El port on es conectara el Stream RTMP per compartir
+    volumes:
+      - /etc/owncast:/app/data # Es pot canviar. Ruta a on es guardara la configuracio de OwnCast

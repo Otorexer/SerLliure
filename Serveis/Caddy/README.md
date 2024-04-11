@@ -5,18 +5,18 @@ Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.co
 Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
 
 ```yaml
-caddy:
-  image: caddy
-  container_name: caddy
-  restart: always
-  ports:
-    - "80:80" # Port HTTP
-    - "443:443" # Port HTTPS
-    - "443:443/udp" # Port HTTPS
-  volumes:
-    - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
-    - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
-    - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
+  caddy:
+    image: caddy
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80" # Port HTTP
+      - "443:443" # Port HTTPS
+      - "443:443/udp" # Port HTTPS
+    volumes:
+      - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
+      - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
+      - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
 ```
 
 Després, hem de copiar aquests volums a la secció de volums.
@@ -30,7 +30,7 @@ Després, hem de copiar aquests volums a la secció de volums.
 Ja podem iniciar el contenidor amb:
 
 ```bash
-sudo docker-compose up -d --remove-orphans
+sudo docker compose up -d --remove-orphans
 ```
 
 Ara crearem el fitxer "Caddyfile" per guardar tota la configuració.
