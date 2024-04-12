@@ -20,7 +20,7 @@ Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Cad
 
 ```bash
 cursamontilivi.ddns.net {
-  reverse_proxy stream:80
+  reverse_proxy owncast:8080
 }
 ```
 
