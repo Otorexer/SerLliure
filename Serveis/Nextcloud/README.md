@@ -1,5 +1,5 @@
 # Abans
-Si no eu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/blob/main/Tutorials/ComUtilitzarDockerCompose.md) es molt recomendable que ho llegiu per saber que esteu fent en tot moment.
+Si no eu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/tree/main/Tutorials/ComUtilitzarDockerCompose) es molt recomendable que ho llegiu per saber que esteu fent en tot moment.
 
 
 # Instalacio
