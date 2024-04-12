@@ -19,16 +19,8 @@ Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al 
 Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy), és important treure aquests paràmetres del Docker Compose, ja que Caddy s'encarrega de redirigir el tràfic cap a NextCloud de forma més segura, ja que tot estarà encriptat amb HTTPS.
 
 ```bash
-cursamontilivi.ddns.net {
-  reverse_proxy owncast:8080
-}
-```
-
-Un cop hem tret això, haurem d'afegir el següent al **Caddyfile**.
-
-```bash
 elvostredomini {
-  reverse_proxy 
+  reverse_proxy owncast:8080
 }
 ```
 
