@@ -16,7 +16,7 @@ Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al 
 ```
 
 # Utilització de Caddy
-Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy), és important treure aquests paràmetres del Docker Compose, ja que Caddy s'encarrega de redirigir el tràfic cap a NextCloud de forma més segura, ja que tot estarà encriptat amb HTTPS.
+Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy), és important treure aquests paràmetres del Docker Compose, ja que Caddy s'encarrega de redirigir el tràfic cap a OwnCast de forma més segura, ja que tot estarà encriptat amb HTTPS.
 
 ```bash
 elvostredomini {
@@ -32,3 +32,8 @@ Un cop tinguem tot això fet, ja podem iniciar el contenidor amb:
 ```bash
 docker compose up -d --remove-orphans
 ```
+# Accedir
+Usuari: admin
+Contrasenya: abc123
+
+I cnaviarem la contrasenya des de 

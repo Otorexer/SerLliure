@@ -6,11 +6,10 @@ services:
     image: portainer/portainer-ce:latest
     restart: always
     ports:
-      - 8000:8000
-      - 9443:9443
+      - 9443:9443 # Port HTTP
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock # No tocar. Nessesari perque Portainer tingu acces als contenidos de Docker
+      - portainer_data:/data # No tocar. Volum on es guardara la configuracio de Portainer
 
 volumes:
   portainer_data:
