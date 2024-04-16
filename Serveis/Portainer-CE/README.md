@@ -49,3 +49,9 @@ Ja podem iniciar el contenidor amb:
 ```bash
 sudo docker compose up -d --remove-orphans
 ```
+
+Despres tenim que obrir Portainer o especificant el domini o la IP amb el Port, i crear una nova compte.
+
+![image](https://github.com/Otorexer/SerLliure/assets/118485801/21fbb4d3-ae2c-4aee-8404-73211f2d8a6b)
+
+I ja podrem administrar els nostre contenidor de forma Web.
