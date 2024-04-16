@@ -22,6 +22,27 @@ Després, hem de copiar aquests volums a la secció de volums.
   portainer_data: # Portainer Volume
 ```
 
+# Utilitzacio de Caddy
+Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) es important treure aquets parametres del Docker Compose. Ja que caddy s'ocupa de redirecionar el trafic cap a Portainer de forma mes segura ja que tot estara encriptat amb Https.
+```bash
+    ports:
+      - 9443:9443 # Port HTTP
+```
+
+Un cop hem tret aixo tindrem que afegir lo seguent a el **Caddyfile**.
+```bash
+elvostredomini {
+  reverse_proxy portainerce:9443 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+```
+D'aquesta forma podrem accedir a Portainer de forma encriptada i sense especificar el port.
+
+
+
 # Configuració
 Ja podem iniciar el contenidor amb:
 
