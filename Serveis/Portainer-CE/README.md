@@ -7,21 +7,21 @@ Si no heu llegit el document [Com Utilitzar Docker Compose](https://github.com/O
 Per instal·lar **Portainer**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
 
 ```yaml
-portainerce:
-  container_name: portainerce
-  image: portainer/portainer-ce:latest
-  restart: always
-  ports:
-    - 9443:9443 # Port HTTP
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock # No tocar. Necessari perquè Portainer tingui accés als continguts de Docker
-    - portainer_data:/data # No tocar. Volum on es guardarà la configuració de Portainer
+  portainerce:
+    container_name: portainerce
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - 9443:9443 # Port HTTP
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # No tocar. Nessesari perque Portainer tingu acces als contenidos de Docker
+      - portainer_data:/data # No tocar. Volum on es guardara la configuracio de Portainer
 ```
 
 Després, hem de copiar aquests volums a la secció de volums.
 
 ```yaml
-portainer_data: # Portainer Volume
+  portainer_data: # Portainer Volume
 ```
 
 ## Utilització de Caddy
@@ -52,7 +52,7 @@ D'aquesta forma podrem accedir a Portainer de forma encriptada i sense especific
 Ja podem iniciar el contenidor amb:
 
 ```bash
-sudo docker-compose up -d --remove-orphans
+sudo docker compose up -d --remove-orphans
 ```
 
 Després, hem d'obrir Portainer especificant el domini o la IP amb el port, i crear un nou compte.
