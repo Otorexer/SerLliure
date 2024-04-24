@@ -31,7 +31,7 @@ Per instal·lar **Nextcloud**, hem de copiar aquest Docker Compose i enganxar-lo
       - MYSQL_PASSWORD= # Afegir contrasenya de MySQL. Ha de ser la mateixa que la del contenidor de NextCloud.
       - MYSQL_ROOT_PASSWORD= #Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomandable que sigui mes segura.
     volumes:
-      - :/var/lib/mysql #Es te que afegir. Ruta a on es guardata la Base de Dadees MySQL
+      - :/var/lib/mysql #Es te que afegir. Ruta a on es guardata la Base de Dadades MySQL
 ```
 
 
