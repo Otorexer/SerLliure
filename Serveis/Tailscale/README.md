@@ -1,4 +1,5 @@
 # Instalacio
+
 Per descargar Tailscale podem fer-ho des de la seva Pagine Web
 
 [https://tailscale.com/download](https://tailscale.com/download)
@@ -9,6 +10,7 @@ Per accedir a la configuracio de Tailscale ho podem fer de la Pagina de Administ
 Tailscale tambe te altre funcions per en parlem fer forma mex exetensa en altres tutorials.
 
 # Recomenacions
+
 Es important mantenir un ordre a l'hora de afegir dispositius a la Xarxa de Tailscale ja que es pot descontrolar de forma Facil.
 
 Per exemple cada vegada que afegiu un nou dispositiu canviar el nom per saber que es aquell dispositiu.

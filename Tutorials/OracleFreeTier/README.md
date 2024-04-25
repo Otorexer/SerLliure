@@ -1,9 +1,13 @@
 # ⚠️Tot el que feu esta sota la vostre responsabilitat⚠️
+
 Per no cometre cap error es important verificar que Oracle encara ofereix aquest servei de forma gratuita com tambe tot els recursos gratuits que ofereixen en aquest moment.
+
 # Creacio compte
+
 Primer de tot entrarem a https://www.oracle.com/cloud/free/ per crear la nostre compte i despres enplenarem les dades que ens demanen i oracle ens enviara un mail per crear les nostres credencials per registrar-nos.
 
 # Creacio de la VPS
+
 Per crear una nova maquina virtual tenim que anar a l'apartat de Compute -> Instances i despres a "Create Instance".
 
 [Link](https://cloud.oracle.com/compute/instances)
@@ -31,6 +35,7 @@ Si us surt aixo no passa res ja que el que sicnifica es que el disc per dafecte 
 Un cop tenim la maquina creada anirem a [Boot-Volumes](https://cloud.oracle.com/block-storage/boot-volumes) i alla selecionarem el unic volum que tenim, un cop dins clicarem el boto de "Edit" per editar la capacitat del volum hi el que farem sera posar 200 ja que d'aquesta forma estarem utilitzant tots els recursos que ens ofereix oracle de forma gratis.
 
 # Accedir a la VPS
+
 Per accedir a la nostre VPS amb SSH primer de tot tenim que obrir alguna consola del nostre PC en la majoria de casos el CMD de Windows.
 
 Hi posarem aquest comando on posarem la IP publica de la VPS que ens digui Oracle i el fitxer que hem descargat anteriormanet.
@@ -40,38 +45,56 @@ ssh ubuntu@(ip_publica) -i (fitxer_clau_privada)
 ```
 
 # Primers passos
+
 ### Canviar contrasenya
+
 Els primers passos que recomanem fer la primera vegada que tinguem acces es fer aquest comando per canviar la contrasenya de Root.
+
 ```bash
 sudo passwd
 ```
+
 ### Actualitzar Sistema
+
 Fer un Update del Sistema i Instalacio de algunes eines Utils
+
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt install -y iputils-ping net-tools nano
 ```
+
 ### Firewall
+
 I desactivar el Firewall de Ubuntu server per Defecte ja que el Firewall el controlarem des de Oracle ja que sino la xarxa de Tailscale no tindra Acces.
+
 ```bash
 sudo iptables -F && sudo iptables -P INPUT ACCEPT && sudo iptables -P FORWARD ACCEPT && sudo iptables -P OUTPUT ACCEPT && sudo netfilter-persistent save
 ```
+
 ### Tailscale
+
 Un cop tinguem tot aixo fet Instalarem Tailscale amb la guia que tenim en aquest Repositori.
 Tailscale el farem servir per conectar-nos al servidor sense tenir que obrir cap port al firewall aixis domes la nostre xarxa de Tailscale podra accedir a coses especifiques aquesta es una altre mesura per prevenir atacs.
 
 [Guia](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Tailscale)
+
 ### WebMin
+
 I despres instalar WebMin
+
 ```bash
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh && sh setup-repos.sh
 ```
+
 ```bash
 apt-get install webmin --install-recommends -y
 ```
+
 Usuari: root
 Contrasenya: (La que hem posat avans)
 Entrarem al WebMin amb la IP de la maquina que ens dona Tailscale per aixis no tenir que obrir cap port i no comprometre la nostre seguretat.
+
 # Firewall Oracle
+
 Si volem editar la configuracio del Firewall de Oracle tenim que anara a la nostre VPS i clicar sobre la xarxa que tenim assignada a la VPS
 
 ![image](https://github.com/Otorexer/SerLliure/assets/118485801/c930dd7f-b22c-43c2-a254-393c9e187bd5)

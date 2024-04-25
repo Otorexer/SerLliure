@@ -61,6 +61,7 @@ sudo nano /root/backup.sh
 [Hi copiarem el contingut d'aquest script](https://raw.githubusercontent.com/Otorexer/SerLliure/main/Tutorials/ComFerBackup/backup.sh)
 
 Despres li donarem permisos d'execucio en aquest script
+
 ```bash
 sudo chmod +x /root/backup.sh
 ```
@@ -94,7 +95,7 @@ A la primera, hi posarem tots els contenidors de Docker que volem aturar perquè
 
 A la segona array, hi posarem la ruta dels directoris que volem fer la còpia de seguretat. Aquests directoris els podem trobar al fitxer de Docker Compose on hem establert les rutes.
 
-**És molt important que els valors que posem a l'array estiguin entre cometes "  ".**
+**És molt important que els valors que posem a l'array estiguin entre cometes " ".**
 
 Un exemple de configuracio podria ser aquest
 
@@ -107,24 +108,29 @@ ROUTES=(
 "/etc/headscale-database"
 )
 ```
+
 Ja que en aquest cas estem parant la base de dades de headscale hi estem copiant la ruta on es trova enmagatzemada la base de dades.
 
 Doncs aixo ho tindriem que fer amb tot el que volguem fer backup.
 
 # Backup periodic
+
 Per fer que aquest script de backup s'executi de forma periodica cada diumentje a les 4 de la nit podem fer el seguent.
 
 Primer de tot verificarem que tinguem cron intalat
+
 ```bash
 sudo apt install cron -y
 ```
 
 Despres accedirem a la configuracio de crontab amb.
+
 ```bash
 sudo crontab -e
 ```
 
 Hi per acavar afegirem aquesta linea de codi al final del arxiu
+
 ```bash
 0 4 * * 0 /root/backup.sh
 ```

@@ -134,7 +134,7 @@ db_host: localhost
 db_port: 8081
 db_name: headscale
 db_user: headscale
-db_pass: 
+db_pass:
 
 # If other 'sslmode' is required instead of 'require(true)' and 'disabled(false)', set the 'sslmode' you need
 # in the 'db_ssl' field. Refers to https://www.postgresql.org/docs/current/libpq-ssl.html Table 34.1.
@@ -305,8 +305,8 @@ dns_config:
   # `hostname.user.base_domain` (e.g., _myhost.myuser.example.com_).
   base_domain: local
 
-# Unix socket used for the CLI to connect without authentication
-# Note: for production you will want to set this to something like:
+  # Unix socket used for the CLI to connect without authentication
+  # Note: for production you will want to set this to something like:
   # Extra DNS records
   # so far only A-records are supported (on the tailscale side)
   # See https://github.com/juanfont/headscale/blob/main/docs/dns-records.md#Limitations

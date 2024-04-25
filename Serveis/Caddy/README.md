@@ -1,32 +1,35 @@
 # Abans
+
 Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/tree/main/Tutorials/ComUtilitzarDockerCompose), és molt recomanable que ho llegiu per saber què esteu fent en tot moment.
 
 # Instal·lació
+
 Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
 
 ```yaml
-  caddy:
-    image: caddy
-    container_name: caddy
-    restart: always
-    ports:
-      - "80:80" # Port HTTP
-      - "443:443" # Port HTTPS
-      - "443:443/udp" # Port HTTPS
-    volumes:
-      - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
-      - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
-      - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
+caddy:
+  image: caddy
+  container_name: caddy
+  restart: always
+  ports:
+    - "80:80" # Port HTTP
+    - "443:443" # Port HTTPS
+    - "443:443/udp" # Port HTTPS
+  volumes:
+    - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
+    - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
+    - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
 ```
 
 Després, hem de copiar aquests volums a la secció de volums.
 
 ```yaml
-  caddy_data: # Caddy Volume
-  caddy_config: # Caddy Volume
+caddy_data: # Caddy Volume
+caddy_config: # Caddy Volume
 ```
 
 # Configuració
+
 Ja podem iniciar el contenidor amb:
 
 ```bash
@@ -52,7 +55,9 @@ docker exec caddy caddy reload --config /etc/caddy/Caddyfile
 ```
 
 ## Exemples de configuracions
+
 ### Punts importants
+
 Abans de crear una nova reverse proxy, hem de configurar el nostre domini amb un nou Registre DNS apuntant a la IP pública del servidor de Caddy. Podeu trobar molts tutorials a YouTube sobre com fer-ho.
 
 **elteudomini.com:** Aquí hem de posar el domini o subdomini que volem configurar per on la gent accedirà a aquest servei que prèviament hem creat el Registre DNS.
@@ -66,6 +71,7 @@ Si hem seguit el tutorial d'aquest repositori per instal·lar Headscale, el dnsL
 Per exemple, Webmin està configurat amb el port 10000.
 
 ### Bàsica amb DNS
+
 Una configuració bàsica del Caddy seria aquesta:
 
 ```bash
@@ -77,8 +83,9 @@ elteudomini.com {
 Aquesta configuració crea un reverse proxy al servei que tu li assignis.
 
 ### Bàsica amb IP
->[!WARNING]
->No recomanem configurar res d'aquesta forma ja que no és pràctic i només podem tenir un servei allotjat a la vegada.
+
+> [!WARNING]
+> No recomanem configurar res d'aquesta forma ja que no és pràctic i només podem tenir un servei allotjat a la vegada.
 
 Una configuració bàsica del Caddy amb IP seria aquesta:
 
@@ -91,6 +98,7 @@ Una configuració bàsica del Caddy amb IP seria aquesta:
 Aquesta configuració crea un reverse proxy al servei que tu li assignis.
 
 ### Avançada amb DNS
+
 Aquesta configuració és molt especial ja que permet crear reverse proxies amb serveis que ja tenen certificats HTTPS creats com podria ser Webmin.
 
 ```bash

@@ -1,8 +1,10 @@
 # Abans
+
 Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/tree/main/Tutorials/ComUtilitzarDockerCompose), és molt recomanable que ho llegiu per saber què esteu fent en tot moment.
 
 # Instal·lació
-Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
+
+Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
 
 ```yaml
   immich-server:
@@ -61,32 +63,38 @@ Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al 
       POSTGRES_USER: postgres # No tocar. Usuari de Postgres.
       POSTGRES_DB: immich # No tocar. Base de Dades de Postgres.
     volumes:
-      - :/var/lib/postgresql/data # Afegit. Ruta a on es guardata la Base de Dadades Postgres
+      - :/var/lib/postgresql/data # Afegit. Ruta a on es guardara la Base de Dadades Postgres
 ```
 
 Després, hem de copiar aquests volums a la secció de volums.
 
 ```yaml
-  model-cache: # Volum de Immich
+model-cache: # Volum de Immich
 ```
 
 # Utilitzacio de Caddy
+
 Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) es important treure aquets parametres del Docker Compose. Ja que caddy s'ocupa de redirecionar el trafic cap a NextCloud de forma mes segura ja que tot estara encriptat amb Https.
+
 ```bash
     ports:
       - 2283:3001
 ```
 
 Un cop hem tret aixo tindrem que afegir lo seguent a el **Caddyfile**.
+
 ```bash
 elvostredomini {
 reverse_proxy immich-server:3001
 }
 ```
-D'aquesta forma podrem accedir a Nextcloud de forma encriptada i sense especificar el port.
+
+D'aquesta forma podrem accedir a Immich de forma encriptada i sense especificar el port.
 
 # Configuracio
+
 Un cop tinguem tot aixo fet ja podem iniciar el Contenidor amb:
+
 ```bash
 docker compose up -d --remove-orphans
 ```
