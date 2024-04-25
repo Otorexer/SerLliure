@@ -48,11 +48,11 @@ Aquesta és la manera més coneguda i pot incloure l'obertura de ports com el 44
 
 ✅ La principal avantatge és que tothom que es vulgui connectar ho farà de manera directa, aprofitant la màxima velocitat possible del nostre pla de velocitat de la companyia de telefon.
 
-❌ Però també hi ha un gran desavantatge: qualsevol persona tindrà accés a la nostra IP pública i podrà estimar la nostra direcció com fer atacs DDOS hi tirar-nos la conexio.
+❌ Però també hi ha un gran desavantatge: qualsevol persona tindrà accés a la nostra IP pública i podrà estimar la nostra direcció com fer atacs DDOS hi tirar-nos la connexio.
 
-### Fer Servir Proxys amb una VPS
+### Fer Servir proxy's amb una VPS
 
-L'altra opció és utilitzar proxys allotjats en un servidor virtual i connectar el servidor de casa mitjançant Tailscale. Aquesta opció també té avantatges i desavantatges:
+L'altra opció és utilitzar proxy's allotjats en un servidor virtual i connectar el servidor de casa mitjançant Tailscale. Aquesta opció també té avantatges i desavantatges:
 
 ✅ Una avantatge és que ens permetrà tenir més seguretat, ja que ningú sabrà la nostra IP pública.
 
@@ -70,16 +70,16 @@ El que recomanem és tenir un DNS privat i un DNS de domini, com per exemple un 
 
 #### Tailscale
 
-Si dicidim fer servir Tailscale i no hostejar el nostre propi servidor de Headscale ho farem amb Pi-Hole ja que ens permetre crear DNS de forma personalitzada com podria ser un .local, apart que Pi-Hola tambe bloqueja anuncis i pagines no desitjades.
+Si decidim fer servir Tailscale i no hostejar el nostre propi servidor de Headscale ho farem amb Pi-Hole ja que ens permetre crear DNS de forma personalitzada com podria ser un .local, apart que Pi-Hola tambe bloqueja anuncis i pagines no desitjades.
 
 > [!WARNING]
-> Aquesta opcio no acava de funcionar del tot be sobretot en dispositius movils.
+> Aquesta opcio no acaba de funcionar del tot be sobretot en dispositius mobils.
 
 #### [Pi-Hole](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Pi-Hole)
 
 #### Headscale
 
-Si crem el nostre propi servidor de Headscale que es lo recomenat ho farem editant la configuracio de Headscale ja que d'aquesta forma tindrem la millor compatibilitat possible i sabrem que mai fallara.
+Si crem el nostre propi servidor de Headscale que es lo recomanat ho farem editant la configuracio de Headscale ja que d'aquesta forma tindrem la millor compatibilitat possible i sabrem que mai fallara.
 
 ### DNS Públic 🌐
 
