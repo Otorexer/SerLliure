@@ -1,10 +1,10 @@
 # Abans
 
-Si no eu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/tree/main/Tutorials/ComUtilitzarDockerCompose) es molt recommendable que ho llegiu per saber que esteu fent en tot moment.
+Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.com/Otorexer/SerLliure/tree/main/Tutorials/ComUtilitzarDockerCompose), és molt recomanable que ho llegiu per saber què esteu fent en tot moment.
 
 # Instal·lació
 
-Per instal·lar **Nextcloud**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
+Per instal·lar **Nextcloud**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat a l'apartat de serveis.
 
 ```yaml
 nextcloud:
@@ -20,7 +20,7 @@ nextcloud:
     - MYSQL_PASSWORD= # Afegir contrasenya de MySQL.
     - TRUSTED_PROXIES=0.0.0.0/0 # No tocar. Perquè funcioni amb qualsevol proxy.
   volumes:
-    - :/var/www/html # Afegit. Ruta on es guardarà el NextCloud.
+    - /ruta/a/nextcloud:/var/www/html # Afegit. Ruta on es guardarà el NextCloud.
 
 nextcloud-database:
   image: mysql
@@ -30,21 +30,21 @@ nextcloud-database:
     - MYSQL_DATABASE=nextcloud # No tocar. Base de dades utilitzada a MySQL.
     - MYSQL_USER=nextcloud # No tocar. Usuari de MySQL.
     - MYSQL_PASSWORD= # Afegir contrasenya de MySQL. Ha de ser la mateixa que la del contenidor de NextCloud.
-    - MYSQL_ROOT_PASSWORD= #Afegit Contrasenya Root MySQL. Pot ser la mateix pero es recomanable que sigui mes segura.
+    - MYSQL_ROOT_PASSWORD= # Afegit. Contrasenya Root MySQL. Pot ser la mateixa, però és recomanable que sigui més segura.
   volumes:
-    - :/var/lib/mysql #Es te que afegir. Ruta a on es guardara la Base de Dades MySQL
+    - /ruta/a/mysql:/var/lib/mysql # Afegit. Ruta on es guardarà la Base de Dades MySQL
 ```
 
-# Utilitzacio de Caddy
+# Utilització de Caddy
 
-Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) es important treure aquest parametres del Docker Compose. Ja que caddy s'ocupa de redirecionar el trafic cap a NextCloud de forma mes segura ja que tot estara encriptat amb Https.
+Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) és important treure aquests paràmetres del Docker Compose, ja que Caddy s'ocupa de redirigir el tràfic cap a Nextcloud de forma més segura, ja que tot estarà encriptat amb HTTPS.
 
 ```bash
     ports:
-      - "11280:80" #El port en que podras accedir a NextCloud.
+      - "11280:80"
 ```
 
-Un cop hem tret això tindrem que afegir lo seguent a el **Caddyfile**.
+Un cop hem tret això, hem d'afegir el següent al **Caddyfile**.
 
 ```bash
 elvostredomini {
@@ -54,12 +54,12 @@ elvostredomini {
 
 D'aquesta forma podrem accedir a Nextcloud de forma encriptada i sense especificar el port.
 
-# Configuracio
+# Configuració
 
-Un cop tinguem tot això fet ja podem iniciar el Contenidor amb:
+Un cop tinguem tot això fet, ja podem iniciar el contenidor amb:
 
 ```bash
 docker compose up -d --remove-orphans
 ```
 
-Despres per accedir a NextcCloud podem la Ip del nostre servidor hi el port 11280, si hem utilitzat Caddy domes tenim que posar el nom de Domin que li hem assignat.
+Després, per accedir a Nextcloud, podem utilitzar la IP del nostre servidor i el port 11280. Si hem utilitzat Caddy, només hem de posar el nom de domini que li hem assignat.

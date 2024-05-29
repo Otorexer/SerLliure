@@ -4,7 +4,7 @@ Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.co
 
 # Instal·lació
 
-Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
+Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat a l'apartat de serveis.
 
 ```yaml
   immich-server:
@@ -13,7 +13,7 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
     restart: always
     command: ['start.sh', 'immich']
     volumes:
-      - :/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
+      - /ruta/a/les/fotos:/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 2283:3001
@@ -32,7 +32,7 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
     restart: always
     command: ['start.sh', 'microservices']
     volumes:
-      - :/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
+      - /ruta/a/les/fotos:/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
       - /etc/localtime:/etc/localtime:ro
     depends_on:
       - immich-database
@@ -57,35 +57,36 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
 
   immich-database:
     container_name: immich-database
-    image: registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd646>    restart: always
+    image: registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd646>    
+    restart: always
     environment:
       POSTGRES_PASSWORD:  # Afegir contrasenya de Postgres. Ha de ser la mateixa que la del contenidor.
       POSTGRES_USER: postgres # No tocar. Usuari de Postgres.
       POSTGRES_DB: immich # No tocar. Base de Dades de Postgres.
     volumes:
-      - :/var/lib/postgresql/data # Afegit. Ruta a on es guardara la Base de Dades Postgres
+      - /ruta/a/les/basesdedades:/var/lib/postgresql/data # Afegit. Ruta on es guardaran les bases de dades Postgres
 ```
 
-Després, hem de copiar aquests volums a la secció de volums.
+Després, hem de copiar aquest volum a la secció de volums.
 
 ```yaml
-model-cache: # Volum de Immich
+model-cache: # Volum d'Immich
 ```
 
-# Utilitzacio de Caddy
+# Utilització de Caddy
 
-Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) es important treure aquest parametres del Docker Compose. Ja que caddy s'ocupa de redireccionar el trafic cap a NextCloud de forma mes segura ja que tot estara encriptat amb Https.
+Si utilitzem [Caddy](https://github.com/Otorexer/SerLliure/tree/main/Serveis/Caddy) és important treure aquests paràmetres del Docker Compose, ja que Caddy s'ocupa de redirigir el tràfic cap a Immich de forma més segura, ja que tot estarà encriptat amb HTTPS.
 
 ```bash
     ports:
       - 2283:3001
 ```
 
-Un cop hem tret això tindrem que afegir lo seguent a el **Caddyfile**.
+Un cop hem tret això, hem d'afegir el següent al **Caddyfile**.
 
 ```bash
 elvostredomini {
-reverse_proxy immich-server:3001
+    reverse_proxy immich-server:3001
 }
 ```
 
@@ -93,10 +94,10 @@ D'aquesta forma podrem accedir a Immich de forma encriptada i sense especificar 
 
 # Configuració
 
-Un cop tinguem tot això fet ja podem iniciar el Contenidor amb:
+Un cop tinguem tot això fet, ja podem iniciar el contenidor amb:
 
 ```bash
 docker compose up -d --remove-orphans
 ```
 
-Despres per accedir a Immich podem la Ip del nostre servidor hi el port 2283, si hem utilitzat Caddy domes tenim que posar el nom de Domin que li hem assignat.
+Després, per accedir a Immich podem utilitzar la IP del nostre servidor i el port 2283. Si hem utilitzat Caddy, només hem de posar el nom de domini que li hem assignat.

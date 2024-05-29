@@ -4,7 +4,7 @@ Si no heu llegit el document de [Com Utilitzar Docker Compose](https://github.co
 
 # Instal·lació
 
-Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat al apartat de serveis.
+Per instal·lar **Caddy**, hem de copiar aquest Docker Compose i enganxar-lo al fitxer que hem creat a l'apartat de serveis.
 
 ```yaml
 caddy:
@@ -17,8 +17,8 @@ caddy:
     - "443:443/udp" # Port HTTPS
   volumes:
     - /etc/caddy/:/etc/caddy/ # No tocar. Ruta on hi haurà la configuració de Caddy
-    - caddy_data:/data # No tocar. Volum per a que funcioni Caddy
-    - caddy_config:/config # No tocar. Volum per a que funcioni Caddy
+    - caddy_data:/data # No tocar. Volum perquè funcioni Caddy
+    - caddy_config:/config # No tocar. Volum perquè funcioni Caddy
 ```
 
 Després, hem de copiar aquests volums a la secció de volums.
@@ -85,7 +85,7 @@ Aquesta configuració crea un reverse proxy al servei que tu li assignis.
 ### Bàsica amb IP
 
 > [!WARNING]
-> No recomanem configurar res d'aquesta forma ja que no és pràctic i només podem tenir un servei allotjat a la vegada.
+> No recomanem configurar res d'aquesta forma ja que no és pràctic i només podem tenir un servei allotjat alhora.
 
 Una configuració bàsica del Caddy amb IP seria aquesta:
 
