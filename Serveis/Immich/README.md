@@ -13,7 +13,7 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
     restart: always
     command: ['start.sh', 'immich']
     volumes:
-      - /ruta/a/les/fotos:/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
+      - /ruta/a/les/fotos:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 2283:3001
@@ -21,9 +21,9 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
       - immich-database
     environment:
       DB_HOSTNAME: immich-database
-      DB_USERNAME: postgres # No tocar. Usuari de Postgres.
+      DB_USERNAME: postgres
       DB_PASSWORD: # Afegir contrasenya de Postgres. Ha de ser la mateixa que la del contenidor.
-      DB_DATABASE_NAME: immich # No tocar. Base de Dades de Postgres.
+      DB_DATABASE_NAME: immich
       REDIS_HOSTNAME: immich-redis
 
   immich-microservices:
@@ -32,15 +32,15 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
     restart: always
     command: ['start.sh', 'microservices']
     volumes:
-      - /ruta/a/les/fotos:/usr/src/app/upload # Afegit. Ruta on es guardaran les fotos de Immich
+      - /ruta/a/les/fotos:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     depends_on:
       - immich-database
     environment:
       DB_HOSTNAME: immich-database
-      DB_USERNAME: postgres # No tocar. Usuari de Postgres.
+      DB_USERNAME: postgres
       DB_PASSWORD: # Afegir contrasenya de Postgres. Ha de ser la mateixa que la del contenidor.
-      DB_DATABASE_NAME: immich # No tocar. Base de Dades de Postgres.
+      DB_DATABASE_NAME: immich
       REDIS_HOSTNAME: immich-redis
 
   immich-machine-learning:
@@ -52,25 +52,25 @@ Per instal·lar **Immich**, hem de copiar aquest Docker Compose i enganxar-lo al
 
   immich-redis:
     container_name: immich-redis
-    image: registry.hub.docker.com/library/redis:6.2-alpine@sha256:84882e87b54734154586e5f8abd4dce69fe7311315e2fc6d67c29614c8de2672
+    image: registry.hub.docker.com/library/redis:6.2-alpine
     restart: always
 
   immich-database:
     container_name: immich-database
-    image: registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd646>    
+    image: registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0
     restart: always
     environment:
       POSTGRES_PASSWORD:  # Afegir contrasenya de Postgres. Ha de ser la mateixa que la del contenidor.
-      POSTGRES_USER: postgres # No tocar. Usuari de Postgres.
-      POSTGRES_DB: immich # No tocar. Base de Dades de Postgres.
+      POSTGRES_USER: postgres
+      POSTGRES_DB: immich
     volumes:
-      - /ruta/a/les/basesdedades:/var/lib/postgresql/data # Afegit. Ruta on es guardaran les bases de dades Postgres
+      - /ruta/a/les/basesdedades:/var/lib/postgresql/data
 ```
 
 Després, hem de copiar aquest volum a la secció de volums.
 
 ```yaml
-model-cache: # Volum d'Immich
+  model-cache: # Volum d'Immich
 ```
 
 # Utilització de Caddy
