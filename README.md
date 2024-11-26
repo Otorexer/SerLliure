@@ -87,3 +87,5 @@ WordPress és un sistema de gestió de continguts (CMS) de codi obert que permet
 Si voleu suportar aquest projecte, podeu fer donacions a través de la pàgina de BuyMeACoffee.
 
 <a href="https://www.buymeacoffee.com/otorexer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-white.png" alt="Buy Me A Coffee" style="height: 82px !important;width: 348px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+test
